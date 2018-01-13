@@ -16,29 +16,18 @@
 
 ----------sample_input----------
 1
-
 5 3
-
 zhangsan 2
-
 qianxiao 5
-
 liuqiang 2
-
 wangwu 1
-
 lisi 3
-
 2
-
 1
-
 3
 ----------sample_putput----------
 zhangsan
-
 wangwu
-
 lisi
 */
 /////////////////////////////
