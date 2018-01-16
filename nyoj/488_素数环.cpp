@@ -18,20 +18,32 @@
 
 
 ----------sample_input----------
-6
-8
-3
+6
+
+8
+
+3
+
 0
 ----------sample_putput----------
-Case 1:
-1 4 3 2 5 6
-1 6 5 2 3 4
-Case 2:
-1 2 3 8 5 6 7 4
-1 2 5 8 3 4 7 6
-1 4 7 6 5 8 3 2
-1 6 7 4 3 8 5 2
-Case 3:
+Case 1:
+
+1 4 3 2 5 6
+
+1 6 5 2 3 4
+
+Case 2:
+
+1 2 3 8 5 6 7 4
+
+1 2 5 8 3 4 7 6
+
+1 4 7 6 5 8 3 2
+
+1 6 7 4 3 8 5 2
+
+Case 3:
+
 No Answer
 */
 /////////////////////////////
@@ -40,9 +52,9 @@ No Answer
 #include<string.h>
 #define N 22
 int prime[41]={
-	0, 0, 1, 1, 0, 1, 0, 
+    0, 0, 1, 1, 0, 1, 0, 
     1, 0, 0, 0, 1, 0, 1, 
-	0, 0, 0, 1, 0, 1, 0, 
+    0, 0, 0, 1, 0, 1, 0, 
     0, 0, 1, 0, 0, 0, 0, 
     0, 1, 0, 1, 0, 0, 0,
     0, 0, 1, 0, 0};
@@ -53,49 +65,49 @@ int n;
 int cas=1;
 int main()
 {
-	cas=1;
-	void dfs(int );
-	while(scanf("%d",&n),n!=0)
-	{	
-		printf("Case %d:\n",cas);
-		if(n%2==0 || n==1)
-		{
-			flag=0;	
-			memset(vis,false,21);
-			a[0]=1;
-			dfs(1);
-			if(!flag)
-				printf("No Answer\n");
-		}
-		else
-			printf("No Answer\n");
-		cas++;
-	}
-	return 0;
+    cas=1;
+    void dfs(int );
+    while(scanf("%d",&n),n!=0)
+    {    
+        printf("Case %d:\n",cas);
+        if(n%2==0 || n==1)
+        {
+            flag=0;    
+            memset(vis,false,21);
+            a[0]=1;
+            dfs(1);
+            if(!flag)
+                printf("No Answer\n");
+        }
+        else
+            printf("No Answer\n");
+        cas++;
+    }
+    return 0;
 
 }
 void dfs(int i)
 {
-	int j;
-	if(i==n && prime[1+a[n-1]])
-	{
-		flag=1;		
-		for(j=0;j<n;j++)
-			printf("%d ",a[j]);
-		printf("\n");
-	}
-	for(j=2;j<=n;j++)
-	{
-		if(!vis[j] && (a[i-1]+j)%2)
-		{
-			if(prime[j+a[i-1]])
-			{
-				vis[j]=true;
-				a[i]=j;
-				dfs(i+1);
-				vis[j]=false;
-			}
-		}
-	}
-	
+    int j;
+    if(i==n && prime[1+a[n-1]])
+    {
+        flag=1;        
+        for(j=0;j<n;j++)
+            printf("%d ",a[j]);
+        printf("\n");
+    }
+    for(j=2;j<=n;j++)
+    {
+        if(!vis[j] && (a[i-1]+j)%2)
+        {
+            if(prime[j+a[i-1]])
+            {
+                vis[j]=true;
+                a[i]=j;
+                dfs(i+1);
+                vis[j]=false;
+            }
+        }
+    }
+    
 }

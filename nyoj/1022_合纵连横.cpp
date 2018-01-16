@@ -21,18 +21,28 @@
 
 
 ----------sample_input----------
-5 7
-U 0 1
-U 1 2
-U 0 3
-D 0
-U 1 4
-D 2
-U 0 2
-10 1
+5 7
+
+U 0 1
+
+U 1 2
+
+U 0 3
+
+D 0
+
+U 1 4
+
+D 2
+
+U 0 2
+
+10 1
+
 U 0 9
 ----------sample_putput----------
-Case #1: 2
+Case #1: 2
+
 Case #2: 9
 */
 /////////////////////////////
@@ -43,52 +53,52 @@ int father[N],d[N];
 bool used[N];
 int f(int i)
 {
-	return father[i]==i?i:father[i]=f(father[i]);
+    return father[i]==i?i:father[i]=f(father[i]);
 }
 
 int main()
 {
-	int m,n,a,b;
-	register int i;
-	char s[5];
-	int z=1;
-	while(~scanf("%d%d",&n,&m))
-	{
-		for(i=0;i<=n;i++)
-		{
-			father[i]=i;
-			d[i]=i;
-		}
-		int  c=n;
-		int count=0;
-		while(m--)
-		{
-			scanf("%s",s);
-			if(s[0]=='U')
-			{
-				scanf("%d %d",&a,&b);
-				int t=f(d[a]);
-				int tt=f(d[b]);
-				father[t]=tt;
-			}
-			else
-			{
-				scanf("%d",&a);
-				father[c]=c;
-				d[a]=c++;
-			}
-		}
-		memset(used,false,sizeof(used));
-		for(i=0;i<n;i++)
-		{
-			int t=f(d[i]);
-			if(!used[t])
-			{
-				count++;
-				used[t]=true;
-			}
-		}
-		printf("Case #%d: %d\n",z++,count);
-	}
-	return 0;
+    int m,n,a,b;
+    register int i;
+    char s[5];
+    int z=1;
+    while(~scanf("%d%d",&n,&m))
+    {
+        for(i=0;i<=n;i++)
+        {
+            father[i]=i;
+            d[i]=i;
+        }
+        int  c=n;
+        int count=0;
+        while(m--)
+        {
+            scanf("%s",s);
+            if(s[0]=='U')
+            {
+                scanf("%d %d",&a,&b);
+                int t=f(d[a]);
+                int tt=f(d[b]);
+                father[t]=tt;
+            }
+            else
+            {
+                scanf("%d",&a);
+                father[c]=c;
+                d[a]=c++;
+            }
+        }
+        memset(used,false,sizeof(used));
+        for(i=0;i<n;i++)
+        {
+            int t=f(d[i]);
+            if(!used[t])
+            {
+                count++;
+                used[t]=true;
+            }
+        }
+        printf("Case #%d: %d\n",z++,count);
+    }
+    return 0;
 }

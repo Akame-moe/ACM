@@ -13,17 +13,28 @@
 
 
 ----------sample_input----------
-1
-10
-1 2
-2 4
-5 8
-6 10
-7 9
-3 1
-5 8
-12 10
-9 7
+1
+
+10
+
+1 2
+
+2 4
+
+5 8
+
+6 10
+
+7 9
+
+3 1
+
+5 8
+
+12 10
+
+9 7
+
 2 2
 ----------sample_putput----------
 5
@@ -36,52 +47,52 @@
 #define max(a,b) a>b?a:b
 typedef struct Ju
 {
-	int c,k;
+    int c,k;
 }R; 
 int comp(const void *a,const void *b)
 {
-	//struct Ju 
-	R *e=(Ju *)a;
-	//struct Ju 
-	R *f=(Ju *)b;
-	if(e->c!=f->c)
-		return e->c-f->c;
-	else
-		return e->k-f->k;
+    //struct Ju 
+    R *e=(Ju *)a;
+    //struct Ju 
+    R *f=(Ju *)b;
+    if(e->c!=f->c)
+        return e->c-f->c;
+    else
+        return e->k-f->k;
 }
 int main()
 {
-	R a[MAX];
-	int f[MAX];
-	int N,n,i,j;
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%d",&n);
-		int tt;
-		for(i=0;i<n;i++)
-		{
-			scanf("%d%d",&a[i].c,&a[i].k);
-			if(a[i].k>a[i].c)
-			{
-				tt=a[i].c;
-				a[i].c=a[i].k;
-				a[i].k=tt;
-			}
-		}
-		qsort(a,n,sizeof(a[0]),comp);
-	//	for(i=0;i<n;i++)
-		//	printf("[%d %d]\n",a[i].c,a[i].k);
-		for(i=0;i<=n;i++)
-		{
-			f[i]=1;
-			for(j=0;j<i;j++)
-			{
-				if(i==n || (a[i].c>a[j].c && a[i].k>a[j].k))
-					f[i]=max(f[i],f[j]+1);
-			}
-		}
-		printf("%d\n",f[n]-1);
-	}
-	return 0;
+    R a[MAX];
+    int f[MAX];
+    int N,n,i,j;
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%d",&n);
+        int tt;
+        for(i=0;i<n;i++)
+        {
+            scanf("%d%d",&a[i].c,&a[i].k);
+            if(a[i].k>a[i].c)
+            {
+                tt=a[i].c;
+                a[i].c=a[i].k;
+                a[i].k=tt;
+            }
+        }
+        qsort(a,n,sizeof(a[0]),comp);
+    //    for(i=0;i<n;i++)
+        //    printf("[%d %d]\n",a[i].c,a[i].k);
+        for(i=0;i<=n;i++)
+        {
+            f[i]=1;
+            for(j=0;j<i;j++)
+            {
+                if(i==n || (a[i].c>a[j].c && a[i].k>a[j].k))
+                    f[i]=max(f[i],f[j]+1);
+            }
+        }
+        printf("%d\n",f[n]-1);
+    }
+    return 0;
 }        

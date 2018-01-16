@@ -29,10 +29,12 @@
 
 
 ----------sample_input----------
-+ 2 * + 3 4 5
++ 2 * + 3 4 5
+
 + 5.1 / 3 7
 ----------sample_putput----------
-37.00
+37.00
+
 5.53
 */
 /////////////////////////////
@@ -43,109 +45,109 @@
 using namespace std;
 stack<double> ovs;
 char *strr(char *);
-double c(double ,char ,double);	
+double c(double ,char ,double);    
 char s[1500];
 char sss[50];
 int main()
 {
-	//freopen("d:\\data\\1.txt","r",stdin);
+    //freopen("d:\\data\\1.txt","r",stdin);
 
-	char w[50];
-	double num1,num2;
-	while(gets(s)!=NULL)
-	{
-		int len=strlen(s);
-		int i;
-		for(i=len-1;i>=0;)
-		{
-			if(s[i]>='0' && s[i]<='9')
-			{
-				int j=0;
-				w[j++]=s[i--];
-				while(s[i]!=' ')
-					w[j++]=s[i--];
-				w[j]='\0';
-				strr(w);
-				ovs.push(atof(sss));
-				//printf("w[]=%s	sss=%s  %lf     %lf\n",w,sss,atof(w),ovs.top());
-				i--;
-			}
-			else if(s[i]=='*' || s[i]=='/' || s[i]=='+' ||s[i]=='-')
-			{
-				num1=ovs.top();ovs.pop();
-				num2=ovs.top();ovs.pop();//printf("%lf %c %lf=",num1,s[i],num2);
-				ovs.push(c(num1,s[i],num2));
-			//	printf("%lf\n",ovs.top());
-				i-=2;
-			}
-			else
-				i--;
-		}
-		
-		//printf("size=%d\n",ovs.size());
+    char w[50];
+    double num1,num2;
+    while(gets(s)!=NULL)
+    {
+        int len=strlen(s);
+        int i;
+        for(i=len-1;i>=0;)
+        {
+            if(s[i]>='0' && s[i]<='9')
+            {
+                int j=0;
+                w[j++]=s[i--];
+                while(s[i]!=' ')
+                    w[j++]=s[i--];
+                w[j]='\0';
+                strr(w);
+                ovs.push(atof(sss));
+                //printf("w[]=%s    sss=%s  %lf     %lf\n",w,sss,atof(w),ovs.top());
+                i--;
+            }
+            else if(s[i]=='*' || s[i]=='/' || s[i]=='+' ||s[i]=='-')
+            {
+                num1=ovs.top();ovs.pop();
+                num2=ovs.top();ovs.pop();//printf("%lf %c %lf=",num1,s[i],num2);
+                ovs.push(c(num1,s[i],num2));
+            //    printf("%lf\n",ovs.top());
+                i-=2;
+            }
+            else
+                i--;
+        }
+        
+        //printf("size=%d\n",ovs.size());
 /*
-		while(ovs.size()!=1)//跳出循环后ovs栈必为一个数
-		{
-			num1=ovs.top();ovs.pop();
-			num2=ovs.top();ovs.pop();
-			ovs.push(c(num1,s[i],num2));
-		}
+        while(ovs.size()!=1)//跳出循环后ovs栈必为一个数
+        {
+            num1=ovs.top();ovs.pop();
+            num2=ovs.top();ovs.pop();
+            ovs.push(c(num1,s[i],num2));
+        }
 */
-		printf("%.2lf\n",ovs.top());
-		ovs.pop();
+        printf("%.2lf\n",ovs.top());
+        ovs.pop();
 
-	}
-	return 0;
+    }
+    return 0;
 }
 double c(double num1,char op,double num2)
 {
-	switch(op)
-	{
-	case '*':return num1*num2;
-	case '/':return num1/num2;
-	case '+':return num1+num2;
-	case '-':return num1-num2;
-	default :printf("ni ma!\n");exit(1);
-	}
+    switch(op)
+    {
+    case '*':return num1*num2;
+    case '/':return num1/num2;
+    case '+':return num1+num2;
+    case '-':return num1-num2;
+    default :printf("ni ma!\n");exit(1);
+    }
 }
 char* strr(char *s)
 {
-	int i,j,len=strlen(s);
-	char ss[50];
-	for(j=len-1,i=0;j>=0;j--,i++)
-	{
-		ss[i]=s[j];
-	}
-	ss[i]='\0';//printf("s[]=%s,ss=%s\n",s,ss);
-	strcpy(sss,ss);
-	return ss;
+    int i,j,len=strlen(s);
+    char ss[50];
+    for(j=len-1,i=0;j>=0;j--,i++)
+    {
+        ss[i]=s[j];
+    }
+    ss[i]='\0';//printf("s[]=%s,ss=%s\n",s,ss);
+    strcpy(sss,ss);
+    return ss;
 }   
 //最短的式子
 #include <stdlib.h>
 #include <stdio.h>
 float cc(){
-	float res;
-	char c[20];
-	if(scanf("%s",c)==-1)
-		exit(0);
-	switch(c[0]){
-		case '+':
-			return cc()+cc();
-		case '-':
-			return cc()-cc();
-		case '*':
-			return cc()*cc();
-		case '/':
-			return cc()/cc();
-		default:
-			sscanf(c,"%f",&res);
-	}
-	return res;
+    float res;
+    char c[20];
+    if(scanf("%s",c)==-1)
+        exit(0);
+    switch(c[0]){
+        case '+':
+            return cc()+cc();
+        case '-':
+            return cc()-cc();
+        case '*':
+            return cc()*cc();
+        case '/':
+            return cc()/cc();
+        default:
+            sscanf(c,"%f",&res);
+    }
+    return res;
 }
 int main(){
-	while(1){
-		printf("%.2f\n",cc());
-	}
+    while(1){
+        printf("%.2f\n",cc());
+    }
 } 
 #include<iostream>
 #include<cstring>

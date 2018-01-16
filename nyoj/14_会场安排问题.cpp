@@ -15,16 +15,24 @@
 
 
 ----------sample_input----------
-2
-2
-1 10
-10 11
-3
-1 10
-10 11
+2
+
+2
+
+1 10
+
+10 11
+
+3
+
+1 10
+
+10 11
+
 11 20
 ----------sample_putput----------
-1
+1
+
 2
 */
 /////////////////////////////
@@ -32,38 +40,38 @@
 #include<stdlib.h>
 struct T
 {
-	int begin;
-	int end;
+    int begin;
+    int end;
 }t[10001];
 int comp(const void*a,const void *b)
 {
-	return (*(T*)a).end-(*(T*)b).end;
+    return (*(T*)a).end-(*(T*)b).end;
 }
 int main()
 {
-	int N;
-	int n;
-	int i;
-	int count;
-	int temp;
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%d",&n);
-		for(i=0;i<n;i++)
-			scanf("%d%d",&t[i].begin,&t[i].end);
-		qsort(t,n,sizeof(t[0]),comp);
-		count=1;
-		temp=t[0].end;
-		for(i=1;i<n;i++)
-		{
-			if(t[i].begin>temp)
-			{
-				count++;
-				temp=t[i].end;
-			}
-		}
-		printf("%d\n",count);
-	}
-	return 0;
+    int N;
+    int n;
+    int i;
+    int count;
+    int temp;
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+            scanf("%d%d",&t[i].begin,&t[i].end);
+        qsort(t,n,sizeof(t[0]),comp);
+        count=1;
+        temp=t[0].end;
+        for(i=1;i<n;i++)
+        {
+            if(t[i].begin>temp)
+            {
+                count++;
+                temp=t[i].end;
+            }
+        }
+        printf("%d\n",count);
+    }
+    return 0;
 }

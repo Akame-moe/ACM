@@ -19,10 +19,12 @@
 
 
 ----------sample_input----------
-2 2
+2 2
+
 3 2
 ----------sample_putput----------
-1
+1
+
 3
 */
 /////////////////////////////
@@ -61,29 +63,29 @@ long long  int f[21];
 using namespace std;
 void fun()
 {
-	int i;
-	f[0]=1;
-	f[1]=1;
-	f[2]=2;
-	for(i=3;i<=20;i++)
-		f[i]=i*f[i-1];
-	return ;
+    int i;
+    f[0]=1;
+    f[1]=1;
+    f[2]=2;
+    for(i=3;i<=20;i++)
+        f[i]=i*f[i-1];
+    return ;
 }
 int main()
 {
-	void fun();
-	int n,m;
-	long long int a[25];
-	int i;
-	a[0]=0;
-	a[1]=0;
-	a[2]=1;
-	fun();
-	for(i=3;i<=21;i++)
-		a[i]=(i-1)*(a[i-1]+a[i-2]);
-	while(scanf("%d%d",&n,&m)!=EOF)
-	{
-		cout<<f[n]/f[m]/f[n-m]*a[m]<<endl;
-	}
-	return 0;
+    void fun();
+    int n,m;
+    long long int a[25];
+    int i;
+    a[0]=0;
+    a[1]=0;
+    a[2]=1;
+    fun();
+    for(i=3;i<=21;i++)
+        a[i]=(i-1)*(a[i-1]+a[i-2]);
+    while(scanf("%d%d",&n,&m)!=EOF)
+    {
+        cout<<f[n]/f[m]/f[n-m]*a[m]<<endl;
+    }
+    return 0;
 }

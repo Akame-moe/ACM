@@ -19,16 +19,24 @@ times do B appears as a substring of A.
 
 
 ----------sample_input----------
-3
-11
-1001110110
-101
-110010010010001
-1010
+3
+
+11
+
+1001110110
+
+101
+
+110010010010001
+
+1010
+
 110100010101011
 ----------sample_putput----------
-3
-0
+3
+
+0
+
 3
 */
 /////////////////////////////
@@ -36,34 +44,34 @@ times do B appears as a substring of A.
 #include<string.h>
 int main()
 {
-	int N;
-	char s1[1001],s2[12];
-	int count;
-	int i,j;
-	int t;
-	int len1,len2;
-	scanf("%d",&N);
-	while(N--)
-	{
-		count=0;
-		scanf("%s",s2);
-		scanf("%s",s1);
-		len1=strlen(s1);
-		len2=strlen(s2);
-		for(i=0;i<len1;i++)
-		{
-			t=i;
-			for(j=0;j<len2;j++)
-			{
-				if(s1[t++]==s2[j])
-					continue;
-				else
-					break;
-			}
-			if(j==len2)
-				count++;
-		}
-		printf("%d\n",count);
-	}
-	return 0;
+    int N;
+    char s1[1001],s2[12];
+    int count;
+    int i,j;
+    int t;
+    int len1,len2;
+    scanf("%d",&N);
+    while(N--)
+    {
+        count=0;
+        scanf("%s",s2);
+        scanf("%s",s1);
+        len1=strlen(s1);
+        len2=strlen(s2);
+        for(i=0;i<len1;i++)
+        {
+            t=i;
+            for(j=0;j<len2;j++)
+            {
+                if(s1[t++]==s2[j])
+                    continue;
+                else
+                    break;
+            }
+            if(j==len2)
+                count++;
+        }
+        printf("%d\n",count);
+    }
+    return 0;
 }

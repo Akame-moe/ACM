@@ -30,13 +30,18 @@ Dr.Kong设计的机器人卡多掌握了加减法运算以后，最近又学会�
 
 
 ----------sample_input----------
-3
-add(1,2) 
-max(1,999) 
+3
+
+add(1,2) 
+
+max(1,999) 
+
 add(min(1,1000),add(100,99))
 ----------sample_putput----------
-3
-999
+3
+
+999
+
 200
 */
 /////////////////////////////
@@ -49,72 +54,72 @@ stack<int> ops;//add==0  max==1  min==2;
 stack<int> ovs;
 int main()
 {
-	char s[305];
-	int N,i,len,num1,num2,op;
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%s",s);
-		//len=strlen(s);
-		for(i=0;s[i]!='\0';)
-		{
-			if(s[i]>='0' && s[i]<='9')
-			{
-				int num=s[i++]-'0';
-				while(s[i]>='0' && s[i]<='9')
-					num=num*10+(s[i++]-'0');
-				ovs.push(num);
-				//printf("num=%d]",ovs.top());
-			}
-			else if(s[i]=='a' && s[i+1]=='d')
-			{
-				ops.push(0);
-				i+=4;
-			}
-			else if(s[i]=='m' && s[i+1]=='a')
-			{
-				ops.push(1);
-				i+=4;
-			}
-			else if(s[i]=='m' && s[i+1]=='i')
-			{
-				ops.push(2);
-				i+=4;
-			}
-			else if(s[i]==')')
-			{
-				num2=ovs.top();ovs.pop();
-				num1=ovs.top();ovs.pop();
-				op=ops.top();ops.pop();
-				ovs.push(calculate(num1,op,num2));
-				//printf("<%d>",ovs.top());
-				i++;
-			}
-			else
-				i++;
+    char s[305];
+    int N,i,len,num1,num2,op;
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%s",s);
+        //len=strlen(s);
+        for(i=0;s[i]!='\0';)
+        {
+            if(s[i]>='0' && s[i]<='9')
+            {
+                int num=s[i++]-'0';
+                while(s[i]>='0' && s[i]<='9')
+                    num=num*10+(s[i++]-'0');
+                ovs.push(num);
+                //printf("num=%d]",ovs.top());
+            }
+            else if(s[i]=='a' && s[i+1]=='d')
+            {
+                ops.push(0);
+                i+=4;
+            }
+            else if(s[i]=='m' && s[i+1]=='a')
+            {
+                ops.push(1);
+                i+=4;
+            }
+            else if(s[i]=='m' && s[i+1]=='i')
+            {
+                ops.push(2);
+                i+=4;
+            }
+            else if(s[i]==')')
+            {
+                num2=ovs.top();ovs.pop();
+                num1=ovs.top();ovs.pop();
+                op=ops.top();ops.pop();
+                ovs.push(calculate(num1,op,num2));
+                //printf("<%d>",ovs.top());
+                i++;
+            }
+            else
+                i++;
 
-		}
-		while(ovs.size()!=1)
-		{
-			
-				num2=ovs.top();ovs.pop();
-				num1=ovs.top();ovs.pop();
-				op=ops.top();ops.pop();
-				ovs.push(calculate(num1,op,num2));
-		}
-		printf("%d\n",ovs.top());
-		ovs.pop();
-	}
-	return 0;
+        }
+        while(ovs.size()!=1)
+        {
+            
+                num2=ovs.top();ovs.pop();
+                num1=ovs.top();ovs.pop();
+                op=ops.top();ops.pop();
+                ovs.push(calculate(num1,op,num2));
+        }
+        printf("%d\n",ovs.top());
+        ovs.pop();
+    }
+    return 0;
 }
 int calculate(int num1,int  op, int num2)
 {
-	switch(op)
-	{
-	case 0:return num1+num2;
-	case 1:return num1>num2?num1:num2;
-	case 2:return num1>num2?num2:num1;
-	default :printf("error!\n");exit(1);
-	}
-	return -1;
+    switch(op)
+    {
+    case 0:return num1+num2;
+    case 1:return num1>num2?num1:num2;
+    case 2:return num1>num2?num2:num1;
+    default :printf("error!\n");exit(1);
+    }
+    return -1;
 }

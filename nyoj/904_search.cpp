@@ -15,19 +15,30 @@
 
 
 ----------sample_input----------
-1
-5 3
-zhangsan 2
-qianxiao 5
-liuqiang 2
-wangwu 1
-lisi 3
-2
-1
+1
+
+5 3
+
+zhangsan 2
+
+qianxiao 5
+
+liuqiang 2
+
+wangwu 1
+
+lisi 3
+
+2
+
+1
+
 3
 ----------sample_putput----------
-zhangsan
-wangwu
+zhangsan
+
+wangwu
+
 lisi
 */
 /////////////////////////////
@@ -39,55 +50,55 @@ lisi
 using namespace std;
 struct N
 {
-	char name[12];
-	int fen;
+    char name[12];
+    int fen;
 }p[10005];
 int comp(N a,N b)
 {
-	return a.fen<b.fen;
+    return a.fen<b.fen;
 }
 int n,m,i,t;
 int Bsearch(int);
 int main()
 {
-	int T;
+    int T;
 
-	scanf("%d",&T);
-	while(T--)
-	{
-		scanf("%d%d",&n,&m);
-		for(i=0;i<n;i++)
-		{
-			scanf("%s %d",p[i].name,&p[i].fen);
-		}
-		stable_sort(p,p+n,comp);//稳定排序算法
-		for(i=0;i<m;i++)
-		{
-			scanf("%d",&t);
-			printf("%s\n",p[Bsearch(t)].name);		
-		}
-	}
-	return 0;
-	
+    scanf("%d",&T);
+    while(T--)
+    {
+        scanf("%d%d",&n,&m);
+        for(i=0;i<n;i++)
+        {
+            scanf("%s %d",p[i].name,&p[i].fen);
+        }
+        stable_sort(p,p+n,comp);//稳定排序算法
+        for(i=0;i<m;i++)
+        {
+            scanf("%d",&t);
+            printf("%s\n",p[Bsearch(t)].name);        
+        }
+    }
+    return 0;
+    
 }
 int Bsearch(int fen)
 {
-	int i=0,j=n,mid;
-	while(i<j)
-	{
-		mid=(i+j)/2;
-		if(p[mid].fen<fen)
-			i=mid+1;
-		else if(p[mid].fen>fen)
-			j=mid;
-		else
-		{
-			if(p[mid].fen==p[mid-1].fen)
-				j=mid;
-			else
-				return mid;
-		}
-	}
+    int i=0,j=n,mid;
+    while(i<j)
+    {
+        mid=(i+j)/2;
+        if(p[mid].fen<fen)
+            i=mid+1;
+        else if(p[mid].fen>fen)
+            j=mid;
+        else
+        {
+            if(p[mid].fen==p[mid-1].fen)
+                j=mid;
+            else
+                return mid;
+        }
+    }
 }
 */
  //超时
@@ -98,52 +109,52 @@ int Bsearch(int fen)
 using namespace std;
 struct N
 {
-	char name[12];
-	int fen;
+    char name[12];
+    int fen;
 }p[10005];
 int comp(N a,N b)
 {
-	return a.fen<b.fen;
+    return a.fen<b.fen;
 }
 int n,m,i,t;
 int Bsearch(int);
 int main()
 {
-	int T;
+    int T;
 
-	scanf("%d",&T);
-	while(T--)
-	{
-		scanf("%d%d",&n,&m);
-		for(i=0;i<n;i++)
-		{
-			scanf("%s %d",p[i].name,&p[i].fen);
-		}
-		stable_sort(p,p+n,comp);//稳定排序算法
-		for(i=0;i<m;i++)
-		{
-			scanf("%d",&t);
-			int tt=Bsearch(t);
-			while(p[tt-1].fen==t)//找到相等的并且最先输入的
-				tt--;
-			printf("%s\n",p[tt].name);		
-		}
-	}
-	return 0;
-	
+    scanf("%d",&T);
+    while(T--)
+    {
+        scanf("%d%d",&n,&m);
+        for(i=0;i<n;i++)
+        {
+            scanf("%s %d",p[i].name,&p[i].fen);
+        }
+        stable_sort(p,p+n,comp);//稳定排序算法
+        for(i=0;i<m;i++)
+        {
+            scanf("%d",&t);
+            int tt=Bsearch(t);
+            while(p[tt-1].fen==t)//找到相等的并且最先输入的
+                tt--;
+            printf("%s\n",p[tt].name);        
+        }
+    }
+    return 0;
+    
 }
 int Bsearch(int fen)
 {
-	int i=0,j=n-1,mid;
-	while(i<=j)
-	{
-		mid=(i+j)/2;
-		if(p[mid].fen==fen)
-			break;
-		if(p[mid].fen>fen)
-			j=mid;
-		else
-			i=mid;
-	}
-	return mid;	
+    int i=0,j=n-1,mid;
+    while(i<=j)
+    {
+        mid=(i+j)/2;
+        if(p[mid].fen==fen)
+            break;
+        if(p[mid].fen>fen)
+            j=mid;
+        else
+            i=mid;
+    }
+    return mid;    
 }

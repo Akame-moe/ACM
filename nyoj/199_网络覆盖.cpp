@@ -21,11 +21,14 @@
 
 
 ----------sample_input----------
-2
-40 6 5
+2
+
+40 6 5
+
 40 10 5
 ----------sample_putput----------
-5
+5
+
 impossible
 */
 /////////////////////////////
@@ -35,33 +38,33 @@ impossible
 #include<math.h>
 int main()
 {
-	int T;
-	
-	int n;
-	double fg;
-	scanf("%d",&T);
-	while(T--)
-	{
-		int L,d,r;
-		scanf("%d%d%d",&L,&d,&r);
-		if(2*r<=d)
-		{
-			printf("impossible\n");
-		}
-		else
-		{
-			fg=2.0*sqrt(r*r-d*d/4.0);
-			for(n=1;n*fg<L;n++);
-			if((n-1)<=L)
-			{
-				printf("%d\n",n);
-			}
-			else
-			{
-				printf("impossible\n");
-			}
-		}
-	}
-	return 0;
+    int T;
+    
+    int n;
+    double fg;
+    scanf("%d",&T);
+    while(T--)
+    {
+        int L,d,r;
+        scanf("%d%d%d",&L,&d,&r);
+        if(2*r<=d)
+        {
+            printf("impossible\n");
+        }
+        else
+        {
+            fg=2.0*sqrt(r*r-d*d/4.0);
+            for(n=1;n*fg<L;n++);
+            if((n-1)<=L)
+            {
+                printf("%d\n",n);
+            }
+            else
+            {
+                printf("impossible\n");
+            }
+        }
+    }
+    return 0;
 }
         

@@ -27,17 +27,28 @@
 
 
 ----------sample_input----------
-1
-3 8 9 8
-1 2 3
-1 2 1
-2 3 2
-1 4 2
-2 5 3
-3 6 2
-4 7 1
-5 7 3
-5 8 2
+1
+
+3 8 9 8
+
+1 2 3
+
+1 2 1
+
+2 3 2
+
+1 4 2
+
+2 5 3
+
+3 6 2
+
+4 7 1
+
+5 7 3
+
+5 8 2
+
 6 8 2
 ----------sample_putput----------
 4
@@ -56,71 +67,71 @@ int dis[N];
 const int INF=1<<30;
 void DijkstraPath(int s,int n)
 {
-	register int i,j,k;
-	memset(vis,false,sizeof(vis));
-	for(i=0;i<v[s].size();i++)
-		dis[v[s][i]]=map[s][v[s][i]];
-	dis[s]=0;
-	vis[s]=true;
-	for(i=1;i<n;i++)
-	{
-		int Min=INF;
-		int t=1;
-		for(j=1;j<=n;j++)
-		{
-			if(vis[j]==false && dis[j]<Min)
-			{
-				Min=dis[j];
-				t=j;
-			}
-		}
-		vis[t]=true;
-		for(j=0;j<v[t].size();j++)
-		{
-			k=v[t][j];
-			if(vis[k]==false)
-			{
-				dis[k]=min(Min+map[t][k],dis[k]);
-			}
-		}
-	}
+    register int i,j,k;
+    memset(vis,false,sizeof(vis));
+    for(i=0;i<v[s].size();i++)
+        dis[v[s][i]]=map[s][v[s][i]];
+    dis[s]=0;
+    vis[s]=true;
+    for(i=1;i<n;i++)
+    {
+        int Min=INF;
+        int t=1;
+        for(j=1;j<=n;j++)
+        {
+            if(vis[j]==false && dis[j]<Min)
+            {
+                Min=dis[j];
+                t=j;
+            }
+        }
+        vis[t]=true;
+        for(j=0;j<v[t].size();j++)
+        {
+            k=v[t][j];
+            if(vis[k]==false)
+            {
+                dis[k]=min(Min+map[t][k],dis[k]);
+            }
+        }
+    }
 }
 int main()
 {
-	int T,n,m,p,q;
-	register int i,j;
-	scanf("%d",&T);
-	while(T--)
-	{
-		int s,e,w;
-		int a[105];
-		scanf("%d%d%d%d",&m,&n,&p,&q);
-		for(i=0;i<m;i++)
-			scanf("%d",&a[i]);
-		for(i=1;i<=n;i++)
-		{
-			for(j=1;j<=n;j++)
-				map[i][j]=INF;
-			dis[i]=INF;
-		}
-		for(i=0;i<p;i++)
-		{
-			scanf("%d%d%d",&s,&e,&w);
-			if(map[s][e]>w)
-			{
-				if(map[s][e]==INF){	v[s].push_back(e);	v[e].push_back(s);}
-				map[s][e]=map[e][s]=w;
-			}
-		}
-		DijkstraPath(q,n);
-		int temp=INF;
-		for(i=0;i<m;i++)
-			temp=min(temp,dis[a[i]]);
-		printf("%d\n",temp);
-		for(i=1;i<=n;i++)
-			v[i].clear();
-	}
-	return 0;	
+    int T,n,m,p,q;
+    register int i,j;
+    scanf("%d",&T);
+    while(T--)
+    {
+        int s,e,w;
+        int a[105];
+        scanf("%d%d%d%d",&m,&n,&p,&q);
+        for(i=0;i<m;i++)
+            scanf("%d",&a[i]);
+        for(i=1;i<=n;i++)
+        {
+            for(j=1;j<=n;j++)
+                map[i][j]=INF;
+            dis[i]=INF;
+        }
+        for(i=0;i<p;i++)
+        {
+            scanf("%d%d%d",&s,&e,&w);
+            if(map[s][e]>w)
+            {
+                if(map[s][e]==INF){    v[s].push_back(e);    v[e].push_back(s);}
+                map[s][e]=map[e][s]=w;
+            }
+        }
+        DijkstraPath(q,n);
+        int temp=INF;
+        for(i=0;i<m;i++)
+            temp=min(temp,dis[a[i]]);
+        printf("%d\n",temp);
+        for(i=1;i<=n;i++)
+            v[i].clear();
+    }
+    return 0;    
 }
  
 #include<stdio.h>
@@ -174,13 +185,13 @@ int p=q.front();
 q.pop();
 arc *w;
 for(w=g.vexs[p].first;w;w=w->next){
-	if(d[p]+w->cost<d[w->adj]){
-	d[w->adj]=w->cost+d[p];
-	if(!use[w->adj]){
-		q.push(w->adj);
-		use[w->adj]=true;
-	}
-	}
+    if(d[p]+w->cost<d[w->adj]){
+    d[w->adj]=w->cost+d[p];
+    if(!use[w->adj]){
+        q.push(w->adj);
+        use[w->adj]=true;
+    }
+    }
 }
 }
 }
@@ -204,16 +215,16 @@ scanf("%d",&tem[i]);
 init(g);
 for(i=0;i<p;i++){
 int a,b,t;
-	scanf("%d%d%d",&a,&b,&t);
-	createGraph(a,b,t,g);
-	
+    scanf("%d%d%d",&a,&b,&t);
+    createGraph(a,b,t,g);
+    
 }
 shortpath(q-1,g);
 int res=d[tem[0]-1];
 for(i=1;i<n;i++){
-	if(res>d[tem[i]-1]){
-	res=d[tem[i]-1];
-	}
+    if(res>d[tem[i]-1]){
+    res=d[tem[i]-1];
+    }
 }
 printf("%d\n",res);
 }

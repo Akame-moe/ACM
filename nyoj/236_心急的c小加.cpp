@@ -14,16 +14,24 @@ C小加有一些木棒，它们的长度和质量都已经知道，需要一个�
 
 
 ----------sample_input----------
-3 
-5 
-4 9 5 2 2 1 3 5 1 4 
-3 
-2 2 1 1 2 2 
-3 
+3 
+
+5 
+
+4 9 5 2 2 1 3 5 1 4 
+
+3 
+
+2 2 1 1 2 2 
+
+3 
+
 1 3 2 2 3 1
 ----------sample_putput----------
-2
-1
+2
+
+1
+
 3
 */
 /////////////////////////////
@@ -32,54 +40,54 @@ C小加有一些木棒，它们的长度和质量都已经知道，需要一个�
 #include<stdlib.h>
 struct Wood
 {
-	int L;
-	int W;
+    int L;
+    int W;
 }m[5001];
 int comp(const void *a,const void *b)
 {
-	if((*(Wood*)a).L!=(*(Wood*)b).L)
-		return (*(Wood*)a).L-(*(Wood*)b).L;
-	else
-		return (*(Wood*)a).W-(*(Wood*)b).W;
+    if((*(Wood*)a).L!=(*(Wood*)b).L)
+        return (*(Wood*)a).L-(*(Wood*)b).L;
+    else
+        return (*(Wood*)a).W-(*(Wood*)b).W;
 }
 int main()
 {
-	int T;
-	int N;
-	int count;
-	int i,j,t;
-	scanf("%d",&T);
-	while(T--)
-	{
-		scanf("%d",&N);
-		for(i=0;i<N;i++)
-			scanf("%d%d",&m[i].L,&m[i].W);
-		qsort(m,N,sizeof(m[0]),comp);
-		count=0;
-	//	for(i=0;i<N;i++)
-	//		printf("[%d]..[%d]\n",m[i].L,m[i].W);
-		for(i=0;i<N;i++)
-		{
-			if(m[i].W!=0)
-			{
-				t=m[i].W;
-				count++;
-				for(j=i+1;j<N;j++)
-				{
-					if(t<=m[j].W)
-					{
-						t=m[j].W;
-						m[j].W=0;
-					}
-				}
-			}
-		}
+    int T;
+    int N;
+    int count;
+    int i,j,t;
+    scanf("%d",&T);
+    while(T--)
+    {
+        scanf("%d",&N);
+        for(i=0;i<N;i++)
+            scanf("%d%d",&m[i].L,&m[i].W);
+        qsort(m,N,sizeof(m[0]),comp);
+        count=0;
+    //    for(i=0;i<N;i++)
+    //        printf("[%d]..[%d]\n",m[i].L,m[i].W);
+        for(i=0;i<N;i++)
+        {
+            if(m[i].W!=0)
+            {
+                t=m[i].W;
+                count++;
+                for(j=i+1;j<N;j++)
+                {
+                    if(t<=m[j].W)
+                    {
+                        t=m[j].W;
+                        m[j].W=0;
+                    }
+                }
+            }
+        }
 
 
 
-		printf("%d\n",count);
-	}
-	return 0;
+        printf("%d\n",count);
+    }
+    return 0;
 
 
 }

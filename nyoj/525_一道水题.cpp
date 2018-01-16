@@ -28,33 +28,33 @@ char s[5005];
 int ss[2500];
 int comp(const void *a,const void *b)
 {
-	return *(int *)a-*(int *)b;
+    return *(int *)a-*(int *)b;
 }
 int main()
 {
-	int len,t,i,temp;
-	while(~scanf("%s",s))
-	{
-		t=0;		
-		for(i=0;s[i]!='\0';)
-		{	
-			while(s[i]=='5')
-				i++;
-			temp=0;
-			while(s[i]!='\0' && s[i]!='5')
-			{
-				temp=temp*10+(s[i]-'0');
-				i++;
-			}
-			ss[t++]=temp;
-			while(s[i]=='5')
-				i++;
-		}
-		qsort(ss,t,sizeof(int),comp);
-		printf("%d",ss[0]);
-		for(i=1;i<t;i++)
-			printf(" %d",ss[i]);
-		printf("\n");
-	}
-	return 0;
+    int len,t,i,temp;
+    while(~scanf("%s",s))
+    {
+        t=0;        
+        for(i=0;s[i]!='\0';)
+        {    
+            while(s[i]=='5')
+                i++;
+            temp=0;
+            while(s[i]!='\0' && s[i]!='5')
+            {
+                temp=temp*10+(s[i]-'0');
+                i++;
+            }
+            ss[t++]=temp;
+            while(s[i]=='5')
+                i++;
+        }
+        qsort(ss,t,sizeof(int),comp);
+        printf("%d",ss[0]);
+        for(i=1;i<t;i++)
+            printf(" %d",ss[i]);
+        printf("\n");
+    }
+    return 0;
 }

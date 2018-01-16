@@ -17,39 +17,43 @@ ps: _互质_ （relatively primeì）又叫互素。若N个整数的最大公因
 
 
 ----------sample_input----------
-2
-6
+2
+
+6
+
 46
 ----------sample_putput----------
-1
-2
+1
+
+2
+
 22
 */
 /////////////////////////////
 #include<stdio.h>
 int main()
 {
-	int n;
-	while(~scanf("%d",&n))
-	{
-		int ret=1;
-		int i;
-		for(i=2;i*i<=n;i++)
-		{
-			if(n%i==0)
-			{
-				n/=i;
-				ret*=i-1;
-				while(n%i==0)
-				{
-					n/=i;
-					ret*=i;
-				}
-			}
-		}
-		if(n>1)
-			ret*=n-1;
-		printf("%d\n",ret);
-	}
-	return 0;
+    int n;
+    while(~scanf("%d",&n))
+    {
+        int ret=1;
+        int i;
+        for(i=2;i*i<=n;i++)
+        {
+            if(n%i==0)
+            {
+                n/=i;
+                ret*=i-1;
+                while(n%i==0)
+                {
+                    n/=i;
+                    ret*=i;
+                }
+            }
+        }
+        if(n>1)
+            ret*=n-1;
+        printf("%d\n",ret);
+    }
+    return 0;
 }

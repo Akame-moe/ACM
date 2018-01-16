@@ -28,11 +28,14 @@
 
 
 ----------sample_input----------
-2
-3 1  5 7
+2
+
+3 1  5 7
+
 3 1  6 7
 ----------sample_putput----------
-12
+12
+
 11
 */
 /////////////////////////////
@@ -51,68 +54,68 @@ int ans,cur;
 int x1,x2,y1,y2;
 int main()
 {
-	void dfs(int ,int,int);
-	int N;
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%d%d%d%d",&x1,&y1,&x2,&y2);
-		p[x1][y1]=1;
-		ans=100;
-		dfs(x1,y1,0);
-		printf("%d\n",ans);
-		
-	}
-	return 0;
+    void dfs(int ,int,int);
+    int N;
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%d%d%d%d",&x1,&y1,&x2,&y2);
+        p[x1][y1]=1;
+        ans=100;
+        dfs(x1,y1,0);
+        printf("%d\n",ans);
+        
+    }
+    return 0;
 }
 void dfs(int x1,int y1,int cur)
 {
-	if(x1==x2 && y1==y2)
-	{
-		ans=cur>ans?ans:cur;
-	}
-	if(x1<0 || x1>8 || y1<0 || y1>8)
-		return ;
-	if(!p[x1+1][y1]){ p[x1][y1]=1;	dfs(x1+1,y1,cur+1); p[x1][y1]=0;	}
-	if(!p[x1][y1+1]){ p[x1][y1]=1;  dfs(x1,y1+1,cur+1); p[x1][y1]=0;	}
-	if(!p[x1-1][y1]){ p[x1][y1]=1; 	dfs(x1-1,y1,cur+1); p[x1][y1]=0;	}
-	if(!p[x1][y1-1]){ p[x1][y1]=1; 	dfs(x1,y1-1,cur+1); p[x1][y1]=0;	}
+    if(x1==x2 && y1==y2)
+    {
+        ans=cur>ans?ans:cur;
+    }
+    if(x1<0 || x1>8 || y1<0 || y1>8)
+        return ;
+    if(!p[x1+1][y1]){ p[x1][y1]=1;    dfs(x1+1,y1,cur+1); p[x1][y1]=0;    }
+    if(!p[x1][y1+1]){ p[x1][y1]=1;  dfs(x1,y1+1,cur+1); p[x1][y1]=0;    }
+    if(!p[x1-1][y1]){ p[x1][y1]=1;     dfs(x1-1,y1,cur+1); p[x1][y1]=0;    }
+    if(!p[x1][y1-1]){ p[x1][y1]=1;     dfs(x1,y1-1,cur+1); p[x1][y1]=0;    }
 }
 #include<cstdio>
 #define min(x,y) x>y?y:x
 int maze[9][9]={1,1,1,1,1,1,1,1,1,
-	1,0,0,1,0,0,1,0,1,
-	1,0,0,1,1,0,0,0,1,
-	1,0,1,0,1,1,0,1,1,
-	1,0,0,0,0,1,0,0,1,
-	1,1,0,1,0,1,0,0,1,
-	1,1,0,1,0,1,0,0,1,
-	1,1,0,1,0,0,0,0,1,
-	1,1,1,1,1,1,1,1,1};
+    1,0,0,1,0,0,1,0,1,
+    1,0,0,1,1,0,0,0,1,
+    1,0,1,0,1,1,0,1,1,
+    1,0,0,0,0,1,0,0,1,
+    1,1,0,1,0,1,0,0,1,
+    1,1,0,1,0,1,0,0,1,
+    1,1,0,1,0,0,0,0,1,
+    1,1,1,1,1,1,1,1,1};
 int a,b,c,d,m;
 void dfs(int x,int y,int s){
-	if(maze[x][y]) return;
-	if(x==c&&y==d){
-		m=min(s,m);
-		return;
-	}
-	s++;
-	maze[x][y]=1;
-	dfs(x+1,y,s);
-	dfs(x,y+1,s);
-	dfs(x-1,y,s);
-	dfs(x,y-1,s);
-	maze[x][y]=0;
+    if(maze[x][y]) return;
+    if(x==c&&y==d){
+        m=min(s,m);
+        return;
+    }
+    s++;
+    maze[x][y]=1;
+    dfs(x+1,y,s);
+    dfs(x,y+1,s);
+    dfs(x-1,y,s);
+    dfs(x,y-1,s);
+    maze[x][y]=0;
 }
 
 int main(){
-	int n;
-	scanf("%d",&n);
-	while(n--){
-		m=9999;
-		scanf("%d%d%d%d",&a,&b,&c,&d);
-		dfs(a,b,0);
-		printf("%d\n",m);
-	}
-	return 0;
+    int n;
+    scanf("%d",&n);
+    while(n--){
+        m=9999;
+        scanf("%d%d%d%d",&a,&b,&c,&d);
+        dfs(a,b,0);
+        printf("%d\n",m);
+    }
+    return 0;
 }        

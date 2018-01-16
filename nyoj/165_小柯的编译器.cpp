@@ -12,27 +12,46 @@
 
 
 ----------sample_input----------
-2
-4
-char
-int
-double
-float
-int  main()
-{
-	int a=10;
-	cout<<a<<endl;
-}
-@
-1
-int
-int main()
-{
-   int* p;
-}
+2
+
+4
+
+char
+
+int
+
+double
+
+float
+
+int  main()
+
+{
+
+    int a=10;
+
+    cout<<a<<endl;
+
+}
+
+@
+
+1
+
+int
+
+int main()
+
+{
+
+   int* p;
+
+}
+
 @
 ----------sample_putput----------
-2
+2
+
 2
 */
 /////////////////////////////
@@ -41,36 +60,36 @@ int main()
 int N;
 int main()
 {
-	char s[10][10];
-	int n;
-	scanf("%d",&N);
-	while(N--)
-	{
-		int i;
-		scanf("%d",&n);
-		for(i=0;i<n;i++)
-			scanf("%s",s[i]);
-		char ch;
-		int j=0;
-		char w[10];
-		int count=0;
-		while(scanf("%c",&ch),ch!='@')
-		{
-			if((ch>='a' && ch<='z') || (ch>='0' && ch<='9') || ch=='_')
-				w[j++]=ch;
-			else
-			{
-				w[j]='\0';
-				j=0;
-				for(i=0;i<n;i++)
-				{
-					if(strcmp(w,s[i])==0)
-						count++;//printf("[%s]\n",w);
-				}
-			}
-		}
-		printf("%d\n",count);
-	}
-	return 0;
-	
+    char s[10][10];
+    int n;
+    scanf("%d",&N);
+    while(N--)
+    {
+        int i;
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+            scanf("%s",s[i]);
+        char ch;
+        int j=0;
+        char w[10];
+        int count=0;
+        while(scanf("%c",&ch),ch!='@')
+        {
+            if((ch>='a' && ch<='z') || (ch>='0' && ch<='9') || ch=='_')
+                w[j++]=ch;
+            else
+            {
+                w[j]='\0';
+                j=0;
+                for(i=0;i<n;i++)
+                {
+                    if(strcmp(w,s[i])==0)
+                        count++;//printf("[%s]\n",w);
+                }
+            }
+        }
+        printf("%d\n",count);
+    }
+    return 0;
+    
 }

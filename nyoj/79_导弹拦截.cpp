@@ -14,13 +14,18 @@
 
 
 ----------sample_input----------
-2
-8
-389 207 155 300 299 170 158 65
-3
+2
+
+8
+
+389 207 155 300 299 170 158 65
+
+3
+
 88 34 65
 ----------sample_putput----------
-6
+6
+
 2
 */
 /////////////////////////////
@@ -31,35 +36,35 @@ int n;
 int max;
 int main()
 {
-	void dfs(int ,int,int);
-	int N;
-	int i;
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%d",&n);
-		for(i=0;i<n;i++)
-			scanf("%d",&a[i]);
-		max=0;
-		dfs(0,0,INT_MAX);
-		printf("%d\n",max);
-	}
-	return 0;
+    void dfs(int ,int,int);
+    int N;
+    int i;
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+            scanf("%d",&a[i]);
+        max=0;
+        dfs(0,0,INT_MAX);
+        printf("%d\n",max);
+    }
+    return 0;
 }
 void dfs(int cur,int count,int h)
 {
-	if(count>max)
-		max=count;
-	if(cur==n)
-		return ;
-	dfs(cur+1,count,h);	//这句和下一句的位置不能交换，否则改变了h的值，当初就是错在这个位置
-	if(h>a[cur])
-	{
-		h=a[cur];
-		//printf("%d  %d \n",cur,h);
-		dfs(cur+1,count+1,h);
-	}
-	
+    if(count>max)
+        max=count;
+    if(cur==n)
+        return ;
+    dfs(cur+1,count,h);    //这句和下一句的位置不能交换，否则改变了h的值，当初就是错在这个位置
+    if(h>a[cur])
+    {
+        h=a[cur];
+        //printf("%d  %d \n",cur,h);
+        dfs(cur+1,count+1,h);
+    }
+    
 }
  
  
@@ -72,24 +77,24 @@ int f[MAX];
 int data[MAX]={0};
 int main()
 {
-	int n;
-	int i,j;
-	cin>>n;
-	while(n--)
-	{
-		int sz;
-		cin>>sz;
-		for( i=0;i!=sz;++i)
-			cin>>data[i];
-		for( i=0;i<=sz;i++)
-		{
-			f[i]=1;
-			for( j=0;j!=i;j++)
-			{
-				if(i==sz || data[i]<data[j])
-					f[i]=max(f[i],f[j]+1);
-			}
-		}
-		cout<<f[sz]-1<<endl;
-	}
+    int n;
+    int i,j;
+    cin>>n;
+    while(n--)
+    {
+        int sz;
+        cin>>sz;
+        for( i=0;i!=sz;++i)
+            cin>>data[i];
+        for( i=0;i<=sz;i++)
+        {
+            f[i]=1;
+            for( j=0;j!=i;j++)
+            {
+                if(i==sz || data[i]<data[j])
+                    f[i]=max(f[i],f[j]+1);
+            }
+        }
+        cout<<f[sz]-1<<endl;
+    }
 }                

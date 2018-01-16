@@ -16,11 +16,14 @@ operand。ACM队的“C小加”正在郁闷怎样把一个中缀表达式转换
 
 
 ----------sample_input----------
-2
-1+2
+2
+
+1+2
+
 (1+2)*3+4*5
 ----------sample_putput----------
-12+
+12+
+
 12+3*45*+
 */
 /////////////////////////////
@@ -30,90 +33,90 @@ operand。ACM队的“C小加”正在郁闷怎样把一个中缀表达式转换
 using namespace std;
 typedef struct Tree
 {
-	char c;
-//	double n;
-	Tree *liftchild,*rightchild;
+    char c;
+//    double n;
+    Tree *liftchild,*rightchild;
 }tree;
 stack <tree*> ops;
 stack <tree*> ovs;
-tree *Root;	
+tree *Root;    
 char s[1005];
 int p(char ch)
 {
-	switch(ch)
-	{
-	case '*':
-	case '/':return 2;
-	case '+':
-	case '-':return 1;
-	case '(':
-	case ')':return 0;
-	case ';':return -1;
-	default :printf("%c_error!\n",ch);exit(1);
-	}
+    switch(ch)
+    {
+    case '*':
+    case '/':return 2;
+    case '+':
+    case '-':return 1;
+    case '(':
+    case ')':return 0;
+    case ';':return -1;
+    default :printf("%c_error!\n",ch);exit(1);
+    }
 }
 tree *build(char ch)
 {
-	tree *root=new tree;
-	root->c=ch;
-	root->liftchild=NULL;
-	root->rightchild=NULL;
-	return root;
+    tree *root=new tree;
+    root->c=ch;
+    root->liftchild=NULL;
+    root->rightchild=NULL;
+    return root;
 }
 void visit(tree * r)
 {
-	if(r!=NULL)
-	{
-		visit(r->liftchild);
-		visit(r->rightchild);
-		printf("%c",r->c);
-	}
+    if(r!=NULL)
+    {
+        visit(r->liftchild);
+        visit(r->rightchild);
+        printf("%c",r->c);
+    }
 }
 int main()
 {
 
-	int i;
-	int  N;
-	scanf("%d",&N);
-	while(N--)//1-2*3-4/5
-	{
-		scanf("%s",s);
-		for(i=0;s[i]!='\0';)
-		{
-			if(s[i]>='0' && s[i]<='9')
-			{
-				ovs.push(build(s[i]));i++;
-			}
-			else
-			{
-				if(ops.empty() || s[i]=='(' || p(ops.top()->c)<p(s[i]) )
-					ops.push(build(s[i])),i++;
-				else if(ops.top()->c=='(' && s[i]==')')
-					ops.pop(),i++;
-				else//p(ops.top())>=p(s[i])
-				{
-					ops.top()->rightchild=ovs.top();ovs.pop();
-					ops.top()->liftchild=ovs.top();ovs.pop();					
-					Root=ops.top();ops.pop();	
-					ovs.push(Root);
-				}
-			}
+    int i;
+    int  N;
+    scanf("%d",&N);
+    while(N--)//1-2*3-4/5
+    {
+        scanf("%s",s);
+        for(i=0;s[i]!='\0';)
+        {
+            if(s[i]>='0' && s[i]<='9')
+            {
+                ovs.push(build(s[i]));i++;
+            }
+            else
+            {
+                if(ops.empty() || s[i]=='(' || p(ops.top()->c)<p(s[i]) )
+                    ops.push(build(s[i])),i++;
+                else if(ops.top()->c=='(' && s[i]==')')
+                    ops.pop(),i++;
+                else//p(ops.top())>=p(s[i])
+                {
+                    ops.top()->rightchild=ovs.top();ovs.pop();
+                    ops.top()->liftchild=ovs.top();ovs.pop();                    
+                    Root=ops.top();ops.pop();    
+                    ovs.push(Root);
+                }
+            }
 
-		}
-		while(ovs.size()!=1)
-		{
-			ops.top()->rightchild=ovs.top();ovs.pop();
-			ops.top()->liftchild=ovs.top();ovs.pop();					
-			Root=ops.top();ops.pop();
-			ovs.push(Root);
-		}
-		Root=ovs.top();ovs.pop();
-		while(!ops.empty())
-			ops.pop();
-		visit(Root);
-		printf("\n");
-	}
-	return 0;
+        }
+        while(ovs.size()!=1)
+        {
+            ops.top()->rightchild=ovs.top();ovs.pop();
+            ops.top()->liftchild=ovs.top();ovs.pop();                    
+            Root=ops.top();ops.pop();
+            ovs.push(Root);
+        }
+        Root=ovs.top();ovs.pop();
+        while(!ops.empty())
+            ops.pop();
+        visit(Root);
+        printf("\n");
+    }
+    return 0;
 }
 #include<stdio.h>//栈和队列
 #include<stdlib.h>
@@ -125,75 +128,75 @@ queue <char> ovs;
 int p(char);
 int main()
 {
-	char s[10005];
-	int i,k;
-	int N;
-	scanf("%d",&N);
-	while(N--)//   1+2*(3-4)/5=
-	{
-		scanf("%s",s);
-		ops.push('=');
-		for(i=0;;)
-		{
-			if(s[i]>='0' && s[i]<='9')
-			{
-				ovs.push(s[i]);i++;
-			}
-			else 
-			{
-				if(s[i]=='\0')
-				{
-					while(!ops.empty())
-					{
-						ovs.push(ops.top());
-						ops.pop();
-					}
-					break;
-				}
-				else if(s[i]==')')
-				{
-					while(ops.top()!='(')
-					{
-						ovs.push(ops.top());ops.pop();
-					}
-					ops.pop();
-					i++;
-				}
-				else if(s[i]=='(' || p(s[i]) > p(ops.top()))
-				{
-					ops.push(s[i]);i++;
-				}
-				else //(s[i]!='=' && p(s[i])<=  p(ops.top())  )
-				{
-					ovs.push(ops.top());
-					ops.pop();
-				}					
-			}
-		}
-		while(ovs.size()!=1)
-			printf("%c",ovs.front()),ovs.pop();
-		printf("\n");
-		ovs.pop();
-		while(!ops.empty())
-			ops.pop();
+    char s[10005];
+    int i,k;
+    int N;
+    scanf("%d",&N);
+    while(N--)//   1+2*(3-4)/5=
+    {
+        scanf("%s",s);
+        ops.push('=');
+        for(i=0;;)
+        {
+            if(s[i]>='0' && s[i]<='9')
+            {
+                ovs.push(s[i]);i++;
+            }
+            else 
+            {
+                if(s[i]=='\0')
+                {
+                    while(!ops.empty())
+                    {
+                        ovs.push(ops.top());
+                        ops.pop();
+                    }
+                    break;
+                }
+                else if(s[i]==')')
+                {
+                    while(ops.top()!='(')
+                    {
+                        ovs.push(ops.top());ops.pop();
+                    }
+                    ops.pop();
+                    i++;
+                }
+                else if(s[i]=='(' || p(s[i]) > p(ops.top()))
+                {
+                    ops.push(s[i]);i++;
+                }
+                else //(s[i]!='=' && p(s[i])<=  p(ops.top())  )
+                {
+                    ovs.push(ops.top());
+                    ops.pop();
+                }                    
+            }
+        }
+        while(ovs.size()!=1)
+            printf("%c",ovs.front()),ovs.pop();
+        printf("\n");
+        ovs.pop();
+        while(!ops.empty())
+            ops.pop();
 
-	}
-	return 0;
-	
+    }
+    return 0;
+    
 }
 int p(char c)
 {
-	switch(c)
-	{
-	case '*':
-	case '/':return 2;
-	case '+':
-	case '-':return 1;
-	case '(':
-	case ')':
-	case '=':return 0;
-	default :printf("%c_error!",c);exit(1);
-	}
+    switch(c)
+    {
+    case '*':
+    case '/':return 2;
+    case '+':
+    case '-':return 1;
+    case '(':
+    case ')':
+    case '=':return 0;
+    default :printf("%c_error!",c);exit(1);
+    }
 }
      
 

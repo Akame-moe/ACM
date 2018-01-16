@@ -17,19 +17,30 @@ zyc从小就比较喜欢玩一些小游戏，其中就包括画一笔画，他�
 
 
 ----------sample_input----------
-2
-4 3
-1 2
-1 3
-1 4
-4 5
-1 2
-2 3
-1 3
-1 4
+2
+
+4 3
+
+1 2
+
+1 3
+
+1 4
+
+4 5
+
+1 2
+
+2 3
+
+1 3
+
+1 4
+
 3 4
 ----------sample_putput----------
-No
+No
+
 Yes
 */
 /////////////////////////////
@@ -42,46 +53,46 @@ int cnt;
 bool vis[1005];
 void dfs(int k)
 {
-	int i;
-	for(i=0;i<v[k].size();i++)
-	{
-		int t=v[k][i];
-		if(!vis[t])
-		{
-			vis[t]=true;
-			cnt++;
-			dfs(t);
-		}
-	}
+    int i;
+    for(i=0;i<v[k].size();i++)
+    {
+        int t=v[k][i];
+        if(!vis[t])
+        {
+            vis[t]=true;
+            cnt++;
+            dfs(t);
+        }
+    }
 }
 int main()
 {
-	int N,n,m,a,b,i;
-	scanf("%d",&N);
-	while(N--)
-	{
-		memset(vis,false,sizeof(vis));
-		scanf("%d%d",&n,&m);
-		while(m--)
-		{
-			scanf("%d%d",&a,&b);
-			v[a].push_back(b);
-			v[b].push_back(a);
-		}
-		vis[b]=true;
-		cnt=1;
-		dfs(b);
-		int count=0;
-		if(cnt==n)
-		{			
-			for(i=1;i<=n;i++)
-			{
-				
-				if(v[i].size()&1) count++;
-				v[i].clear();
-			}
-		}
-		printf("%s\n",(count==0 || count==2) && cnt==n?"Yes":"No");
-	}
-	return 0;
+    int N,n,m,a,b,i;
+    scanf("%d",&N);
+    while(N--)
+    {
+        memset(vis,false,sizeof(vis));
+        scanf("%d%d",&n,&m);
+        while(m--)
+        {
+            scanf("%d%d",&a,&b);
+            v[a].push_back(b);
+            v[b].push_back(a);
+        }
+        vis[b]=true;
+        cnt=1;
+        dfs(b);
+        int count=0;
+        if(cnt==n)
+        {            
+            for(i=1;i<=n;i++)
+            {
+                
+                if(v[i].size()&1) count++;
+                v[i].clear();
+            }
+        }
+        printf("%s\n",(count==0 || count==2) && cnt==n?"Yes":"No");
+    }
+    return 0;
 }

@@ -13,29 +13,34 @@
 
 
 ----------sample_input----------
-3
-4
-5
+3
+
+4
+
+5
+
 465456541
 ----------sample_putput----------
-4
-5
+4
+
+5
+
 4
 */
 /////////////////////////////
-#include<stdio.h>	
+#include<stdio.h>    
 char s[1000005];
 main()
 {
-	int n,len,i,N;
-	scanf("%d",&N);
-	while(N--)
-	{
-		n=i=0;
-		scanf("%s",s);
-		while(s[i]!='\0')
-			n+=s[i++]-'0';
-		printf("%d\n",n%9);
-	}
+    int n,len,i,N;
+    scanf("%d",&N);
+    while(N--)
+    {
+        n=i=0;
+        scanf("%s",s);
+        while(s[i]!='\0')
+            n+=s[i++]-'0';
+        printf("%d\n",n%9);
+    }
 }
 //求一个数除九后的余数 就是等于各个位数上值加起来之后除以9的余数

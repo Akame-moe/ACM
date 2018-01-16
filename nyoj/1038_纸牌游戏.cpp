@@ -31,33 +31,58 @@ player），四个方向的顺序输出四个人已经整理好的手牌；
 
 
 ----------sample_input----------
-S
-4DQH3C2CJSTC2H4C7STS3SJH9CKC9SKD6S5SAS3DAH8SAC7D4S4H
+S
+
+4DQH3C2CJSTC2H4C7STS3SJH9CKC9SKD6S5SAS3DAH8SAC7D4S4H
+
 QC6CJDQD7H8D5DQS6D9D3HJC8C2D2S5C9HAD7CKS6H8HKHTDTH5H
 ----------sample_putput----------
-East player:
-+---++---++---++---++---++---++---++---++---++---++---++---++---+
-|2 2||4 4||6 6||2 2||3 3||7 7||8 8||9 9||K K||A A||5 5||8 8||J J|
-| C || C || C || D || D || D || D || D || D || D || H || H || H |
-|2 2||4 4||6 6||2 2||3 3||7 7||8 8||9 9||K K||A A||5 5||8 8||J J|
-+---++---++---++---++---++---++---++---++---++---++---++---++---+
-South player:
-+---++---++---++---++---++---++---++---++---++---++---++---++---+
-|7 7||9 9||4 4||5 5||J J||2 2||4 4||6 6||7 7||J J||3 3||K K||A A|
-| C || C || D || D || D || S || S || S || S || S || H || H || H |
-|7 7||9 9||4 4||5 5||J J||2 2||4 4||6 6||7 7||J J||3 3||K K||A A|
-+---++---++---++---++---++---++---++---++---++---++---++---++---+
-West player:
-+---++---++---++---++---++---++---++---++---++---++---++---++---+
-|5 5||T T||J J||K K||T T||Q Q||5 5||8 8||T T||Q Q||K K||4 4||Q Q|
-| C || C || C || C || D || D || S || S || S || S || S || H || H |
-|5 5||T T||J J||K K||T T||Q Q||5 5||8 8||T T||Q Q||K K||4 4||Q Q|
-+---++---++---++---++---++---++---++---++---++---++---++---++---+
-North player:
-+---++---++---++---++---++---++---++---++---++---++---++---++---+
-|3 3||8 8||Q Q||A A||6 6||3 3||9 9||A A||2 2||6 6||7 7||9 9||T T|
-| C || C || C || C || D || S || S || S || H || H || H || H || H |
-|3 3||8 8||Q Q||A A||6 6||3 3||9 9||A A||2 2||6 6||7 7||9 9||T T|
+East player:
+
++---++---++---++---++---++---++---++---++---++---++---++---++---+
+
+|2 2||4 4||6 6||2 2||3 3||7 7||8 8||9 9||K K||A A||5 5||8 8||J J|
+
+| C || C || C || D || D || D || D || D || D || D || H || H || H |
+
+|2 2||4 4||6 6||2 2||3 3||7 7||8 8||9 9||K K||A A||5 5||8 8||J J|
+
++---++---++---++---++---++---++---++---++---++---++---++---++---+
+
+South player:
+
++---++---++---++---++---++---++---++---++---++---++---++---++---+
+
+|7 7||9 9||4 4||5 5||J J||2 2||4 4||6 6||7 7||J J||3 3||K K||A A|
+
+| C || C || D || D || D || S || S || S || S || S || H || H || H |
+
+|7 7||9 9||4 4||5 5||J J||2 2||4 4||6 6||7 7||J J||3 3||K K||A A|
+
++---++---++---++---++---++---++---++---++---++---++---++---++---+
+
+West player:
+
++---++---++---++---++---++---++---++---++---++---++---++---++---+
+
+|5 5||T T||J J||K K||T T||Q Q||5 5||8 8||T T||Q Q||K K||4 4||Q Q|
+
+| C || C || C || C || D || D || S || S || S || S || S || H || H |
+
+|5 5||T T||J J||K K||T T||Q Q||5 5||8 8||T T||Q Q||K K||4 4||Q Q|
+
++---++---++---++---++---++---++---++---++---++---++---++---++---+
+
+North player:
+
++---++---++---++---++---++---++---++---++---++---++---++---++---+
+
+|3 3||8 8||Q Q||A A||6 6||3 3||9 9||A A||2 2||6 6||7 7||9 9||T T|
+
+| C || C || C || C || D || S || S || S || H || H || H || H || H |
+
+|3 3||8 8||Q Q||A A||6 6||3 3||9 9||A A||2 2||6 6||7 7||9 9||T T|
+
 +---++---++---++---++---++---++---++---++---++---++---++---++---+
 */
 /////////////////////////////
@@ -66,90 +91,90 @@ North player:
 #include<stdlib.h>
 struct Pai
 {
-	char num;
-	char huase;
+    char num;
+    char huase;
 };
 int comp(const void *a,const void *b)
 {
-	struct Pai *c=(Pai *)a;
-	struct Pai *d=(Pai *)b;
-	char cc=(c->huase=='H'?'U':c->huase);
-	char dd=(d->huase=='H'?'U':d->huase);
-	char ccc=c->num;
-	char ddd=d->num;
-	ccc=(ccc=='A'?'Z':ccc);
-	ccc=(ccc=='K'?'Y':ccc);	
-	ccc=(ccc=='T'?'B':ccc);
-	
-	ddd=(ddd=='A'?'Z':ddd);
-	ddd=(ddd=='K'?'Y':ddd);
-	ddd=(ddd=='T'?'B':ddd);
-	if(cc!=dd)
-		return cc-dd;
-	else
-		return ccc-ddd;
+    struct Pai *c=(Pai *)a;
+    struct Pai *d=(Pai *)b;
+    char cc=(c->huase=='H'?'U':c->huase);
+    char dd=(d->huase=='H'?'U':d->huase);
+    char ccc=c->num;
+    char ddd=d->num;
+    ccc=(ccc=='A'?'Z':ccc);
+    ccc=(ccc=='K'?'Y':ccc);    
+    ccc=(ccc=='T'?'B':ccc);
+    
+    ddd=(ddd=='A'?'Z':ddd);
+    ddd=(ddd=='K'?'Y':ddd);
+    ddd=(ddd=='T'?'B':ddd);
+    if(cc!=dd)
+        return cc-dd;
+    else
+        return ccc-ddd;
 }
 int main()
 {
-	//freopen("d:\\data\\1.txt","r",stdin);
-	//freopen("d:\\data\\2.txt","w",stdout);
-	struct Pai p[4][14];
-	char s1[150],s2[60];
-	char person;//先拿牌的人
-	int yu;
-	int i,j,t,k;
-	char shuxu[4][6]={"East","South","West","North"};
-	while(~scanf("%c",&person))
-	{
-		getchar();
-		scanf("%s",s1);
-		scanf("%s",s2);
-		getchar();
-		strcat(s1,s2);
-		switch(person)
-		{
-			case 'E':yu=0;break;
-			case 'S':yu=1;break;
-			case 'W':yu=2;break;
-			case 'N':yu=3;break;
-			default :printf("caonima\n");
-		}
-		for(i=0;i<4;i++)
-		{
-			t=0;
-			k=(i+yu)%4;
-			for(j=i*2;j<=103;j+=8)
-			{
-				p[k][t].num=s1[j];
-				p[k][t].huase=s1[j+1];
-				t++;
-			}
-			p[k][t].num='\0';
-			p[k][t].huase='\0';
-			
-		}
-		for(i=0;i<4;i++)
-		{
-			printf("%s player:\n",shuxu[i]);
-			qsort(p[i],13,sizeof(p[i][0]),comp);
-			for(j=0;j<13;j++)
-				printf("+---+");
-			printf("\n");
-			for(j=0;j<13;j++)
-				printf("|%c %c|",p[i][j].num,p[i][j].num);
-			printf("\n");
-			for(j=0;j<13;j++)
-				printf("| %c |",p[i][j].huase);
-			printf("\n");
-			for(j=0;j<13;j++)
-				printf("|%c %c|",p[i][j].num,p[i][j].num);
-			printf("\n");
-			for(j=0;j<13;j++)
-				printf("+---+");
-			printf("\n");
-		}
-		printf("\n");
-			
-	}	
-	return 0;
+    //freopen("d:\\data\\1.txt","r",stdin);
+    //freopen("d:\\data\\2.txt","w",stdout);
+    struct Pai p[4][14];
+    char s1[150],s2[60];
+    char person;//先拿牌的人
+    int yu;
+    int i,j,t,k;
+    char shuxu[4][6]={"East","South","West","North"};
+    while(~scanf("%c",&person))
+    {
+        getchar();
+        scanf("%s",s1);
+        scanf("%s",s2);
+        getchar();
+        strcat(s1,s2);
+        switch(person)
+        {
+            case 'E':yu=0;break;
+            case 'S':yu=1;break;
+            case 'W':yu=2;break;
+            case 'N':yu=3;break;
+            default :printf("caonima\n");
+        }
+        for(i=0;i<4;i++)
+        {
+            t=0;
+            k=(i+yu)%4;
+            for(j=i*2;j<=103;j+=8)
+            {
+                p[k][t].num=s1[j];
+                p[k][t].huase=s1[j+1];
+                t++;
+            }
+            p[k][t].num='\0';
+            p[k][t].huase='\0';
+            
+        }
+        for(i=0;i<4;i++)
+        {
+            printf("%s player:\n",shuxu[i]);
+            qsort(p[i],13,sizeof(p[i][0]),comp);
+            for(j=0;j<13;j++)
+                printf("+---+");
+            printf("\n");
+            for(j=0;j<13;j++)
+                printf("|%c %c|",p[i][j].num,p[i][j].num);
+            printf("\n");
+            for(j=0;j<13;j++)
+                printf("| %c |",p[i][j].huase);
+            printf("\n");
+            for(j=0;j<13;j++)
+                printf("|%c %c|",p[i][j].num,p[i][j].num);
+            printf("\n");
+            for(j=0;j<13;j++)
+                printf("+---+");
+            printf("\n");
+        }
+        printf("\n");
+            
+    }    
+    return 0;
 }

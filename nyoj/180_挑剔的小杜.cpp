@@ -18,13 +18,18 @@
 
 
 ----------sample_input----------
-2
-abcabc123abc.
+2
+
+abcabc123abc.
+
 aaa
 ----------sample_putput----------
-9 cbacbacba
-3 321
-3 aaa
+9 cbacbacba
+
+3 321
+
+3 aaa
+
 0
 */
 /////////////////////////////
@@ -33,51 +38,51 @@ aaa
 #include<stdlib.h>
 int comp10(const void *a,const void *b)
 {
-	return *(char *)b-*(char *)a;
+    return *(char *)b-*(char *)a;
 }
 int len_ss;
 int main()
 {
-	char *strr(char *);
-	char s[1005];
-	char ss[1005],s1[1005];
-	int N,i,j,k;
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%s",s);
-		for(k=0,i=0,j=0;s[k]!='\0';k++)
-		{
-			if(s[k]>='0' && s[k]<='9')
-				s1[j++]=s[k];
-			if((s[k]>='a' && s[k]<='z') || (s[k]>='A' && s[k]<='Z'))
-				ss[i++]=s[k];
-		}
-		s1[j]='\0';
-		ss[i]='\0';
-		int len_s1=strlen(s1);
-		len_ss=strlen(ss);
-		qsort(s1,len_s1,sizeof(s1[0]),comp10);
-		if(len_ss==0)
-			printf("0\n");
-		else
-			printf("%d %s\n",len_ss,strr(ss));
-		if(len_s1==0)
-			printf("0\n");
-		else
-			printf("%d %s\n",len_s1,s1);
+    char *strr(char *);
+    char s[1005];
+    char ss[1005],s1[1005];
+    int N,i,j,k;
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%s",s);
+        for(k=0,i=0,j=0;s[k]!='\0';k++)
+        {
+            if(s[k]>='0' && s[k]<='9')
+                s1[j++]=s[k];
+            if((s[k]>='a' && s[k]<='z') || (s[k]>='A' && s[k]<='Z'))
+                ss[i++]=s[k];
+        }
+        s1[j]='\0';
+        ss[i]='\0';
+        int len_s1=strlen(s1);
+        len_ss=strlen(ss);
+        qsort(s1,len_s1,sizeof(s1[0]),comp10);
+        if(len_ss==0)
+            printf("0\n");
+        else
+            printf("%d %s\n",len_ss,strr(ss));
+        if(len_s1==0)
+            printf("0\n");
+        else
+            printf("%d %s\n",len_s1,s1);
 
-	}
-	return 0;
+    }
+    return 0;
 }
 char* strr(char *s)
 {
-	int i,j;
-	char ss[1005];
-	for(j=len_ss-1,i=0;j>=0;j--,i++)
-	{
-		ss[i]=s[j];
-	}
-	ss[i]='\0';
-	return ss;
+    int i,j;
+    char ss[1005];
+    for(j=len_ss-1,i=0;j>=0;j--,i++)
+    {
+        ss[i]=s[j];
+    }
+    ss[i]='\0';
+    return ss;
 }

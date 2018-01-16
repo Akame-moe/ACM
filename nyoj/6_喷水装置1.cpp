@@ -13,13 +13,18 @@
 
 
 ----------sample_input----------
-2
-5
-2 3.2 4 4.5 6 
-10
+2
+
+5
+
+2 3.2 4 4.5 6 
+
+10
+
 1 2 3 1 2 1.2 3 1.1 1 2
 ----------sample_putput----------
-2
+2
+
 5
 */
 /////////////////////////////
@@ -29,46 +34,46 @@
 #include<stdlib.h>
 struct Pen
 {
-	double r;
-	double d;
+    double r;
+    double d;
 }p[601];
 int comp(const void*a,const void *b)
 {
-	
-	return (*(Pen*)a).r<(*(Pen*)b).r?1:-1;
+    
+    return (*(Pen*)a).r<(*(Pen*)b).r?1:-1;
 }
 int main()
 {
-	int  N;
-	int n;
-	int i;
-	double l;
-	int count;
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%d",&n);
-		for(i=0;i<n;i++)
-		{
-			scanf("%lf",&p[i].r);
-			p[i].d=2*sqrt((p[i].r*p[i].r-1.0));
-		}
-		qsort(p,n,sizeof(p[0]),comp);
-	
-		//for(i=0;i<n;i++)
-		//	printf("[%lf]",p[i].d);
-		l=0;
-		count=0;
-		i=0;
-		while(l<20.0)
-		{
-			l+=p[i++].d;
-			count++;
-		}
-		printf("%d\n",count);
+    int  N;
+    int n;
+    int i;
+    double l;
+    int count;
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+        {
+            scanf("%lf",&p[i].r);
+            p[i].d=2*sqrt((p[i].r*p[i].r-1.0));
+        }
+        qsort(p,n,sizeof(p[0]),comp);
+    
+        //for(i=0;i<n;i++)
+        //    printf("[%lf]",p[i].d);
+        l=0;
+        count=0;
+        i=0;
+        while(l<20.0)
+        {
+            l+=p[i++].d;
+            count++;
+        }
+        printf("%d\n",count);
 
-	}
+    }
 
 
-	return 0;
+    return 0;
 }

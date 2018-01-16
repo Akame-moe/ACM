@@ -13,12 +13,16 @@ xiaod现在正在某个球场负责网球的管理工作。为了方便管理，
 
 
 ----------sample_input----------
-5
-1 1 3 6 6
-3
+5
+
+1 1 3 6 6
+
+3
+
 1 2 1
 ----------sample_putput----------
-3
+3
+
 2
 */
 /////////////////////////////
@@ -28,17 +32,17 @@ xiaod现在正在某个球场负责网球的管理工作。为了方便管理，
 using namespace std;
 int main()
 {
-	int N;
-	int i,num,a;
-	while(~scanf("%d",&N))
-	{
-		num=0;
-		for(i=0;i<N;i++)
-		{
-			scanf("%d",&a);
-			num^=a;
-		}
-		cout<<num<<endl;
-	}
-	return 0;
+    int N;
+    int i,num,a;
+    while(~scanf("%d",&N))
+    {
+        num=0;
+        for(i=0;i<N;i++)
+        {
+            scanf("%d",&a);
+            num^=a;
+        }
+        cout<<num<<endl;
+    }
+    return 0;
 }

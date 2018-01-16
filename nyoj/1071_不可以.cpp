@@ -21,31 +21,33 @@ x、y保证在int范围内。
 
 
 ----------sample_input----------
-1 1
+1 1
+
 -1 1
 ----------sample_putput----------
-Signs are not opposot
+Signs are not opposot
+
 Signs are opposite
 */
 /////////////////////////////
 #include<stdio.h>
 int main()
 {
-	int a,b;
-	while(~scanf("%d%d",&a,&b))
-	{
-		if(!(a*b))
-			printf("Signs can't be sure\n");
-		else
-		{
-			a=a>>31;
-			b=b>>31;
-			if(a&&b || !a&&!b)
-				printf("Signs are not opposot\n");
-			else
-				printf("Signs are opposite\n");
-		}
-	}
-	return 0;
+    int a,b;
+    while(~scanf("%d%d",&a,&b))
+    {
+        if(!(a*b))
+            printf("Signs can't be sure\n");
+        else
+        {
+            a=a>>31;
+            b=b>>31;
+            if(a&&b || !a&&!b)
+                printf("Signs are not opposot\n");
+            else
+                printf("Signs are opposite\n");
+        }
+    }
+    return 0;
 }        
         //1071

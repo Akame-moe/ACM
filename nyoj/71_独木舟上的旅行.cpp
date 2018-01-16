@@ -14,16 +14,24 @@
 
 
 ----------sample_input----------
-3
-85 6
-5 84 85 80 84 83
-90 3
-90 45 60
-100 5
+3
+
+85 6
+
+5 84 85 80 84 83
+
+90 3
+
+90 45 60
+
+100 5
+
 50 50 90 40 60
 ----------sample_putput----------
-5
-3
+5
+
+3
+
 3
 */
 /////////////////////////////
@@ -32,50 +40,50 @@
 #include<stdlib.h>
 int comp(const void *a,const void *b)
 {
-	return *(int *)a-*(int *)b;
+    return *(int *)a-*(int *)b;
 }
 int main()
 {
-	int N;
-	int i;
-	int m;
-	int sum;
-	int n;
-	int head,end;
-	
-	scanf("%d",&N);
-	while(N--)
-	{
-		int ren[305]={0};
-		scanf("%d%d",&m,&n);
-		n--;
-		for(i=0;i<=n;i++)
-			scanf("%d",&ren[i]);
-		qsort(ren,n+1,sizeof(ren[0]),comp);
-		head=0;
-		end=n;
-		sum=n+1;
-		//for(i=0;i<=n;i++)
-		//	printf("[%d]",ren[i]);
-		while(end>0)
-		{
-			for(i=end-1;i>=0;)
-			{
-				if((ren[i]!=0 && ren[end]!=0)&& (ren[end]+ren[i])<=m)
-				{
-					sum--;
-					ren[i]=0;
-					break;
-				}
-				else
-					i--;
-			}
-			end--;
-		}		
-		printf("%d\n",sum);
-	}
+    int N;
+    int i;
+    int m;
+    int sum;
+    int n;
+    int head,end;
+    
+    scanf("%d",&N);
+    while(N--)
+    {
+        int ren[305]={0};
+        scanf("%d%d",&m,&n);
+        n--;
+        for(i=0;i<=n;i++)
+            scanf("%d",&ren[i]);
+        qsort(ren,n+1,sizeof(ren[0]),comp);
+        head=0;
+        end=n;
+        sum=n+1;
+        //for(i=0;i<=n;i++)
+        //    printf("[%d]",ren[i]);
+        while(end>0)
+        {
+            for(i=end-1;i>=0;)
+            {
+                if((ren[i]!=0 && ren[end]!=0)&& (ren[end]+ren[i])<=m)
+                {
+                    sum--;
+                    ren[i]=0;
+                    break;
+                }
+                else
+                    i--;
+            }
+            end--;
+        }        
+        printf("%d\n",sum);
+    }
 
 
 
-	return 0;
+    return 0;
 }

@@ -14,26 +14,28 @@
 
 
 ----------sample_input----------
-100 80
+100 80
+
 100 20
 ----------sample_putput----------
-YES
+YES
+
 NO
 */
 /////////////////////////////
 #include<stdio.h>
 int main()
 {
-	int n,m,d;
-	while(~scanf("%d%d",&n,&m))
-	{
-		d=(n+1)/2;
-		if(m<=d)
-			printf("NO\n");
-		else
-			printf("YES\n");
-	}
-	return 0;
+    int n,m,d;
+    while(~scanf("%d%d",&n,&m))
+    {
+        d=(n+1)/2;
+        if(m<=d)
+            printf("NO\n");
+        else
+            printf("YES\n");
+    }
+    return 0;
 }
 /*
 思路：这题用到了鸽笼原理（有n+1件或n+1件以上的物品要放到n个抽屉中，那么至少有一个抽屉里有两个或两个以上物品。），在本题，我们m看作为m个鸽笼，

@@ -13,39 +13,44 @@
 
 
 ----------sample_input----------
-3
-2 3 5
-3 100 10
+3
+
+2 3 5
+
+3 100 10
+
 11 12345 12345
 ----------sample_putput----------
-3
-1
+3
+
+1
+
 10481
 */
 /////////////////////////////
 #include<stdio.h>
 int main()
 {
-	int N;
-	long long  a,b,c;
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%lld%lld%lld",&a,&b,&c);
-		long long temp=1;
-		a%=c;
-		while(b>0)
-		{
-			
-			if(b%2==1)
-			{
-				temp=(temp*a)%c;
-			}
-			b/=2;
-			a=(a*a)%c;
-		
-		}
-		printf("%lld\n",temp);
-	}
-	return 0;
+    int N;
+    long long  a,b,c;
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%lld%lld%lld",&a,&b,&c);
+        long long temp=1;
+        a%=c;
+        while(b>0)
+        {
+            
+            if(b%2==1)
+            {
+                temp=(temp*a)%c;
+            }
+            b/=2;
+            a=(a*a)%c;
+        
+        }
+        printf("%lld\n",temp);
+    }
+    return 0;
 }

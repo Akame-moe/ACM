@@ -8,11 +8,16 @@ Consider the following algorithm:
 
     
     
-    1.  input n
-    2.  print n
-    3.  if n = 1 then STOP
-    4.  if n is odd then   n <-- 3n+1
-    5.  else   n <-- n/2
+    1.  input n
+
+    2.  print n
+
+    3.  if n = 1 then STOP
+
+    4.  if n is odd then   n <-- 3n+1
+
+    5.  else   n <-- n/2
+
     6.  GOTO 2
 
 Given the input 22, the following sequence of numbers will be
@@ -53,59 +58,65 @@ line).
 
 
 ----------sample_input----------
-1 10
-100 200
-201 210
+1 10
+
+100 200
+
+201 210
+
 900 1000
 ----------sample_putput----------
-1 10 20
-100 200 125
-201 210 89
+1 10 20
+
+100 200 125
+
+201 210 89
+
 900 1000 174
 */
 /////////////////////////////
 #include<stdio.h>//271
-int is2[10005]={0};	
+int is2[10005]={0};    
 int a[10005];
 int main()
 {
 
-	int i,j,tt;
-	is2[1]=1;
+    int i,j,tt;
+    is2[1]=1;
 
-	int count,max;
-	for(i=1;i<32;i++)
-	{
-		tt=1<<i;
-		if(tt>10000)
-			break;
-		else
-			is2[tt]=i+1;
-	}
-	for(j=1;j<10001;j++)
-	{
-		i=j;
-		count=0;
-		while(i>=10000 || is2[i]==0)
-		{
-			if(i&1)
-				i=i*3+1;
-			else
-				i>>=1;
-			count++;
-		}
-		a[j]=count+is2[i];
-	}
-	while(~scanf("%d%d",&i,&j))
-	{
-		printf("%d %d ",i,j);
-		max=0;
-		for(;i<=j;i++)
-		{
-			if(a[i]>max)
-				max=a[i];
-		}
-		printf("%d\n",max);
-	}
-	return 0;
+    int count,max;
+    for(i=1;i<32;i++)
+    {
+        tt=1<<i;
+        if(tt>10000)
+            break;
+        else
+            is2[tt]=i+1;
+    }
+    for(j=1;j<10001;j++)
+    {
+        i=j;
+        count=0;
+        while(i>=10000 || is2[i]==0)
+        {
+            if(i&1)
+                i=i*3+1;
+            else
+                i>>=1;
+            count++;
+        }
+        a[j]=count+is2[i];
+    }
+    while(~scanf("%d%d",&i,&j))
+    {
+        printf("%d %d ",i,j);
+        max=0;
+        for(;i<=j;i++)
+        {
+            if(a[i]>max)
+                max=a[i];
+        }
+        printf("%d\n",max);
+    }
+    return 0;
 }

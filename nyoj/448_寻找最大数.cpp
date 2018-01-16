@@ -15,11 +15,14 @@
 
 
 ----------sample_input----------
-2
-92081346718538 10
+2
+
+92081346718538 10
+
 1008908 5
 ----------sample_putput----------
-9888
+9888
+
 98
 */
 /////////////////////////////
@@ -28,39 +31,39 @@
 #include<math.h>
 int main()
 {
-	char s1[105];
-	char s2[105];
-	int T;
-	int m;
-	int i,j,loc;
-	int len;
-	int t;
-	scanf("%d",&T);
-	while(T--)
-	{
-		scanf("%s %d",s1,&m);
-		len=strlen(s1);
-		j=0;
-		loc=0;
-		for(t=m;t<=len-1;t++)
-		{
-			s2[j]=s1[loc];
-			for(i=loc;i<=t;i++)
-			{
-				if(s1[i]>s2[j])
-				{
-					s2[j]=s1[i];
-					loc=i;
-				}					
+    char s1[105];
+    char s2[105];
+    int T;
+    int m;
+    int i,j,loc;
+    int len;
+    int t;
+    scanf("%d",&T);
+    while(T--)
+    {
+        scanf("%s %d",s1,&m);
+        len=strlen(s1);
+        j=0;
+        loc=0;
+        for(t=m;t<=len-1;t++)
+        {
+            s2[j]=s1[loc];
+            for(i=loc;i<=t;i++)
+            {
+                if(s1[i]>s2[j])
+                {
+                    s2[j]=s1[i];
+                    loc=i;
+                }                    
 
-			}
-			loc++;
-			j++;
-		}
-		s2[j]='\0';
-		printf("%s\n",s2);
-	}
+            }
+            loc++;
+            j++;
+        }
+        s2[j]='\0';
+        printf("%s\n",s2);
+    }
 
 
-	return 0;
+    return 0;
 }

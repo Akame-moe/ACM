@@ -16,8 +16,10 @@
 
 
 ----------sample_input----------
-1
-3 
+1
+
+3 
+
 1 2 9
 ----------sample_putput----------
 15
@@ -32,36 +34,36 @@
 using namespace std;
 int main()
 {
-	multiset<int> v;
-	multiset<int >::iterator pos;
-	int N;
-	scanf("%d",&N);
-	while(N--)
-	{
-		int n,i,m;
-		int a,b;
-		scanf("%d",&n);
-		for(i=0;i<n;i++)
-		{ 
-			scanf("%d",&m);
-			v.insert(m);
-		}
-		long long count=0;
-		while(v.size()!=1)
-		{
-			//pos=min_element(v.begin(),v.end());
-			pos=v.begin();
-			a=*pos;
-			v.erase(pos);
-			//pos=min_element(v.begin(),v.end());
-			pos=v.begin();
-			b=*pos;
-			v.erase(pos);
-			count+=a+b;
-			v.insert(a+b);
-		}
-		v.clear();
-		printf("%lld\n",count);
-	}
-	return 0;
+    multiset<int> v;
+    multiset<int >::iterator pos;
+    int N;
+    scanf("%d",&N);
+    while(N--)
+    {
+        int n,i,m;
+        int a,b;
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+        { 
+            scanf("%d",&m);
+            v.insert(m);
+        }
+        long long count=0;
+        while(v.size()!=1)
+        {
+            //pos=min_element(v.begin(),v.end());
+            pos=v.begin();
+            a=*pos;
+            v.erase(pos);
+            //pos=min_element(v.begin(),v.end());
+            pos=v.begin();
+            b=*pos;
+            v.erase(pos);
+            count+=a+b;
+            v.insert(a+b);
+        }
+        v.clear();
+        printf("%lld\n",count);
+    }
+    return 0;
 }  

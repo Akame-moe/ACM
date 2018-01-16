@@ -25,14 +25,20 @@
 
 
 ----------sample_input----------
-I LOVE YOU
-HELLO WORLD
-444 0 555 666 888 33 0 999 666 88
+I LOVE YOU
+
+HELLO WORLD
+
+444 0 555 666 888 33 0 999 666 88
+
 44 33 555 555 666 0 9 666 777 555 3
 ----------sample_putput----------
-444 0 555 666 888 33 0 999 666 88
-44 33 555 555 666 0 9 666 777 555 3
-I LOVE YOU
+444 0 555 666 888 33 0 999 666 88
+
+44 33 555 555 666 0 9 666 777 555 3
+
+I LOVE YOU
+
 HELLO WORLD
 */
 /////////////////////////////
@@ -40,75 +46,75 @@ HELLO WORLD
 #include<string.h>
 int main()
 {
-	char s[1005];
-	int i,count;
-	int t,j;
-	while(gets(s)!=NULL)
-	{
-		if(s[0]>='0' && s[0]<='9')
-		{
-			i=0;
-			
-			while(1)
-			{
-				count=0;
-				while(s[i]==s[++i])
-					count++;
-				switch(s[i-1]){
-					case '0':printf(" ");break;
-					case '2':printf("%c",'A'+count);break;
-					case '3':printf("%c",'D'+count);break;
-					case '4':printf("%c",'G'+count);break;
-					case '5':printf("%c",'J'+count);break;
-					case '6':printf("%c",'M'+count);break;
-					case '7':printf("%c",'P'+count);break;
-					case '8':printf("%c",'T'+count);break;
-					case '9':printf("%c",'W'+count);break;
-				}
-				if(s[i]==' ')
-					++i;
-				if(s[i]=='\0')
-					break;
-			}
-			printf("\n");
-		}
-		else
-		{
-			i=0;
-			while(1)
-			{
-				if(s[i]=='\0')
-					break;
-				else
-				{
-					t=s[i++]-'A';
-					if(t>=0 && t<=15)
-					{
-						for(j=0;j<=(t%3);j++)
-							printf("%d",(t/3)+2);
-					}
-					else if(t>=16 && t<=18)
-					{
-						for(j=0;j<=t-15;j++)
-							printf("7");
-					}
-					else if(t>=19 && t<=21)
-					{
-						for(j=0;j<=t-19;j++)
-							printf("8");
-					}
-					else if(t>=22 && t<=25)
-					{
-						for(j=0;j<=t-22;j++)
-							printf("9");
-					}
-					else
-						printf("0");
-				}
-				printf(" ");				 
-			}
-			printf("\n");
-		}
-	}
-	return 0;
+    char s[1005];
+    int i,count;
+    int t,j;
+    while(gets(s)!=NULL)
+    {
+        if(s[0]>='0' && s[0]<='9')
+        {
+            i=0;
+            
+            while(1)
+            {
+                count=0;
+                while(s[i]==s[++i])
+                    count++;
+                switch(s[i-1]){
+                    case '0':printf(" ");break;
+                    case '2':printf("%c",'A'+count);break;
+                    case '3':printf("%c",'D'+count);break;
+                    case '4':printf("%c",'G'+count);break;
+                    case '5':printf("%c",'J'+count);break;
+                    case '6':printf("%c",'M'+count);break;
+                    case '7':printf("%c",'P'+count);break;
+                    case '8':printf("%c",'T'+count);break;
+                    case '9':printf("%c",'W'+count);break;
+                }
+                if(s[i]==' ')
+                    ++i;
+                if(s[i]=='\0')
+                    break;
+            }
+            printf("\n");
+        }
+        else
+        {
+            i=0;
+            while(1)
+            {
+                if(s[i]=='\0')
+                    break;
+                else
+                {
+                    t=s[i++]-'A';
+                    if(t>=0 && t<=15)
+                    {
+                        for(j=0;j<=(t%3);j++)
+                            printf("%d",(t/3)+2);
+                    }
+                    else if(t>=16 && t<=18)
+                    {
+                        for(j=0;j<=t-15;j++)
+                            printf("7");
+                    }
+                    else if(t>=19 && t<=21)
+                    {
+                        for(j=0;j<=t-19;j++)
+                            printf("8");
+                    }
+                    else if(t>=22 && t<=25)
+                    {
+                        for(j=0;j<=t-22;j++)
+                            printf("9");
+                    }
+                    else
+                        printf("0");
+                }
+                printf(" ");                 
+            }
+            printf("\n");
+        }
+    }
+    return 0;
 }

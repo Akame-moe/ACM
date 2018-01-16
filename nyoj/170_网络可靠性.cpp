@@ -23,13 +23,20 @@ A公司是全球依靠的互联网解决方案提供商，也是2010年世博会
 
 
 ----------sample_input----------
-8
-1 3
-3 2
-5 3
-5 4 
-5 6
-2 7
+8
+
+1 3
+
+3 2
+
+5 3
+
+5 4 
+
+5 6
+
+2 7
+
 2 8
 ----------sample_putput----------
 3
@@ -41,25 +48,25 @@ using namespace std;
 vector <int> v[10005];
 int main()
 {
-	int  N;
-	int n1,n2;
-	while(~scanf("%d",&N))
-	{
-		int i;
-		for(i=0;i<N-1;i++)
-		{
-			scanf("%d%d",&n1,&n2);
-			v[n1].push_back(n2);
-			v[n2].push_back(n1);
-		}
-		int count=0;
-		for(i=1;i<=N;i++)
-		{
-			if(v[i].size()==1)
-				count++;
-			v[i].clear();
-		}
-		printf("%d\n",count%2?(count/2+1):count/2);
-	}
-	return 0;
+    int  N;
+    int n1,n2;
+    while(~scanf("%d",&N))
+    {
+        int i;
+        for(i=0;i<N-1;i++)
+        {
+            scanf("%d%d",&n1,&n2);
+            v[n1].push_back(n2);
+            v[n2].push_back(n1);
+        }
+        int count=0;
+        for(i=1;i<=N;i++)
+        {
+            if(v[i].size()==1)
+                count++;
+            v[i].clear();
+        }
+        printf("%d\n",count%2?(count/2+1):count/2);
+    }
+    return 0;
 }

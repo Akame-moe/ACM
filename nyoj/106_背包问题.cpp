@@ -13,10 +13,14 @@
 
 
 ----------sample_input----------
-1
-3 15
-5 10
-2 8
+1
+
+3 15
+
+5 10
+
+2 8
+
 3 9
 ----------sample_putput----------
 65
@@ -26,71 +30,71 @@
 #define max(a,b) a>b?a:b
 int main()
 {
-	int n,s,m,v,w,i,j,k;
-	scanf("%d",&n);
-	while(n--)
-	{
-		int DP[25]={0};
-		scanf("%d %d",&s,&m);
-		for(i=0;i<s;i++)
-		{
-			scanf("%d %d",&v,&w);
-			for(k=0;k<w;k++)
-			for(j=m;j>0;j--)
-				DP[j]=max(DP[j-1]+v,DP[j]);
-		}
-		printf("%d\n",DP[m]);
-	}
+    int n,s,m,v,w,i,j,k;
+    scanf("%d",&n);
+    while(n--)
+    {
+        int DP[25]={0};
+        scanf("%d %d",&s,&m);
+        for(i=0;i<s;i++)
+        {
+            scanf("%d %d",&v,&w);
+            for(k=0;k<w;k++)
+            for(j=m;j>0;j--)
+                DP[j]=max(DP[j-1]+v,DP[j]);
+        }
+        printf("%d\n",DP[m]);
+    }
 }
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
 struct Good
 {
-	int w;
-	int v;
+    int w;
+    int v;
 };
 int comp(const void *a,const void *b)
 {
-	struct Good *c=(Good *)a;
-	struct Good *d=(Good *)b;
-	return d->v-c->v;
+    struct Good *c=(Good *)a;
+    struct Good *d=(Good *)b;
+    return d->v-c->v;
 }
 int main()
 {
-	int N;
-	int s,m;
-	int i;
-	int sum;
-	struct Good a[12];
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%d%d",&s,&m);
-		for(i=0;i<s;i++)
-		{
-			scanf("%d%d",&a[i].v,&a[i].w);
-		}
-		qsort(a,s,sizeof(a[0]),comp);
-		sum=0;
-		for(i=0;i<s;i++)
-		{
-			m-=a[i].w;
-			sum+=(a[i].v*a[i].w);
-			if(m<0)
-				break;
-		}
-		if(m<0)
-		{
-			m+=a[i].w;
-			sum-=(a[i].v*a[i].w);
-			sum+=m*a[i].v;
-		}
-		
-		printf("%d\n",sum);
-	}
+    int N;
+    int s,m;
+    int i;
+    int sum;
+    struct Good a[12];
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%d%d",&s,&m);
+        for(i=0;i<s;i++)
+        {
+            scanf("%d%d",&a[i].v,&a[i].w);
+        }
+        qsort(a,s,sizeof(a[0]),comp);
+        sum=0;
+        for(i=0;i<s;i++)
+        {
+            m-=a[i].w;
+            sum+=(a[i].v*a[i].w);
+            if(m<0)
+                break;
+        }
+        if(m<0)
+        {
+            m+=a[i].w;
+            sum-=(a[i].v*a[i].w);
+            sum+=m*a[i].v;
+        }
+        
+        printf("%d\n",sum);
+    }
 
 
 
-	return 0;
+    return 0;
 }

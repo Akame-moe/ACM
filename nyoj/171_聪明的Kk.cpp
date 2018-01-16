@@ -21,9 +21,12 @@
 
 
 ----------sample_input----------
-3 4
-3 1 2 8
-5 3 4 6
+3 4
+
+3 1 2 8
+
+5 3 4 6
+
 1 0 2 3
 ----------sample_putput----------
 24
@@ -33,23 +36,23 @@
 #define max(a,b) (a>b?a:b)
 int main()
 {
-	
-	int i,j,n,m;
-	while(~scanf("%d %d",&n,&m))
-	{
-		int coin;
-		int f[25][25]={0};
-	//	for(i=0;i<25;i++)
-	//		f[i][0]=f[0][i]=0;
-		for(i=1;i<=n;i++)
-		{
-			for(j=1;j<=m;j++)
-			{
-				scanf("%d",&coin);
-				f[i][j]=max(f[i-1][j],f[i][j-1])+coin;
-			}
-		}
-		printf("%d\n",f[n][m]);
-	}
-	return 0;
+    
+    int i,j,n,m;
+    while(~scanf("%d %d",&n,&m))
+    {
+        int coin;
+        int f[25][25]={0};
+    //    for(i=0;i<25;i++)
+    //        f[i][0]=f[0][i]=0;
+        for(i=1;i<=n;i++)
+        {
+            for(j=1;j<=m;j++)
+            {
+                scanf("%d",&coin);
+                f[i][j]=max(f[i-1][j],f[i][j-1])+coin;
+            }
+        }
+        printf("%d\n",f[n][m]);
+    }
+    return 0;
 }

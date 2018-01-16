@@ -16,13 +16,18 @@ Dr.Kong设计了一个聪明的机器人卡多，卡多会对电子表格中的�
 
 
 ----------sample_input----------
-3
-27
-G
+3
+
+27
+
+G
+
 AA
 ----------sample_putput----------
-AA
-7
+AA
+
+7
+
 27
 */
 /////////////////////////////
@@ -35,51 +40,51 @@ using namespace std;
 #define jz 26
 int main()
 {
-	char s[15];
-	char sss[]={"ABCDEFGHIJKLMNOPQRSTUVWXYZ"};
-	int N;
-	int b[10];
-	int i=0;
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%s",s);
-		int len=strlen(s);
-		if(s[0]>='0' && s[0]<='9')
-		{
-			int num=0;
-			
-			num=atoi(s);
-			i=0;
-			while(num>0)
-			{
-				b[i++]=(--num)%jz;
-				num/=jz;
+    char s[15];
+    char sss[]={"ABCDEFGHIJKLMNOPQRSTUVWXYZ"};
+    int N;
+    int b[10];
+    int i=0;
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%s",s);
+        int len=strlen(s);
+        if(s[0]>='0' && s[0]<='9')
+        {
+            int num=0;
+            
+            num=atoi(s);
+            i=0;
+            while(num>0)
+            {
+                b[i++]=(--num)%jz;
+                num/=jz;
 
-			}
-			while(--i>=0)
-			{
-				printf("%c",sss[b[i]]);
+            }
+            while(--i>=0)
+            {
+                printf("%c",sss[b[i]]);
 
-			}
-			printf("\n");
-		}
-		else
-		{
-			int num=0;
-			int ch;
-			
-			for(i=0;i<len;i++)
-			{
-				ch=int(s[i]-'A');
-				num+=(int)pow(26,len-i-1)*(ch+1);
-			}
-			printf("%d\n",num);
+            }
+            printf("\n");
+        }
+        else
+        {
+            int num=0;
+            int ch;
+            
+            for(i=0;i<len;i++)
+            {
+                ch=int(s[i]-'A');
+                num+=(int)pow(26,len-i-1)*(ch+1);
+            }
+            printf("%d\n",num);
 
 
-		}
-	}
-	return 0;
+        }
+    }
+    return 0;
 }
 
 

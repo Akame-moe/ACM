@@ -56,22 +56,36 @@ No duplicates.
 
 
 ----------sample_input----------
-12
-4873279
-ITS-EASY
-888-4567
-3-10-10-10
-888-GLOP
-TUT-GLOP
-967-11-11
-310-GINO
-F101010
-888-1200
--4-8-7-3-2-7-9-
+12
+
+4873279
+
+ITS-EASY
+
+888-4567
+
+3-10-10-10
+
+888-GLOP
+
+TUT-GLOP
+
+967-11-11
+
+310-GINO
+
+F101010
+
+888-1200
+
+-4-8-7-3-2-7-9-
+
 487-3279
 ----------sample_putput----------
-310-1010 2
-487-3279 4
+310-1010 2
+
+487-3279 4
+
 888-4567 3
 */
 /////////////////////////////
@@ -82,75 +96,75 @@ F101010
 #include<string.h>
 int comp(const void *a,const void *b)
 {
-	return strcmp((char *)a,(char *)b);
+    return strcmp((char *)a,(char *)b);
 }
 int main()
 {
-	int N;
-	int t,ch;
-	int len,i,j;
-	char s[20];
-	char c;
-	int k,n;
-	int flag;
-	char a[100005][10];//存储电话号码	
-	while(~scanf("%d",&N))
-	{
-		fflush(stdin);
-		for(i=0;i<N;i++)
-		{
-			scanf("%s",s);
-			//fflush(stdin);
-			len=strlen(s);
-			t=0;
-			for(j=0;j<len;j++)//转化成号码
-			{
-				if(s[j]=='-')
-					continue;
-				else if(s[j]>='A' && s[j]<='Z')
-				{
-					ch=s[j]-'A';
-					if(ch>=0 && ch<=15)
-						a[i][t]=(ch/3)+2+'0';
-					else if(ch<=18)
-						a[i][t]='7';
-					else if(ch<=21)
-						a[i][t]='8';
-					else
-						a[i][t]='9';
-				}
-				else
-					a[i][t]=s[j];
-				//printf("[%c]",a[i][t]);
-				t++;
-				if(t==3)
-					a[i][t++]='-';
+    int N;
+    int t,ch;
+    int len,i,j;
+    char s[20];
+    char c;
+    int k,n;
+    int flag;
+    char a[100005][10];//存储电话号码    
+    while(~scanf("%d",&N))
+    {
+        fflush(stdin);
+        for(i=0;i<N;i++)
+        {
+            scanf("%s",s);
+            //fflush(stdin);
+            len=strlen(s);
+            t=0;
+            for(j=0;j<len;j++)//转化成号码
+            {
+                if(s[j]=='-')
+                    continue;
+                else if(s[j]>='A' && s[j]<='Z')
+                {
+                    ch=s[j]-'A';
+                    if(ch>=0 && ch<=15)
+                        a[i][t]=(ch/3)+2+'0';
+                    else if(ch<=18)
+                        a[i][t]='7';
+                    else if(ch<=21)
+                        a[i][t]='8';
+                    else
+                        a[i][t]='9';
+                }
+                else
+                    a[i][t]=s[j];
+                //printf("[%c]",a[i][t]);
+                t++;
+                if(t==3)
+                    a[i][t++]='-';
 
-			}
-			a[i][8]='\0';
-			//printf("\n");
-		}
-		flag=1;
-		qsort(a,N,sizeof(a[0]),comp);
-		for(i=1;i<N;i++)
-		{
-			if(!strcmp(a[i],a[i-1]))
-			{
-				j=i;
-				n=0;
-				while(!strcmp(a[j],a[j+1]))
-				{
-					j++;
-					n++;
-				}
-				i=j;
-				flag=0;
-				printf("%s %d\n",a[j],n+2);
-			}
+            }
+            a[i][8]='\0';
+            //printf("\n");
+        }
+        flag=1;
+        qsort(a,N,sizeof(a[0]),comp);
+        for(i=1;i<N;i++)
+        {
+            if(!strcmp(a[i],a[i-1]))
+            {
+                j=i;
+                n=0;
+                while(!strcmp(a[j],a[j+1]))
+                {
+                    j++;
+                    n++;
+                }
+                i=j;
+                flag=0;
+                printf("%s %d\n",a[j],n+2);
+            }
 
-		}
-		if(flag)
-		printf("\n");
-	}
-	return 0;
+        }
+        if(flag)
+        printf("\n");
+    }
+    return 0;
 }

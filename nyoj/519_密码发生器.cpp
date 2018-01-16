@@ -30,17 +30,26 @@ ming
 
 
 ----------sample_input----------
-5
-zhangfeng
-wangximing
-jiujingfazi
-woaibeijingtiananmen
+5
+
+zhangfeng
+
+wangximing
+
+jiujingfazi
+
+woaibeijingtiananmen
+
 haohaoxuexi
 ----------sample_putput----------
-772243
-344836
-297332
-716652
+772243
+
+344836
+
+297332
+
+716652
+
 875843
 */
 /////////////////////////////
@@ -50,36 +59,36 @@ haohaoxuexi
 using namespace std;
 int main()
 {
-	int trun(int);
-	int N;
-	char s[105];
-	int len,i;
-	scanf("%d",&N);
-	while(N--)
-	{
-		int a[6]={0};
-		scanf("%s",s);
-		len=strlen(s);
-		for(i=0;i<len;i++)
-		{
-			a[i%6]+=(int)s[i];
-		}
-		for(i=0;i<6;i++)
-			cout<<trun(a[i]);
-		cout<<endl;
-	}
-	return 0;
+    int trun(int);
+    int N;
+    char s[105];
+    int len,i;
+    scanf("%d",&N);
+    while(N--)
+    {
+        int a[6]={0};
+        scanf("%s",s);
+        len=strlen(s);
+        for(i=0;i<len;i++)
+        {
+            a[i%6]+=(int)s[i];
+        }
+        for(i=0;i<6;i++)
+            cout<<trun(a[i]);
+        cout<<endl;
+    }
+    return 0;
 }
 int trun(int n)
 {
-	int m=0;
-	while(n>0)
-	{
-		m+=n%10;
-		n/=10;
-	}
-	if(m>=10)
-		trun(m);
-	else
-		return m;
+    int m=0;
+    while(n>0)
+    {
+        m+=n%10;
+        n/=10;
+    }
+    if(m>=10)
+        trun(m);
+    else
+        return m;
 }

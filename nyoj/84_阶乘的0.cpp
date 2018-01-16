@@ -14,60 +14,71 @@
 
 
 ----------sample_input----------
-6
-3
-60
-100
-1024
-23456
+6
+
+3
+
+60
+
+100
+
+1024
+
+23456
+
 8735373
 ----------sample_putput----------
-0
-14
-24
-253
-5861
+0
+
+14
+
+24
+
+253
+
+5861
+
 2183837
 */
 /////////////////////////////
 #include<stdio.h>
  int main()
 {  
-	 int n;
-	 int m;
+     int n;
+     int m;
     int count=0; 
-	scanf("%d",&m);
-	while(m--)
-	{
-	scanf("%d",&n);
+    scanf("%d",&m);
+    while(m--)
+    {
+    scanf("%d",&n);
     while(n)  
     {  
         n/=5;  
         count+=n;  
     }  
     printf("%d\n", count);
-	}
-	return 0;
+    }
+    return 0;
 }     
 
    #include<stdio.h>
 int main()
 {
-	int count;
-	int n,t;
-	scanf("%d",&t);
-	while(t--)
-	{
-		scanf("%d",&n);
-		count=0;
-		while(n)
-		{
-			count+=n/5;
-			n/=5;
-		}
-		printf("%d\n",count);
-	}
-	return 0;
+    int count;
+    int n,t;
+    scanf("%d",&t);
+    while(t--)
+    {
+        scanf("%d",&n);
+        count=0;
+        while(n)
+        {
+            count+=n/5;
+            n/=5;
+        }
+        printf("%d\n",count);
+    }
+    return 0;
 } 
 
 #include <stdio.h>
@@ -75,25 +86,25 @@ int main()
 /*计算n!结尾零的个数，返回结尾零的个数。*/
 int CalZeroNum(int n)
 {
-	int num=0;//n!结尾零的个数
-	int b=1;//5的次方
-	while(b<=n)
-	{
-		b*=5;
-		num+=n/b;
+    int num=0;//n!结尾零的个数
+    int b=1;//5的次方
+    while(b<=n)
+    {
+        b*=5;
+        num+=n/b;
 
-	}
-	return num;//返回结尾零的个数
+    }
+    return num;//返回结尾零的个数
 }
 
 int  main()
 {
-	int n,T;
-	scanf("%d",&T);
-	while(T--)
-	{
-		scanf("%d",&n);
-		printf("%d\n",CalZeroNum(n));
-	}
-	return 0;
+    int n,T;
+    scanf("%d",&T);
+    while(T--)
+    {
+        scanf("%d",&n);
+        printf("%d\n",CalZeroNum(n));
+    }
+    return 0;
 }   

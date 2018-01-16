@@ -19,14 +19,20 @@
 
 
 ----------sample_input----------
-1
-00:12-12:12
-3
-00:12-13:14
-13:13-18:00
+1
+
+00:12-12:12
+
+3
+
+00:12-13:14
+
+13:13-18:00
+
 17:00-19:14
 ----------sample_putput----------
-1
+1
+
 2
 */
 /////////////////////////////
@@ -34,50 +40,50 @@
 #include<stdlib.h>
 struct T
 {
-	int lift;
-	int right;
+    int lift;
+    int right;
 }t[101];
 int comp(const void *a,const void *b)
 {
-	return (*(T*)a).right-(*(T*)b).right;
+    return (*(T*)a).right-(*(T*)b).right;
 }
 int main()
 {
-	
-	int h1,m1,h2,m2;
-	int n;
-	int i;
-	int count;
-	int flag;
-	while(scanf("%d",&n)!=EOF)
-	{
-		for(i=0;i<n;i++)
-		{
-			scanf("%d:%d-%d:%d",&h1,&m1,&h2,&m2);
-			t[i].lift=h1*60+m1;
-			t[i].right=h2*60+m2;
-			if(t[i].lift>t[i].right)
-			{
-				count=t[i].right;
-				t[i].right=t[i].lift;
-				t[i].lift=count;
-			}
+    
+    int h1,m1,h2,m2;
+    int n;
+    int i;
+    int count;
+    int flag;
+    while(scanf("%d",&n)!=EOF)
+    {
+        for(i=0;i<n;i++)
+        {
+            scanf("%d:%d-%d:%d",&h1,&m1,&h2,&m2);
+            t[i].lift=h1*60+m1;
+            t[i].right=h2*60+m2;
+            if(t[i].lift>t[i].right)
+            {
+                count=t[i].right;
+                t[i].right=t[i].lift;
+                t[i].lift=count;
+            }
 
-		}
-		qsort(t,n,sizeof(T),comp);
-		count=1;
-		flag=t[0].right;
-		for(i=1;i<n;i++)
-		{
-			if(flag<t[i].lift)
-			{
-				count++;
-				flag=t[i].right;
-			}
-		}
+        }
+        qsort(t,n,sizeof(T),comp);
+        count=1;
+        flag=t[0].right;
+        for(i=1;i<n;i++)
+        {
+            if(flag<t[i].lift)
+            {
+                count++;
+                flag=t[i].right;
+            }
+        }
 
-		printf("%d\n",count);
-	}
+        printf("%d\n",count);
+    }
 
-		return 0;
+        return 0;
 }

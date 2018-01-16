@@ -13,13 +13,18 @@
 
 
 ----------sample_input----------
-6 4
-23 34 46 768 343 343
+6 4
+
+23 34 46 768 343 343
+
 2 4 23 343
 ----------sample_putput----------
-NO
-NO
-YES
+NO
+
+NO
+
+YES
+
 YES
 */
 /////////////////////////////
@@ -29,23 +34,23 @@ YES
 int vis[MAXN] = {0} ;
 int main()
 {
-	int m , n , x ; 
-	int i ;
-	scanf("%d%d", &m , &n ) ;
-	for( i = 0 ; i < m ; ++i )
-	{
-		scanf("%d", &x ) ;
-		vis[ x / 32 ] |= 1 << x % 32 ;
-	}
-	for( i = 0 ; i < n ; ++i )
-	{
-		scanf("%d", &x ) ;
-		if( vis[ x / 32 ] & ( 1 << x % 32 ) )
-			printf("YES\n");
-		else
-			printf("NO\n");
-	}
-	return 0 ;
+    int m , n , x ; 
+    int i ;
+    scanf("%d%d", &m , &n ) ;
+    for( i = 0 ; i < m ; ++i )
+    {
+        scanf("%d", &x ) ;
+        vis[ x / 32 ] |= 1 << x % 32 ;
+    }
+    for( i = 0 ; i < n ; ++i )
+    {
+        scanf("%d", &x ) ;
+        if( vis[ x / 32 ] & ( 1 << x % 32 ) )
+            printf("YES\n");
+        else
+            printf("NO\n");
+    }
+    return 0 ;
 }  
 */
 /*
@@ -54,35 +59,35 @@ int main()
 int vis[N]={0};
 int main()
 {
-	int n,m,i,num;
-	char s[10];
-	scanf("%d",&n);
-	while(n--)
-	{
-		scanf("%s %d",s,&m);
-		if(s[0]=='A')
-		{
-			for(i=0;i<m;i++)
-			{
-				scanf("%d",&num);
-			
-				vis[num/32] |= 1<<num%32;
-			}
-		}
-		else
-		{
-			for(i=0;i<m;i++)
-			{
-				scanf("%d",&num);
-				if(vis[num/32] & (1<<num%32))
-					printf("YES\n");
-				else
-					printf("NO\n");
-			}
-		}
+    int n,m,i,num;
+    char s[10];
+    scanf("%d",&n);
+    while(n--)
+    {
+        scanf("%s %d",s,&m);
+        if(s[0]=='A')
+        {
+            for(i=0;i<m;i++)
+            {
+                scanf("%d",&num);
+            
+                vis[num/32] |= 1<<num%32;
+            }
+        }
+        else
+        {
+            for(i=0;i<m;i++)
+            {
+                scanf("%d",&num);
+                if(vis[num/32] & (1<<num%32))
+                    printf("YES\n");
+                else
+                    printf("NO\n");
+            }
+        }
 
-	}
-	return 0;
+    }
+    return 0;
 }     
 
 */

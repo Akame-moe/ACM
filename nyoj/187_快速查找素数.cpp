@@ -14,13 +14,18 @@
 
 
 ----------sample_input----------
-5
-10
-11
+5
+
+10
+
+11
+
 0
 ----------sample_putput----------
-2 3 5
-2 3 5 7
+2 3 5
+
+2 3 5 7
+
 2 3 5 7 11
 */
 /////////////////////////////
@@ -31,24 +36,24 @@ bool a[N];
 int main()
 {
  
-	int n,i,j;
-	memset(a,true,N);
-	for(i=2;i<N;i++)
-	{
-		 if(a[i])
-		 {
-			 for(j=2*i;j<=N;j+=i)
-				 a[j]=false;
-		 }
-	}
-	while( scanf("%d",&n),n!=0)
-	{
-		for(j=2;j<=n;j++)
-		{
-			if(a[j])
-				printf("%d ",j);
-		}
-		printf("\n");
-	}
-	return 0;
+    int n,i,j;
+    memset(a,true,N);
+    for(i=2;i<N;i++)
+    {
+         if(a[i])
+         {
+             for(j=2*i;j<=N;j+=i)
+                 a[j]=false;
+         }
+    }
+    while( scanf("%d",&n),n!=0)
+    {
+        for(j=2;j<=n;j++)
+        {
+            if(a[j])
+                printf("%d ",j);
+        }
+        printf("\n");
+    }
+    return 0;
 }        

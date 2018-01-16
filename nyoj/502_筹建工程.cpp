@@ -15,15 +15,22 @@
 
 
 ----------sample_input----------
-2
-3 3
-1 2 1
-1 3 2
-2 3 4
-1 3
+2
+
+3 3
+
+1 2 1
+
+1 3 2
+
+2 3 4
+
+1 3
+
 2 3 2
 ----------sample_putput----------
-3
+3
+
 No solution
 */
 /////////////////////////////
@@ -32,52 +39,52 @@ No solution
 int father[5005];
 struct P
 {
-	int v1,v2;
-	int val;
+    int v1,v2;
+    int val;
 }map[5005];
 int comp(const void *a,const void *b)
 {
-	P *c=(P *)a;
-	P *d=(P *)b;
-	return c->val-d->val;
+    P *c=(P *)a;
+    P *d=(P *)b;
+    return c->val-d->val;
 }
 int f(int x)
 {
-	return x==father[x]?x:(father[x]=f(father[x]));
+    return x==father[x]?x:(father[x]=f(father[x]));
 }
 int main()
 {
-	int T,N,M;
-	int i;
-	int sum;
-	scanf("%d",&T);
-	while(T--)
-	{
-		sum=0;
-		scanf("%d%d",&N,&M);
-		for(i=0;i<N;i++)
-			scanf("%d%d%d",&map[i].v1,&map[i].v2,&map[i].val);
-		qsort(map,N,sizeof(map[0]),comp);
-		int count=1;
-		for(i=1;i<=M;i++)
-			father[i]=i;
-		for(i=0;i<N;i++)
-		{
-			int t=f(map[i].v1);
-			int tt=f(map[i].v2);
-			if(t!=tt)
-			{
-				sum+=map[i].val;
-				father[t]=tt;
-				count++;
-			}
-			if(count==M)
-				break;
-		}
-		if(i==N)
-			printf("No solution\n");
-		else
-			printf("%d\n",sum);
-	}
-	return 0;
+    int T,N,M;
+    int i;
+    int sum;
+    scanf("%d",&T);
+    while(T--)
+    {
+        sum=0;
+        scanf("%d%d",&N,&M);
+        for(i=0;i<N;i++)
+            scanf("%d%d%d",&map[i].v1,&map[i].v2,&map[i].val);
+        qsort(map,N,sizeof(map[0]),comp);
+        int count=1;
+        for(i=1;i<=M;i++)
+            father[i]=i;
+        for(i=0;i<N;i++)
+        {
+            int t=f(map[i].v1);
+            int tt=f(map[i].v2);
+            if(t!=tt)
+            {
+                sum+=map[i].val;
+                father[t]=tt;
+                count++;
+            }
+            if(count==M)
+                break;
+        }
+        if(i==N)
+            printf("No solution\n");
+        else
+            printf("%d\n",sum);
+    }
+    return 0;
 }

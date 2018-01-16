@@ -17,48 +17,51 @@
 
 
 ----------sample_input----------
-2
-ABBAABBA
+2
+
+ABBAABBA
+
 A
 ----------sample_putput----------
-2
+2
+
 1
 */
 /////////////////////////////
 #include<stdio.h>
 int main()
 {
-	char s[100];
-	int N;
-	int len;
-	int i,j;
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%s",s);
-		len=strlen(s)-1;
-		while(len%2)
-		{
-			for(i=len/2,j=len/2+1;j-i<=len;)
-			{
-				if(s[i]==s[j])
-				{
-					i--;
-					j++;
-				}
-				else
-					break;
-			}
-			if(s[i+1]==s[j-1])
-				len/=2;
-			else
-				break;	
-		
-		}
-		printf("%d\n",len+1);	
+    char s[100];
+    int N;
+    int len;
+    int i,j;
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%s",s);
+        len=strlen(s)-1;
+        while(len%2)
+        {
+            for(i=len/2,j=len/2+1;j-i<=len;)
+            {
+                if(s[i]==s[j])
+                {
+                    i--;
+                    j++;
+                }
+                else
+                    break;
+            }
+            if(s[i+1]==s[j-1])
+                len/=2;
+            else
+                break;    
+        
+        }
+        printf("%d\n",len+1);    
 
-	
-	}
-		
-	return 0;
+    
+    }
+        
+    return 0;
 }

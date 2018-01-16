@@ -21,12 +21,16 @@
 
 
 ----------sample_input----------
-2
-3
+2
+
+3
+
 4
 ----------sample_putput----------
-2
-6
+2
+
+6
+
 12
 */
 /////////////////////////////
@@ -35,27 +39,27 @@ import java.math.*;
 import java.util.*;
 import java.io.*;
 public class Main{
-	public  static BigInteger  f(int n){
-		BigInteger temp=new BigInteger("1");	
-		BigInteger val=new BigInteger("1");
-		for(int i=1;i<=n;i++){
-			temp=((temp.multiply(val)).divide(temp.gcd(val)));
-		val=val.add(BigInteger.ONE);
-		}
-		return temp;
-	}
+    public  static BigInteger  f(int n){
+        BigInteger temp=new BigInteger("1");    
+        BigInteger val=new BigInteger("1");
+        for(int i=1;i<=n;i++){
+            temp=((temp.multiply(val)).divide(temp.gcd(val)));
+        val=val.add(BigInteger.ONE);
+        }
+        return temp;
+    }
 
-	public static void main(String args[])  throws Exception{
-		Scanner sc=new Scanner(System.in);
-		BigInteger a[] = new BigInteger[105];
-		for(int i=1;i<=102;i++){
-			a[i]=f(i);
-//			System.out.println(a[i]);
-		}
-		int n;
-		while(sc.hasNext()){
-			n=sc.nextInt();
-			System.out.println(a[n]);
-		}
-	}
+    public static void main(String args[])  throws Exception{
+        Scanner sc=new Scanner(System.in);
+        BigInteger a[] = new BigInteger[105];
+        for(int i=1;i<=102;i++){
+            a[i]=f(i);
+//            System.out.println(a[i]);
+        }
+        int n;
+        while(sc.hasNext()){
+            n=sc.nextInt();
+            System.out.println(a[n]);
+        }
+    }
 }

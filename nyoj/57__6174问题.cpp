@@ -16,7 +16,8 @@ b替换原来这个数，并且继续操作。例如，从1234出发，依次可
 
 
 ----------sample_input----------
-1
+1
+
 1234
 ----------sample_putput----------
 4
@@ -25,43 +26,43 @@ b替换原来这个数，并且继续操作。例如，从1234出发，依次可
 #include<stdio.h>
 int main()
 {
-	void sort(int a[]);
-	int N,i,count;
-	int a[4],b[4],num;
-	scanf("%d",&N);
-	while(N--)
-	{
-		count=0;
-		scanf("%d",&num);
-		do{
+    void sort(int a[]);
+    int N,i,count;
+    int a[4],b[4],num;
+    scanf("%d",&N);
+    while(N--)
+    {
+        count=0;
+        scanf("%d",&num);
+        do{
 
-			for(i=0;i<4;i++)
-			{
-				a[3-i]=num%10;
-				num/=10;
-			}
-			sort(a);
-			//for(i=0;i<4;i++)
-				//printf("%d",a[i]);
-			num=a[0]*1000+a[1]*100+a[2]*10+a[3]-a[3]*1000-a[2]*100-a[1]*10-a[0];
-			count++;
-		}while(num!=6174);
-		printf("%d\n",count+1);
-	}
-	return 0;
-	
+            for(i=0;i<4;i++)
+            {
+                a[3-i]=num%10;
+                num/=10;
+            }
+            sort(a);
+            //for(i=0;i<4;i++)
+                //printf("%d",a[i]);
+            num=a[0]*1000+a[1]*100+a[2]*10+a[3]-a[3]*1000-a[2]*100-a[1]*10-a[0];
+            count++;
+        }while(num!=6174);
+        printf("%d\n",count+1);
+    }
+    return 0;
+    
 }
 void sort(int a[])//大到小排序
 {
-	int i,j;
-	int temp;
-	for(i=0;i<3;i++)
-		for(j=i+1;j<4;j++)
-			if(a[i]<a[j])
-			{
-				temp=a[i];
-				a[i]=a[j];
-				a[j]=temp;
-			}
+    int i,j;
+    int temp;
+    for(i=0;i<3;i++)
+        for(j=i+1;j<4;j++)
+            if(a[i]<a[j])
+            {
+                temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
 return ;
 }        

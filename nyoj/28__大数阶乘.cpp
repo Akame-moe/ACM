@@ -21,30 +21,30 @@
 #include<stdio.h>
 int main()
 {
-	static int a[100000]; 
-	int n;
-	int jw;
-	int i,j;
-	int len=1;
-	int temp;
-	scanf("%d",&n);
-	a[1]=1;
-	for(i=2;i<=n;i++)
-	{
-		jw=0;
-		for(j=1;j<=len;j++)
-		{
-			temp=a[j]*i+jw;
-			a[j]=temp%10;
-			jw=temp/10;
-			if(j>=len && jw!=0)
-				len++;			
-		}
-		
-	}
-	for(i=len;i>=1;i--)
-		printf("%d",a[i]);
-	printf("\n");
-	return 0;
+    static int a[100000]; 
+    int n;
+    int jw;
+    int i,j;
+    int len=1;
+    int temp;
+    scanf("%d",&n);
+    a[1]=1;
+    for(i=2;i<=n;i++)
+    {
+        jw=0;
+        for(j=1;j<=len;j++)
+        {
+            temp=a[j]*i+jw;
+            a[j]=temp%10;
+            jw=temp/10;
+            if(j>=len && jw!=0)
+                len++;            
+        }
+        
+    }
+    for(i=len;i>=1;i--)
+        printf("%d",a[i]);
+    printf("\n");
+    return 0;
 }
         

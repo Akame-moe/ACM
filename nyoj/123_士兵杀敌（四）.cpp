@@ -21,13 +21,18 @@ QUERY 300 表示南将军在询问第300个人的军功是多少。
 
 
 ----------sample_input----------
-4 10
-ADD 1 3 10
-QUERY 3
-ADD 2 6 50
+4 10
+
+ADD 1 3 10
+
+QUERY 3
+
+ADD 2 6 50
+
 QUERY 3
 ----------sample_putput----------
-10
+10
+
 60
 */
 /////////////////////////////
@@ -36,50 +41,50 @@ int N;
 int c[1000005];
 int lowbit(int i)
 {
-	return i&(-i);
+    return i&(-i);
 }
 void updata(int i,int num)
 {
-	while(i<=N)
-	{
-		c[i]+=num;
-		i+=lowbit(i);
-	}
+    while(i<=N)
+    {
+        c[i]+=num;
+        i+=lowbit(i);
+    }
 
 }
 int S(int i)
 {
-	int sum=0;
-	while(i>0)
-	{
-		sum+=c[i];
-		i-=lowbit(i);
-	}
-	return sum;
+    int sum=0;
+    while(i>0)
+    {
+        sum+=c[i];
+        i-=lowbit(i);
+    }
+    return sum;
 }
 
 int main()
 {
-	int T;
-	int i;
-	int num,b,e;
-	scanf("%d%d",&T,&N);
-	char s[10];
-	while(T--)
-	{
-		scanf("%s",s);
-		if(s[0]=='A')
-		{
-			scanf("%d%d%d",&b,&e,&num);
-			updata(b,num);
-			updata(e+1,-num);
-		}
-		else
-		{
-			scanf("%d",&i);
-			printf("%d\n",S(i));
-		}
-	}
-	return 0;
+    int T;
+    int i;
+    int num,b,e;
+    scanf("%d%d",&T,&N);
+    char s[10];
+    while(T--)
+    {
+        scanf("%s",s);
+        if(s[0]=='A')
+        {
+            scanf("%d%d%d",&b,&e,&num);
+            updata(b,num);
+            updata(e+1,-num);
+        }
+        else
+        {
+            scanf("%d",&i);
+            printf("%d\n",S(i));
+        }
+    }
+    return 0;
 
 }

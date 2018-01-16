@@ -13,16 +13,26 @@
 
 
 ----------sample_input----------
-10
-boar
-pig
-sheep
-gazelle
-sheep
-sheep
-alpaca
-alpaca
-marmot
+10
+
+boar
+
+pig
+
+sheep
+
+gazelle
+
+sheep
+
+sheep
+
+alpaca
+
+alpaca
+
+marmot
+
 mole
 ----------sample_putput----------
 sheep 3
@@ -32,87 +42,87 @@ sheep 3
 #include<string.h>
 int main()
 {
-	int N;
-	char s[10005][15];
-	int i,max,j;
-	int t;
-	int loc;
-	while(~scanf("%d",&N))
-	{
-		static int a[10005];
-		t=-1;
-		for(i=0;i<N;i++)
-		{
-			scanf("%s",s[i]);
-			a[i]=1;
-			for(j=i-1;j>=0;j--)
-			{
-				if(strcmp(s[j],s[i])==0)
-				{
-					a[i]+=a[j];
-					break;
-				}
-			}
-		}
-		max=0;
-		loc=0;
-		for(j=0;j<N;j++)
-			if(a[j]>max)
-			{
-				max=a[j];
-				loc=j;
-			}
-		printf("%s %d\n",s[loc],max);
+    int N;
+    char s[10005][15];
+    int i,max,j;
+    int t;
+    int loc;
+    while(~scanf("%d",&N))
+    {
+        static int a[10005];
+        t=-1;
+        for(i=0;i<N;i++)
+        {
+            scanf("%s",s[i]);
+            a[i]=1;
+            for(j=i-1;j>=0;j--)
+            {
+                if(strcmp(s[j],s[i])==0)
+                {
+                    a[i]+=a[j];
+                    break;
+                }
+            }
+        }
+        max=0;
+        loc=0;
+        for(j=0;j<N;j++)
+            if(a[j]>max)
+            {
+                max=a[j];
+                loc=j;
+            }
+        printf("%s %d\n",s[loc],max);
 
-		
-	}
-	return 0;
+        
+    }
+    return 0;
 }
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
 struct node
 {
-	int num;
-	struct node *next[26];
+    int num;
+    struct node *next[26];
 };
 struct node *root;
 node *build()
 {
-	struct node *p=(node *)malloc(sizeof(node));
-	p->num=1;
-	for(int i=0;i<26;i++)
-		p->next[i]=NULL;
-	return p;
+    struct node *p=(node *)malloc(sizeof(node));
+    p->num=1;
+    for(int i=0;i<26;i++)
+        p->next[i]=NULL;
+    return p;
 }
 int insert(char *s)
 {
-	struct node *p=root;
-	int len=strlen(s);
-	for(int i=0;i<len;i++)
-	{
-	   if(p->next[s[i]-'a']==NULL)
-		   p->next[s[i]-'a']=build();
-	   p=p->next[s[i]-'a'];     
-	}
-	return p->num++;
+    struct node *p=root;
+    int len=strlen(s);
+    for(int i=0;i<len;i++)
+    {
+       if(p->next[s[i]-'a']==NULL)
+           p->next[s[i]-'a']=build();
+       p=p->next[s[i]-'a'];     
+    }
+    return p->num++;
 }
 int main()
 {
-	int  n,i,max=-1,a;
-	char str[10],s[10];
-	root=build();
-	scanf("%d",&n);
-    	for(i=0;i<n;i++)
-	{
-		scanf("%s",str);
-         	a=insert(str);
-		if(a>max)
-		{
-			max=a;
-            		strcpy(s,str); 
-		}
-	}
-	printf("%s %d\n",s,max);
-	return 0;
+    int  n,i,max=-1,a;
+    char str[10],s[10];
+    root=build();
+    scanf("%d",&n);
+        for(i=0;i<n;i++)
+    {
+        scanf("%s",str);
+             a=insert(str);
+        if(a>max)
+        {
+            max=a;
+                    strcpy(s,str); 
+        }
+    }
+    printf("%s %d\n",s,max);
+    return 0;
 }              

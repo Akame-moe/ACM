@@ -15,15 +15,24 @@
 ----------sample_input----------
 5 3
 ----------sample_putput----------
-543
-542
-541
-532
-531
-521
-432
-431
-421
+543
+
+542
+
+541
+
+532
+
+531
+
+521
+
+432
+
+431
+
+421
+
 321
 */
 /////////////////////////////
@@ -31,25 +40,25 @@
 int a[10];
 void p(int n,int r)
 {
-	int i,j;
-	 for(i=n;i>0;--i)
-	 {
-		a[r]=i;
-		if(r>1)
-			p(i-1,r-1);
-	   else
-		{
-			for(j=a[0];j>0;--j)
-				printf("%d",a[j]);
-			printf("\n");
-		}
-	 }
+    int i,j;
+     for(i=n;i>0;--i)
+     {
+        a[r]=i;
+        if(r>1)
+            p(i-1,r-1);
+       else
+        {
+            for(j=a[0];j>0;--j)
+                printf("%d",a[j]);
+            printf("\n");
+        }
+     }
 }
 int main()
 {
-	int n,r;
-	scanf("%d%d",&n,&r);
-	a[0]=r;
+    int n,r;
+    scanf("%d%d",&n,&r);
+    a[0]=r;
     p(n,r);
-	return 0;
+    return 0;
 }

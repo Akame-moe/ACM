@@ -16,12 +16,16 @@
 
 
 ----------sample_input----------
-3 2
-0 0 1
-5 2
+3 2
+
+0 0 1
+
+5 2
+
 0 1 2 4 5
 ----------sample_putput----------
-3
+3
+
 3
 */
 /////////////////////////////
@@ -31,29 +35,29 @@
 int a[M];
 int main()
 {
-	int n,m;
-	while(~scanf("%d%d",&n,&m))
-	{
-		memset(a,0,M);
-		int i,j;
-		for(i=0;i<n;i++)
-		{
-			scanf("%d",&j);
-			a[j]++;
-		}
-		int sum=0;
-		for(i=0;i<=m;i++)
-			sum+=a[i];
-		int max=sum;
-		for(i=0;i<M-m;i++)
-		{
-			sum=sum-a[i]+a[i+m+1];
-			if(sum>max)
-				max=sum;
+    int n,m;
+    while(~scanf("%d%d",&n,&m))
+    {
+        memset(a,0,M);
+        int i,j;
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&j);
+            a[j]++;
+        }
+        int sum=0;
+        for(i=0;i<=m;i++)
+            sum+=a[i];
+        int max=sum;
+        for(i=0;i<M-m;i++)
+        {
+            sum=sum-a[i]+a[i+m+1];
+            if(sum>max)
+                max=sum;
 
-		}
-		printf("%d\n",max);
+        }
+        printf("%d\n",max);
 
-	}
-	return 0;
+    }
+    return 0;
 }

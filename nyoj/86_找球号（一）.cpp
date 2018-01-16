@@ -13,13 +13,18 @@
 
 
 ----------sample_input----------
-6 4
-23 34 46 768 343 343
+6 4
+
+23 34 46 768 343 343
+
 2 4 23 343
 ----------sample_putput----------
-NO
-NO
-YES
+NO
+
+NO
+
+YES
+
 YES
 */
 /////////////////////////////
@@ -28,25 +33,25 @@ YES
 using namespace std;
 int main()
 {
-	set< int >ss;
-	int m,n;
-	int a;
-	int b[1000005];
-	scanf("%d%d",&n,&m);
-	while(n--)
-	{
-		scanf("%d",&a);
-		ss.insert(a);
-	}
-	for(a=1;a<=m;a++)
-		scanf("%d",&b[a]);
-	for(a=1;a<=m;a++)
-	{
-		if(ss.find(b[a])!=ss.end())
-			printf("YES\n");
-		else
-			printf("NO\n");
-	}
+    set< int >ss;
+    int m,n;
+    int a;
+    int b[1000005];
+    scanf("%d%d",&n,&m);
+    while(n--)
+    {
+        scanf("%d",&a);
+        ss.insert(a);
+    }
+    for(a=1;a<=m;a++)
+        scanf("%d",&b[a]);
+    for(a=1;a<=m;a++)
+    {
+        if(ss.find(b[a])!=ss.end())
+            printf("YES\n");
+        else
+            printf("NO\n");
+    }
 
-	return 0;
+    return 0;
 }        

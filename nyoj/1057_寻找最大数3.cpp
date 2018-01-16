@@ -15,12 +15,16 @@
 
 
 ----------sample_input----------
-1990 1
-100 0
+1990 1
+
+100 0
+
 9090000078001234 6
 ----------sample_putput----------
-9190
-100
+9190
+
+100
+
 9907000008001234
 */
 /////////////////////////////
@@ -30,34 +34,34 @@ char s[20];
 void Swap(int ,int);
 int main()
 {
-	int k,len,i,j,max;
-	while(~scanf("%s%d",s,&k))
-	{
-		len=strlen(s);
-		for(i=0;i<len;i++)
-		{
-			max=i;
-			for(j=1;j<=k && i+j<len;j++)
-			{
-				if(s[max]<s[i+j])
-					max=i+j;
-			}
-			if(i!=max)
-			{
-				Swap(i,max);
-				k-=(max-i);
-			}
-		}
-		printf("%s\n",s);
-	}
-	return 0;
+    int k,len,i,j,max;
+    while(~scanf("%s%d",s,&k))
+    {
+        len=strlen(s);
+        for(i=0;i<len;i++)
+        {
+            max=i;
+            for(j=1;j<=k && i+j<len;j++)
+            {
+                if(s[max]<s[i+j])
+                    max=i+j;
+            }
+            if(i!=max)
+            {
+                Swap(i,max);
+                k-=(max-i);
+            }
+        }
+        printf("%s\n",s);
+    }
+    return 0;
 }
 void Swap(int i,int j)
 {
-	char temp=s[j];
-	for(;j>i;j--)
-	{
-		s[j]=s[j-1];
-	}
-	s[i]=temp;
+    char temp=s[j];
+    for(;j>i;j--)
+    {
+        s[j]=s[j-1];
+    }
+    s[i]=temp;
 }

@@ -16,10 +16,12 @@
 
 
 ----------sample_input----------
-1 1 1 1
+1 1 1 1
+
 2 2 2 2
 ----------sample_putput----------
-0.000
+0.000
+
 0.667
 */
 /////////////////////////////
@@ -30,14 +32,14 @@
 using namespace std;
 int main()
  {
-	double k, a, b, v;
-	while (~scanf("%lf%lf%lf%lf",&k,&a,&b,&v))
-	{
-		double d, c, x;
-		d = fabs((b - a * k)*1.0 / sqrt(1 + k * k));
-		c = sqrt(a * a + b * b - d * d);
-		x = (d * v)*1.0 / c;
-		printf ("%.3lf\n", x); 
-	}
-	return 0;
+    double k, a, b, v;
+    while (~scanf("%lf%lf%lf%lf",&k,&a,&b,&v))
+    {
+        double d, c, x;
+        d = fabs((b - a * k)*1.0 / sqrt(1 + k * k));
+        c = sqrt(a * a + b * b - d * d);
+        x = (d * v)*1.0 / c;
+        printf ("%.3lf\n", x); 
+    }
+    return 0;
 }        

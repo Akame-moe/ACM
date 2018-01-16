@@ -15,15 +15,22 @@
 
 
 ----------sample_input----------
-2
-4
-1 2 3 4
-1 2 3 4
-4
-4 3 2 1
+2
+
+4
+
+1 2 3 4
+
+1 2 3 4
+
+4
+
+4 3 2 1
+
 1 2 3 4
 ----------sample_putput----------
-No
+No
+
 Yes
 */
 /////////////////////////////
@@ -33,75 +40,75 @@ Yes
 using namespace std;
 int main()
 {
-	int a[5005],b[5005];
-	
-	int N;
-	stack<int> v;
-	scanf("%d",&N);
-	while(N--)
-	{
-		int vis[10005]={0};
-		int n,i;
-		scanf("%d",&n);
-		for(i=0;i<n;i++)
-			scanf("%d",&a[i]);
-		for(i=0;i<n;i++)
-			scanf("%d",&b[i]);
-		int j=0;
-		int count1=0,count2=0;
-		for(i=0;i<n;i++)
-		{
-			if(v.empty())
-			{
-				vis[a[i]]=1;
-				v.push(a[i]);
-			}
-			else
-			{
-				if(vis[a[i]])
-				{
-					while(v.top()!=a[i])
-					{
-						vis[v.top()]=0;
-						v.pop();
-						count1++;
-					}
-					vis[v.top()]=0;
-					v.pop();
-					count1++;
-				}
-				else
-				{v.push(a[i]);	vis[a[i]]=1;}
-			}
-			if(v.empty())
-			{
-				vis[b[i]]=1;
-				v.push(b[i]);
-			}
-			else
-			{
-				if(vis[b[i]])
-				{
-					while(v.top()!=b[i])
-					{
-						vis[v.top()]=0;
-						v.pop();
-						count2++;
-					}
-					vis[v.top()]=0;
-					v.pop();
-					count2++;
-				}
-				else
-				{v.push(b[i]);	vis[b[i]]=1;}
-			}
+    int a[5005],b[5005];
+    
+    int N;
+    stack<int> v;
+    scanf("%d",&N);
+    while(N--)
+    {
+        int vis[10005]={0};
+        int n,i;
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+            scanf("%d",&a[i]);
+        for(i=0;i<n;i++)
+            scanf("%d",&b[i]);
+        int j=0;
+        int count1=0,count2=0;
+        for(i=0;i<n;i++)
+        {
+            if(v.empty())
+            {
+                vis[a[i]]=1;
+                v.push(a[i]);
+            }
+            else
+            {
+                if(vis[a[i]])
+                {
+                    while(v.top()!=a[i])
+                    {
+                        vis[v.top()]=0;
+                        v.pop();
+                        count1++;
+                    }
+                    vis[v.top()]=0;
+                    v.pop();
+                    count1++;
+                }
+                else
+                {v.push(a[i]);    vis[a[i]]=1;}
+            }
+            if(v.empty())
+            {
+                vis[b[i]]=1;
+                v.push(b[i]);
+            }
+            else
+            {
+                if(vis[b[i]])
+                {
+                    while(v.top()!=b[i])
+                    {
+                        vis[v.top()]=0;
+                        v.pop();
+                        count2++;
+                    }
+                    vis[v.top()]=0;
+                    v.pop();
+                    count2++;
+                }
+                else
+                {v.push(b[i]);    vis[b[i]]=1;}
+            }
 
 
-		}
-		while(!v.empty())
-			v.pop();
-		printf("%s\n",count1>=count2?"Yes":"No");
+        }
+        while(!v.empty())
+            v.pop();
+        printf("%s\n",count1>=count2?"Yes":"No");
 
-	}
-	return 0;
+    }
+    return 0;
 }

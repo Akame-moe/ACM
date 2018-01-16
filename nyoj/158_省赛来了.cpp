@@ -56,20 +56,20 @@ int main()
 #include<math.h>
 int main()
 {
-	int fun(int n);
-	int n,m;
-	while(scanf("%d%d",&m,&n)!=EOF)
-	{
-		//printf("%d   ",(int)pow(fun(n),m/n));
-		printf("%d\n",(fun(m)/(int)pow(fun(n),m/n))%2013);
-	}
-		
-	return 0;
+    int fun(int n);
+    int n,m;
+    while(scanf("%d%d",&m,&n)!=EOF)
+    {
+        //printf("%d   ",(int)pow(fun(n),m/n));
+        printf("%d\n",(fun(m)/(int)pow(fun(n),m/n))%2013);
+    }
+        
+    return 0;
 }     
 int fun(int n)
 {
-	if(n==1)
-		return 1;
-	else
-		return n*fun(n-1);
+    if(n==1)
+        return 1;
+    else
+        return n*fun(n-1);
 }      

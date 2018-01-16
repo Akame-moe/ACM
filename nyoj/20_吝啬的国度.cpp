@@ -14,16 +14,26 @@
 
 
 ----------sample_input----------
-1
-10 1
-1 9
-1 8
-8 10
-10 3
-8 6
-1 2
-10 4
-9 5
+1
+
+10 1
+
+1 9
+
+1 8
+
+8 10
+
+10 3
+
+8 6
+
+1 2
+
+10 4
+
+9 5
+
 3 7
 ----------sample_putput----------
 -1 1 10 10 9 8 3 1 1 8
@@ -42,56 +52,56 @@ void bfs(int);
 int vis[100002];
 int main()
 {
-	int M;
-	int N,S;
-	int i,n1,n2;
-	scanf("%d",&M);
-	while(M--)
-	{
-		memset(vis,0,sizeof(vis));
-		scanf("%d %d",&N,&S);
-		for(i=1;i<N;i++)
-		{
-			scanf("%d %d",&n1,&n2);
-			v[n1].push_back(n2);
-			v[n2].push_back(n1);
-		}
-		bfs(S);
-		for(i=1;i<=N;i++)
-			printf("%d ",i==S?-1:L[i]);
-		printf("\n");
-		for(i=1;i<=N;i++)
-			v[i].clear();
+    int M;
+    int N,S;
+    int i,n1,n2;
+    scanf("%d",&M);
+    while(M--)
+    {
+        memset(vis,0,sizeof(vis));
+        scanf("%d %d",&N,&S);
+        for(i=1;i<N;i++)
+        {
+            scanf("%d %d",&n1,&n2);
+            v[n1].push_back(n2);
+            v[n2].push_back(n1);
+        }
+        bfs(S);
+        for(i=1;i<=N;i++)
+            printf("%d ",i==S?-1:L[i]);
+        printf("\n");
+        for(i=1;i<=N;i++)
+            v[i].clear();
 
-	}
-	return 0;
+    }
+    return 0;
 }
 void bfs(int S)
 {
-	int cur;
-	Q.push(S);
-	while(!Q.empty())
-	{
-		cur=Q.front();
-		Q.pop();
-	
-		if(!v[cur].empty() && !vis[cur])
-		{
-			vis[cur]=1;// 当前城市访问过
-			for(pos=v[cur].begin();pos!=v[cur].end();pos++)
-			{
-				if(!vis[*pos])
-				{
-					L[*pos]=cur;
-				//	printf("%d->%d\n",cur,*pos);
-					Q.push(*pos);
-				}
-			}
-		
-		}
-		
-	}
-	while(!Q.empty())
-		Q.pop();
-	return ;
+    int cur;
+    Q.push(S);
+    while(!Q.empty())
+    {
+        cur=Q.front();
+        Q.pop();
+    
+        if(!v[cur].empty() && !vis[cur])
+        {
+            vis[cur]=1;// 当前城市访问过
+            for(pos=v[cur].begin();pos!=v[cur].end();pos++)
+            {
+                if(!vis[*pos])
+                {
+                    L[*pos]=cur;
+                //    printf("%d->%d\n",cur,*pos);
+                    Q.push(*pos);
+                }
+            }
+        
+        }
+        
+    }
+    while(!Q.empty())
+        Q.pop();
+    return ;
 }

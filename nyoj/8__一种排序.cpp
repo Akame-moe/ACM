@@ -23,21 +23,34 @@
 
 
 ----------sample_input----------
-1
-8
-1 1 1
-1 1 1
-1 1 2
-1 2 1
-1 2 2
-2 1 1
-2 1 2
+1
+
+8
+
+1 1 1
+
+1 1 1
+
+1 1 2
+
+1 2 1
+
+1 2 2
+
+2 1 1
+
+2 1 2
+
 2 2 1
 ----------sample_putput----------
-1 1 1
-1 2 1
-1 2 2
-2 1 1
+1 1 1
+
+1 2 1
+
+1 2 2
+
+2 1 1
+
 2 2 1
 */
 /////////////////////////////
@@ -45,60 +58,60 @@
 #include<stdlib.h>
 struct C
 {
-	int num;
-	int a;
-	int b;
+    int num;
+    int a;
+    int b;
 };
 int comp(const void *a1,const void *b1)
 {
-	struct C *c=(C *)a1;
-	struct C *d=(C *)b1;
-	if(c->num!=d->num)
-		return c->num-d->num;
-	else if(c->a!=d->a)
-		return c->a-d->a;
-	else
-		return c->b-d->b;
+    struct C *c=(C *)a1;
+    struct C *d=(C *)b1;
+    if(c->num!=d->num)
+        return c->num-d->num;
+    else if(c->a!=d->a)
+        return c->a-d->a;
+    else
+        return c->b-d->b;
 }
 
 int main()
 {
-	int N;
-	int m,i;
-	int temp;
-	C c[1001];
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%d",&m);
-		for(i=1;i<=m;i++)
-			scanf("%d%d%d",&c[i].num,&c[i].a,&c[i].b);
-		for(i=1;i<=m;i++)//长的放在前面作为长
-		{
-			if(c[i].b>c[i].a)
-			{
-				temp=c[i].a;
-				c[i].a=c[i].b;
-				c[i].b=temp;
-			}
-		}
-		/*for(i=1;i<=m;i++)
-			printf("<%d %d %d>\n",c[i].num,c[i].a,c[i].b);*/
-		qsort(c,m+1,sizeof(C),comp);
-		/*for(i=1;i<=m;i++)
-			printf("(%d %d %d)\n",c[i].num,c[i].a,c[i].b);*/
-		for(i=1;i<=m-1;)
-		{
-			if(c[i].num==c[i+1].num && c[i].a==c[i+1].a && c[i].b==c[i+1].b)
-				i++;
-			else
-			{
-				printf("%d %d %d\n",c[i].num,c[i].a,c[i].b);
-				i++;
-			}
-		}
-		/*if(c[m-1].num==c[m].num && c[m-1].a==c[m].a && c[m-1].b==c[m].b)*/
-		printf("%d %d %d\n",c[m].num,c[m].a,c[m].b);
-	}
-	return 0;
+    int N;
+    int m,i;
+    int temp;
+    C c[1001];
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%d",&m);
+        for(i=1;i<=m;i++)
+            scanf("%d%d%d",&c[i].num,&c[i].a,&c[i].b);
+        for(i=1;i<=m;i++)//长的放在前面作为长
+        {
+            if(c[i].b>c[i].a)
+            {
+                temp=c[i].a;
+                c[i].a=c[i].b;
+                c[i].b=temp;
+            }
+        }
+        /*for(i=1;i<=m;i++)
+            printf("<%d %d %d>\n",c[i].num,c[i].a,c[i].b);*/
+        qsort(c,m+1,sizeof(C),comp);
+        /*for(i=1;i<=m;i++)
+            printf("(%d %d %d)\n",c[i].num,c[i].a,c[i].b);*/
+        for(i=1;i<=m-1;)
+        {
+            if(c[i].num==c[i+1].num && c[i].a==c[i+1].a && c[i].b==c[i+1].b)
+                i++;
+            else
+            {
+                printf("%d %d %d\n",c[i].num,c[i].a,c[i].b);
+                i++;
+            }
+        }
+        /*if(c[m-1].num==c[m].num && c[m-1].a==c[m].a && c[m-1].b==c[m].b)*/
+        printf("%d %d %d\n",c[m].num,c[m].a,c[m].b);
+    }
+    return 0;
 }        

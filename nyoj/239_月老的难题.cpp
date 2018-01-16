@@ -20,11 +20,16 @@
 
 
 ----------sample_input----------
-1
-3 4
-1 1
-1 3
-2 2
+1
+
+3 4
+
+1 1
+
+1 3
+
+2 2
+
 3 2
 ----------sample_putput----------
 2
@@ -41,48 +46,48 @@ vector<int > v[MAX];
 int n;
 bool crosspath(int k)
 {
-	int i;
-	for(i=0;i<v[k].size();i++)
-	{
-		int t=v[k][i];
-		if(!used[t])
-		{
-			used[t]=true;
-			if(mat[t]==0|| crosspath(mat[t]))
-			{
-				mat[t]=k;
-				return true;
-			}
-		}
-	}
-	return false;
+    int i;
+    for(i=0;i<v[k].size();i++)
+    {
+        int t=v[k][i];
+        if(!used[t])
+        {
+            used[t]=true;
+            if(mat[t]==0|| crosspath(mat[t]))
+            {
+                mat[t]=k;
+                return true;
+            }
+        }
+    }
+    return false;
 }
 int main()
 {
-	int N;
-	int a,b,k,i;
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%d%d",&n,&k);
-		for(i=0;i<k;i++)
-		{
-			scanf("%d%d",&a,&b);
-			v[a].push_back(b);
-		}
-		int match=0;
-		memset(mat,0,sizeof(mat));
-		for(i=1;i<=n;i++)
-		{
-			memset(used,false,sizeof(used));
-			if(crosspath(i))
-				match++;
-		}
-		for(i=0;i<=n;i++)
-			v[i].clear();
-		printf("%d\n",match);
-	}
-	return 0;
+    int N;
+    int a,b,k,i;
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%d%d",&n,&k);
+        for(i=0;i<k;i++)
+        {
+            scanf("%d%d",&a,&b);
+            v[a].push_back(b);
+        }
+        int match=0;
+        memset(mat,0,sizeof(mat));
+        for(i=1;i<=n;i++)
+        {
+            memset(used,false,sizeof(used));
+            if(crosspath(i))
+                match++;
+        }
+        for(i=0;i<=n;i++)
+            v[i].clear();
+        printf("%d\n",match);
+    }
+    return 0;
 }
 
 

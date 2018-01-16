@@ -13,11 +13,14 @@
 
 
 ----------sample_input----------
-2
-1000 1
+2
+
+1000 1
+
 1 100
 ----------sample_putput----------
-Lose
+Lose
+
 Win
 */
 /////////////////////////////
@@ -25,17 +28,17 @@ Win
 #include<math.h>
 int main()
 {
-	int N;
-	int n,m;
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%d%d",&n,&m);
-		if(n%(m+1)==0)
-			printf("Lose\n");
-		else
-			printf("Win\n");
+    int N;
+    int n,m;
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%d%d",&n,&m);
+        if(n%(m+1)==0)
+            printf("Lose\n");
+        else
+            printf("Win\n");
 
-	}
-	return 0;
+    }
+    return 0;
 }

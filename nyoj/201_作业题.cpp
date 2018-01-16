@@ -28,13 +28,18 @@ S给了他们很多的点，让他们利用拉格朗日插值公式，计算出�
 
 
 ----------sample_input----------
-2
-2
-1 2 3 4
-3
+2
+
+2
+
+1 2 3 4
+
+3
+
 2 2 1 3 3 4
 ----------sample_putput----------
-2
+2
+
 2
 */
 /////////////////////////////
@@ -42,39 +47,39 @@ S给了他们很多的点，让他们利用拉格朗日插值公式，计算出�
 #include<stdlib.h>
 #define max(a,b) a>b?a:b
 struct P{
-	int x,y;
+    int x,y;
 }p[1005];
 int comp(const void *a,const void *b)
 {
-	P *c=(P *)a;
-	P *d=(P *)b;
-	return c->x-d->x;
+    P *c=(P *)a;
+    P *d=(P *)b;
+    return c->x-d->x;
 }
 int main()
 {
-	int N;
-	int i,n,j;
-	scanf("%d",&N);
-	int f[1005];//递增
-	int ff[1005];//递减
-	while(N--)
-	{
-		scanf("%d",&n);
-		for(i=0;i<n;i++)
-			scanf("%d %d",&p[i].x,&p[i].y);
-		qsort(p,n,sizeof(p[0]),comp);
-		for(i=0;i<=n;i++)
-		{
-			f[i]=ff[i]=1;
-			for(j=0;j<i;j++)
-			{
-				if(i==n || p[j].y<p[i].y)
-					f[i]=max(f[j]+1,f[i]);
-				if(i==n || p[j].y>p[i].y)
-					ff[i]=max(ff[j]+1,ff[i]);
-			}
-		}
-		printf("%d\n",max(f[n]-1,ff[n]-1));
-	}
-	return 0;
+    int N;
+    int i,n,j;
+    scanf("%d",&N);
+    int f[1005];//递增
+    int ff[1005];//递减
+    while(N--)
+    {
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+            scanf("%d %d",&p[i].x,&p[i].y);
+        qsort(p,n,sizeof(p[0]),comp);
+        for(i=0;i<=n;i++)
+        {
+            f[i]=ff[i]=1;
+            for(j=0;j<i;j++)
+            {
+                if(i==n || p[j].y<p[i].y)
+                    f[i]=max(f[j]+1,f[i]);
+                if(i==n || p[j].y>p[i].y)
+                    ff[i]=max(ff[j]+1,ff[i]);
+            }
+        }
+        printf("%d\n",max(f[n]-1,ff[n]-1));
+    }
+    return 0;
 }

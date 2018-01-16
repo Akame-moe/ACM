@@ -13,16 +13,26 @@
 
 
 ----------sample_input----------
-10
-boar
-pig
-sheep
-gazelle
-sheep
-sheep
-alpaca
-alpaca
-marmot
+10
+
+boar
+
+pig
+
+sheep
+
+gazelle
+
+sheep
+
+sheep
+
+alpaca
+
+alpaca
+
+marmot
+
 mole
 ----------sample_putput----------
 sheep 3
@@ -31,8 +41,8 @@ sheep 3
 #include<stdio.h>
 #include<string.h>
 struct Tire{
-	int count;
-	Tire *next[26];
+    int count;
+    Tire *next[26];
 };
 Tire *root;
 int Max;
@@ -40,46 +50,46 @@ char Maxs[11];
 char ss[11];
 void insert(char *s)
 {
-	if(root==NULL || *s=='\0')
-		return ;
-	Tire *p=root;
-	int i;
-	int n;
-	while(*s!='\0')
-	{
-		n=*s-'a';
-		if(p->next[n]==NULL)
-		{
-			Tire *temp=new Tire;
-			for(i=0;i<26;i++)
-				temp->next[i]=NULL;
-			temp->count=0;
-			p->next[n]=temp;
-		}
-		p=p->next[n];
-		s++;
-	}
-	p->count++;
-	if(p->count>Max){ Max=p->count; strcpy(Maxs,ss);}
+    if(root==NULL || *s=='\0')
+        return ;
+    Tire *p=root;
+    int i;
+    int n;
+    while(*s!='\0')
+    {
+        n=*s-'a';
+        if(p->next[n]==NULL)
+        {
+            Tire *temp=new Tire;
+            for(i=0;i<26;i++)
+                temp->next[i]=NULL;
+            temp->count=0;
+            p->next[n]=temp;
+        }
+        p=p->next[n];
+        s++;
+    }
+    p->count++;
+    if(p->count>Max){ Max=p->count; strcpy(Maxs,ss);}
 }
 int main()
 {
-	int N;
-	int i;
-	while(~scanf("%d",&N))
-	{
-		root=new Tire;
-		for(i=0;i<26;i++)
-			root->next[i]=NULL;
-		root->count=0;
-		Max=0;
-		while(N--)
-		{
-			scanf("%s",ss);
-			insert(ss);
-		}
-		printf("%s %d\n",Maxs,Max);
-	}
-	return 0;
+    int N;
+    int i;
+    while(~scanf("%d",&N))
+    {
+        root=new Tire;
+        for(i=0;i<26;i++)
+            root->next[i]=NULL;
+        root->count=0;
+        Max=0;
+        while(N--)
+        {
+            scanf("%s",ss);
+            insert(ss);
+        }
+        printf("%s %d\n",Maxs,Max);
+    }
+    return 0;
 
 }

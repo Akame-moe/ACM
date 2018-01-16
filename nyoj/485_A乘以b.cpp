@@ -22,32 +22,37 @@
 
 
 ----------sample_input----------
-3
-6 8
-1234567 67
+3
+
+6 8
+
+1234567 67
+
 454 1232
 ----------sample_putput----------
-3
-4
+3
+
+4
+
 5
 */
 /////////////////////////////
 #include<stdio.h>
 int main()
 {
-	int n;
-	scanf("%d",&n);
-	long long  a,b,m;
-	while(n--)
-	{
-		scanf("%lld%lld",&a,&b);
-		if(a==0 || b==0)
-			printf("0\n");
-		else
-		{
-			m=(a%9)*(b%9)%9;
-			printf("%d\n",m==0?9:m);
-		}
-	}
-	return 0;
+    int n;
+    scanf("%d",&n);
+    long long  a,b,m;
+    while(n--)
+    {
+        scanf("%lld%lld",&a,&b);
+        if(a==0 || b==0)
+            printf("0\n");
+        else
+        {
+            m=(a%9)*(b%9)%9;
+            printf("%d\n",m==0?9:m);
+        }
+    }
+    return 0;
 }

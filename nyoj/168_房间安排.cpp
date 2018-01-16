@@ -25,10 +25,14 @@ City,Better Life)为主题，将充分探索21世纪城市生活。
 
 
 ----------sample_input----------
-1
-3
-3 10 4
-4 9 3
+1
+
+3
+
+3 10 4
+
+4 9 3
+
 3 12 6
 ----------sample_putput----------
 7
@@ -38,31 +42,31 @@ City,Better Life)为主题，将充分探索21世纪城市生活。
 #include<string.h>
 int main()
 {
-	int n,room,di,jiu;
-	int f[191];
-	int T;
-	int i;
-	int max;
-	scanf("%d",&T);
-	while(T--)
-	{
-		scanf("%d",&n);
-		memset(f,0,sizeof(f));
-		while(n--)
-		{
-			scanf("%d%d%d",&room,&di,&jiu);
-			for(i=di;i<di+jiu;i++)
-			{
-				f[i]+=room;
-			}
-		}
-		max=0;
-		for(i=0;i<191;i++)
-			if(f[i]>max)
-				max=f[i];
-		printf("%d\n",max);
-	}
-	return 0;
+    int n,room,di,jiu;
+    int f[191];
+    int T;
+    int i;
+    int max;
+    scanf("%d",&T);
+    while(T--)
+    {
+        scanf("%d",&n);
+        memset(f,0,sizeof(f));
+        while(n--)
+        {
+            scanf("%d%d%d",&room,&di,&jiu);
+            for(i=di;i<di+jiu;i++)
+            {
+                f[i]+=room;
+            }
+        }
+        max=0;
+        for(i=0;i<191;i++)
+            if(f[i]>max)
+                max=f[i];
+        printf("%d\n",max);
+    }
+    return 0;
 
 
 }        

@@ -20,11 +20,14 @@
 
 
 ----------sample_input----------
-2
-100 5
+2
+
+100 5
+
 16 2
 ----------sample_putput----------
-24
+24
+
 15
 */
 /////////////////////////////
@@ -34,45 +37,45 @@
 int main()
 {
 
-	int N;
+    int N;
 
-	int num,prime,t;
+    int num,prime,t;
 
-	int i,count;
-	
-	scanf("%d",&N);
+    int i,count;
+    
+    scanf("%d",&N);
 
-	while(N--)
+    while(N--)
 
-	{
-	
-		count=0;
+    {
+    
+        count=0;
 
-		scanf("%d%d",&num,&prime);
+        scanf("%d%d",&num,&prime);
 
-		for(i=prime;i<=num;i+=prime)
+        for(i=prime;i<=num;i+=prime)
 
-		{
-		
-			t=i;
+        {
+        
+            t=i;
 
-			while(t%prime==0)
+            while(t%prime==0)
 
-			{
-	
-				count++;
+            {
+    
+                count++;
 
-				t/=prime;
+                t/=prime;
 
-			}
+            }
 
-		
-		}
-		
-		printf("%d\n",count);
-	
-	}
-	
-	return 0;	
+        
+        }
+        
+        printf("%d\n",count);
+    
+    }
+    
+    return 0;    
 
 }        

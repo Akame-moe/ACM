@@ -23,42 +23,49 @@
 
 
 ----------sample_input----------
-4
-3
-14
-7
+4
+
+3
+
+14
+
+7
+
 12345
 ----------sample_putput----------
-2/1
-2/4
-1/4
+2/1
+
+2/4
+
+1/4
+
 59/99
 */
 /////////////////////////////
 #include<stdio.h>
 int main()
 {
-	int N;
-	int i,sum,n;
-	scanf("%d",&N);
-	while(N--)
-	{
-		sum=0;
-		scanf("%d",&n);
-		i=0;
-		while(sum<n)
-		{
-			i++;
-			sum=sum+i;
-			
-		}
-		sum=sum-i;
-		if(i%2==0)
-			printf("%d/%d\n",n-sum,i+1-(n-sum));
-		else		
-			printf("%d/%d\n",i+1-(n-sum),n-sum);
-	}
-	return 0;
+    int N;
+    int i,sum,n;
+    scanf("%d",&N);
+    while(N--)
+    {
+        sum=0;
+        scanf("%d",&n);
+        i=0;
+        while(sum<n)
+        {
+            i++;
+            sum=sum+i;
+            
+        }
+        sum=sum-i;
+        if(i%2==0)
+            printf("%d/%d\n",n-sum,i+1-(n-sum));
+        else        
+            printf("%d/%d\n",i+1-(n-sum),n-sum);
+    }
+    return 0;
 
 }
         

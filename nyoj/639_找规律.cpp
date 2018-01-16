@@ -16,10 +16,12 @@ int 范围。怎么样，很简单吧？聪明的你，来比一比你和 xiaod 
 
 
 ----------sample_input----------
-1 2 3 4 5
+1 2 3 4 5
+
 2 3 5 8 13
 ----------sample_putput----------
-6 7 8 9 10
+6 7 8 9 10
+
 21 34 55 89 144
 */
 /////////////////////////////
@@ -28,78 +30,78 @@ int 范围。怎么样，很简单吧？聪明的你，来比一比你和 xiaod 
 int a[15];
 int main()
 {
-	int dengcha();
-	int dengbi();
-	int fbnq();
-	int i;
-	while(~scanf("%d%d%d%d%d",&a[0],&a[1],&a[2],&a[3],&a[4]))
-	{
-		if(dengcha())
-		{
-			for(i=1;i<=5;i++)
-				printf("%d ",a[4]+i*(a[1]-a[0]));
-		}
-		else if(fbnq())
-		{
-			for(i=5;i<=9;i++)
-			{
-				a[i]=a[i-1]+a[i-2];
-				printf("%d ",a[i]);
-			}
-				
-		}
-		else if(dengbi())
-		{
-			
-				for(i=1;i<=5;i++)
-					printf("%d ",a[4]*(int)(pow(a[1]/a[0],i)));
-		}
-		else
-			printf("None");
-		printf("\n");
-	}
-	return 0;
+    int dengcha();
+    int dengbi();
+    int fbnq();
+    int i;
+    while(~scanf("%d%d%d%d%d",&a[0],&a[1],&a[2],&a[3],&a[4]))
+    {
+        if(dengcha())
+        {
+            for(i=1;i<=5;i++)
+                printf("%d ",a[4]+i*(a[1]-a[0]));
+        }
+        else if(fbnq())
+        {
+            for(i=5;i<=9;i++)
+            {
+                a[i]=a[i-1]+a[i-2];
+                printf("%d ",a[i]);
+            }
+                
+        }
+        else if(dengbi())
+        {
+            
+                for(i=1;i<=5;i++)
+                    printf("%d ",a[4]*(int)(pow(a[1]/a[0],i)));
+        }
+        else
+            printf("None");
+        printf("\n");
+    }
+    return 0;
 }
 int dengcha()
 {
 
-	int i;
-	for(i=1;i<=3;i++)
-	{
-		if((a[i]-a[i-1])!=(a[i+1]-a[i]))
-			break;
-	}
-	if(i>3)
-		return 1;
-	else
-		return 0;
+    int i;
+    for(i=1;i<=3;i++)
+    {
+        if((a[i]-a[i-1])!=(a[i+1]-a[i]))
+            break;
+    }
+    if(i>3)
+        return 1;
+    else
+        return 0;
 }
 int dengbi()
 {
-	if(a[0]==0 ||a[1]==0 || a[2]==0 || a[3]==0 ||a[4]==0)
-		return 0;
-	int i;
-	for(i=1;i<=3;i++)
-	{
-		if((a[i]*1.0/a[i-1])!=(a[i+1]*1.0/a[i]))
-			break;
-	}
-	if(i>3)
-		return 1;
-	else
-		return 0;
+    if(a[0]==0 ||a[1]==0 || a[2]==0 || a[3]==0 ||a[4]==0)
+        return 0;
+    int i;
+    for(i=1;i<=3;i++)
+    {
+        if((a[i]*1.0/a[i-1])!=(a[i+1]*1.0/a[i]))
+            break;
+    }
+    if(i>3)
+        return 1;
+    else
+        return 0;
 
 }
 int fbnq()
 {
-	int i;
-	for(i=2;i<=4;i++)
-	{
-		if(a[i]!=a[i-1]+a[i-2])
-			break;
-	}
-	if(i>4)
-		return 1;
-	else
-		return 0;
+    int i;
+    for(i=2;i<=4;i++)
+    {
+        if(a[i]!=a[i-1]+a[i-2])
+            break;
+    }
+    if(i>4)
+        return 1;
+    else
+        return 0;
 }

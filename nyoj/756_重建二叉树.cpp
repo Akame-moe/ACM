@@ -13,95 +13,97 @@
 
 
 ----------sample_input----------
-ACBFGED ABCDEFG
+ACBFGED ABCDEFG
+
 CDAB CBAD
 ----------sample_putput----------
-DBACEGF
+DBACEGF
+
 BCAD
 */
 /////////////////////////////
 #include<stdio.h>
 #include<string.h>
 typedef struct Tree{
-	char c;
-	Tree *lc,*rc;
+    char c;
+    Tree *lc,*rc;
 }tree;
 int len_mid;
 tree *build(char ch)
 {
-	tree *r=new tree;
-	r->c=ch;
-	r->lc=NULL;
-	r->rc=NULL;
-	return r;
+    tree *r=new tree;
+    r->c=ch;
+    r->lc=NULL;
+    r->rc=NULL;
+    return r;
 }
 char *find(char *s,char ch)
 {
-	while(*s!=ch && *s!='\0')
-		s++;
-	return s;
+    while(*s!=ch && *s!='\0')
+        s++;
+    return s;
 }
 void visit(tree *r)
 {
-	if(r!=NULL)
-	{
-		printf("%c",r->c);
-		visit(r->lc);
-		visit(r->rc);
-	}
+    if(r!=NULL)
+    {
+        printf("%c",r->c);
+        visit(r->lc);
+        visit(r->rc);
+    }
 }
 void  creat(tree **root,char *last,char *mid ,int len)
 {
-	if(len==0)
-	{
-		*root=NULL;
-		return ;
-	}
-	tree *r=build(last[len-1]);
-	*root=r;
-	char *p=find(mid,r->c);
-	int leftlen=strlen(mid)-strlen(p);
-	int rightlen=len-leftlen-1;
-	creat(&(r->lc),last,mid,leftlen);
-	creat(&(r->rc),last+leftlen,p+1,rightlen);
+    if(len==0)
+    {
+        *root=NULL;
+        return ;
+    }
+    tree *r=build(last[len-1]);
+    *root=r;
+    char *p=find(mid,r->c);
+    int leftlen=strlen(mid)-strlen(p);
+    int rightlen=len-leftlen-1;
+    creat(&(r->lc),last,mid,leftlen);
+    creat(&(r->rc),last+leftlen,p+1,rightlen);
 }
 int main()
 {
-	char last[30],mid[30];
-	while(~scanf("%s %s",last,mid))
-	{
-		tree *root=NULL;
-		len_mid=strlen(mid);
-		creat(&root,last,mid,len_mid);
-		visit(root);
-		printf("\n");
-		
-	}
-	return 0;
+    char last[30],mid[30];
+    while(~scanf("%s %s",last,mid))
+    {
+        tree *root=NULL;
+        len_mid=strlen(mid);
+        creat(&root,last,mid,len_mid);
+        visit(root);
+        printf("\n");
+        
+    }
+    return 0;
 }
  
 #include<stdio.h>
 #include<string.h>
 void ReBuild(char *pre, char *in,char *post, int len)
 {
-	if(len>0)
-	{
-		int n =strchr(in,post[len-1])-in;
-		ReBuild(pre+1,in,post,n);
-		ReBuild(pre+n+1,in+n+1,post+n,len-n-1);
-		pre[0]=post[len-1];
-	}
+    if(len>0)
+    {
+        int n =strchr(in,post[len-1])-in;
+        ReBuild(pre+1,in,post,n);
+        ReBuild(pre+n+1,in+n+1,post+n,len-n-1);
+        pre[0]=post[len-1];
+    }
 }
 int main()
 {
-	char pre[30],in[30],post[30];
-	int len;
-	while(~scanf("%s%s",post,in))
-	{
-		len=strlen(post);
-		ReBuild(pre,in,post,len);
-		pre[len]=0;
-		puts(pre);
-	}
+    char pre[30],in[30],post[30];
+    int len;
+    while(~scanf("%s%s",post,in))
+    {
+        len=strlen(post);
+        ReBuild(pre,in,post,len);
+        pre[len]=0;
+        puts(pre);
+    }
 }
         

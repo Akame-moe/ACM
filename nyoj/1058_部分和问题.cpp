@@ -14,59 +14,61 @@
 
 
 ----------sample_input----------
-4 13
+4 13
+
 1 2 4 7
 ----------sample_putput----------
-YES
+YES
+
 2 4 7
 */
 /////////////////////////////
 #include<iostream>
 
-using namespace std;	
+using namespace std;    
 
 int n, k, w[22], sum[22];
 bool vis[22], flag;
 void dfs(int cur, int cnt) {
-	if (cur >= 0 && !flag)
-	{
-		if (cnt + sum[cur] < k) 
-			return;
-		if (cnt + w[cur] <= k) 
-		{
-			vis[cur] = true;
-			dfs(cur - 1, cnt + w[cur]);
-			vis[cur] = false;
-		}		
-		dfs(cur - 1, cnt);
-		if (cnt == k && !flag)
-		{
-			flag = true;
-			cout << "YES" << endl;
-			for (int i = 1; i <= n; i++)
-			{
-				if (vis[i])				
-					cout << w[i] << ' ';				
-			}
-			cout << endl;
-		}
-	}
+    if (cur >= 0 && !flag)
+    {
+        if (cnt + sum[cur] < k) 
+            return;
+        if (cnt + w[cur] <= k) 
+        {
+            vis[cur] = true;
+            dfs(cur - 1, cnt + w[cur]);
+            vis[cur] = false;
+        }        
+        dfs(cur - 1, cnt);
+        if (cnt == k && !flag)
+        {
+            flag = true;
+            cout << "YES" << endl;
+            for (int i = 1; i <= n; i++)
+            {
+                if (vis[i])                
+                    cout << w[i] << ' ';                
+            }
+            cout << endl;
+        }
+    }
 }
 
 int main()
  {
-	while (cin >> n >> k) 
-	{
-		flag = false;
-		for (int i = 1; i <= n; i++)
-		{
-			cin >> w[i];
-			sum[i] = sum[i - 1] + w[i];
-		}
-		dfs(n, 0);
-		if (!flag)
-			cout << "NO" << endl;
-	}
+    while (cin >> n >> k) 
+    {
+        flag = false;
+        for (int i = 1; i <= n; i++)
+        {
+            cin >> w[i];
+            sum[i] = sum[i - 1] + w[i];
+        }
+        dfs(n, 0);
+        if (!flag)
+            cout << "NO" << endl;
+    }
 return 0;
 }
 
@@ -75,36 +77,36 @@ return 0;
 int n, k, ok, arr[22], vis[22], count;
 
 void DFS(int pos){
-	if(count >= k){
-		if(count == k){
-			if(!ok){
-				ok = 1; printf("YES\n");
-			}
-			for(int i = 0; i < n; ++i)
-				if(vis[i]) printf("%d ", arr[i]);
-			printf("\n");
-		}
-		return;
-	}
-	
-	for(int i = pos; i < n; ++i){
-		count += arr[i];
-		vis[i] = 1;
-		DFS(i + 1);
-		count -= arr[i];
-		vis[i] = 0;
-	}
+    if(count >= k){
+        if(count == k){
+            if(!ok){
+                ok = 1; printf("YES\n");
+            }
+            for(int i = 0; i < n; ++i)
+                if(vis[i]) printf("%d ", arr[i]);
+            printf("\n");
+        }
+        return;
+    }
+    
+    for(int i = pos; i < n; ++i){
+        count += arr[i];
+        vis[i] = 1;
+        DFS(i + 1);
+        count -= arr[i];
+        vis[i] = 0;
+    }
 }
 
 int main(){
-	while(scanf("%d%d", &n, &k) == 2){
-		ok = 0;
-		for(int i = 0; i < n; ++i){
-			scanf("%d", arr + i);
-			vis[i] = 0;
-		}
-		count = 0; DFS(0);
-		if(!ok) printf("NO\n");
-	}
-	return 0;
+    while(scanf("%d%d", &n, &k) == 2){
+        ok = 0;
+        for(int i = 0; i < n; ++i){
+            scanf("%d", arr + i);
+            vis[i] = 0;
+        }
+        count = 0; DFS(0);
+        if(!ok) printf("NO\n");
+    }
+    return 0;
 }

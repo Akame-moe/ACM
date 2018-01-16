@@ -13,17 +13,26 @@
 
 
 ----------sample_input----------
-2
-2
+2
+
+2
+
 3
 ----------sample_putput----------
-12
-21
-123
-132
-213
-231
-312
+12
+
+21
+
+123
+
+132
+
+213
+
+231
+
+312
+
 321
 */
 /////////////////////////////
@@ -37,21 +46,21 @@ using namespace std;
 int n;
 int main()
 {
-	int a[11];
-	int N,i;
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%d",&n);
-		for(i=1;i<=n;i++)
-			a[i]=i;
-		do{
-			for(i=1;i<=n;i++)
-				printf("%d",a[i]);
-			printf("\n");
-		}while(next_permutation(a+1,a+n+1));
-	}
-	return 0;
+    int a[11];
+    int N,i;
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%d",&n);
+        for(i=1;i<=n;i++)
+            a[i]=i;
+        do{
+            for(i=1;i<=n;i++)
+                printf("%d",a[i]);
+            printf("\n");
+        }while(next_permutation(a+1,a+n+1));
+    }
+    return 0;
 }
 #include<stdio.h>
 int n;
@@ -59,40 +68,40 @@ int a[11];
 int vis[11];
 void dfs(int cur)
 {
-	int k,i;
-	if(cur==(n+1))
-	{
-		for(k=1;k<=n;k++)
-			printf("%d",a[k]);
-		printf("\n");
-	}
-	for(i=1;i<=n;i++)
-	{
-		if(!vis[i])
-		{
-			a[cur]=i;
-			vis[i]=1;
-			dfs(cur+1);
-			vis[i]=0;
-		}
-	}
+    int k,i;
+    if(cur==(n+1))
+    {
+        for(k=1;k<=n;k++)
+            printf("%d",a[k]);
+        printf("\n");
+    }
+    for(i=1;i<=n;i++)
+    {
+        if(!vis[i])
+        {
+            a[cur]=i;
+            vis[i]=1;
+            dfs(cur+1);
+            vis[i]=0;
+        }
+    }
 
 }
 
 
 int main()
 {
-	
-	int N,i;
-	scanf("%d",&N);
-	while(N--)
-	{
-		for(i=1;i<=10;i++)
-			vis[i]=0;
-		scanf("%d",&n);
-		dfs(1);
-	}
-	return 0;
+    
+    int N,i;
+    scanf("%d",&N);
+    while(N--)
+    {
+        for(i=1;i<=10;i++)
+            vis[i]=0;
+        scanf("%d",&n);
+        dfs(1);
+    }
+    return 0;
 }
 
 这是一个求一个排序的下一个排列的函数，可以遍历全排列,要包含头文件<algorithm>

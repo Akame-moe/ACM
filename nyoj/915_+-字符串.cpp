@@ -14,7 +14,8 @@ Shiva得到了两个只有加号和减号的字符串，字串长度相同。Shi
 
 
 ----------sample_input----------
-++-+--+ 
+++-+--+ 
+
 -++--++
 ----------sample_putput----------
 4
@@ -25,54 +26,54 @@ Shiva得到了两个只有加号和减号的字符串，字串长度相同。Shi
 #include<math.h>
 int main()
 {
-	int len1,len2;
-	char s1[5001];
-	char s2[5001];
-	int sum;
-	int flag;
-	int count1,count2;
-	int i,j;
-	int l;
-	while(scanf("%s%s",s1,s2)!=EOF)
-	{
-		len1=strlen(s1);
-		len2=strlen(s2);
-		count1=count2=0;
-		for(i=0;i<len1;i++)
-		{
-			if(s1[i]=='+')
-				count1++;
-			if(s2[i]=='+')
-				count2++;
-		}
-		flag=1;
-		if((len1!=len2) || (count1!=count2))
-			flag=0;
-		else
-		{
-			sum=0;
-			l=0;
-			for(i=0;i<len1;i++)
-			{
-				if(s1[i]=='+')
-				{
-					for(j=l;j<len1;j++)
-					{
-						if(s2[j]=='+')
-						{
-							sum+=(fabs(i-j));
-							s2[j]='-';
-							l=j;
-							break;
-						}
-					}
-				}
-			}
-		}
-		if(flag)
-			printf("%d\n",sum);
-		else
-			printf("-1\n");
-	}
-	return 0;
+    int len1,len2;
+    char s1[5001];
+    char s2[5001];
+    int sum;
+    int flag;
+    int count1,count2;
+    int i,j;
+    int l;
+    while(scanf("%s%s",s1,s2)!=EOF)
+    {
+        len1=strlen(s1);
+        len2=strlen(s2);
+        count1=count2=0;
+        for(i=0;i<len1;i++)
+        {
+            if(s1[i]=='+')
+                count1++;
+            if(s2[i]=='+')
+                count2++;
+        }
+        flag=1;
+        if((len1!=len2) || (count1!=count2))
+            flag=0;
+        else
+        {
+            sum=0;
+            l=0;
+            for(i=0;i<len1;i++)
+            {
+                if(s1[i]=='+')
+                {
+                    for(j=l;j<len1;j++)
+                    {
+                        if(s2[j]=='+')
+                        {
+                            sum+=(fabs(i-j));
+                            s2[j]='-';
+                            l=j;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if(flag)
+            printf("%d\n",sum);
+        else
+            printf("-1\n");
+    }
+    return 0;
 }

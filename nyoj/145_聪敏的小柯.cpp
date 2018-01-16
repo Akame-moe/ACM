@@ -30,44 +30,47 @@
 
 
 ----------sample_input----------
-2
-2
+2
+
+2
+
 7
 ----------sample_putput----------
-1
+1
+
 3
 */
 /////////////////////////////
 #include<cstdio>
 int gcd(int a,int b)
 {
-	int r;
-	while(b)
-	{
-		r=a%b;
-		a=b;
-		b=r;
-	}
-	return a;
+    int r;
+    while(b)
+    {
+        r=a%b;
+        a=b;
+        b=r;
+    }
+    return a;
 }
 int main()
 {
-	int m;
-	int k,n;
-	scanf("%d",&m);
-	while(m--)
-	{
-		scanf("%d",&n);
-		int t=n/2;
-		for(;t>=1;t--)
-		{
-			if(gcd(t,n)==1)
-			{
-				printf("%d\n",t);
-				break;
-			}
-		}
+    int m;
+    int k,n;
+    scanf("%d",&m);
+    while(m--)
+    {
+        scanf("%d",&n);
+        int t=n/2;
+        for(;t>=1;t--)
+        {
+            if(gcd(t,n)==1)
+            {
+                printf("%d\n",t);
+                break;
+            }
+        }
 
-	}
-	return 0;
+    }
+    return 0;
 }

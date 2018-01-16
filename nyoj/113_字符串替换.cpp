@@ -25,36 +25,36 @@ we are what we do
 #include<string.h>
 int main()
 {
-	char s[1001];
-	int i=0;
-	int d;
-	while(gets(s))
-	{
-		d=strlen(s);
-		for(i=0;i+3<d;)
-		{
-			if(s[i]=='y' && s[i+1]=='o' && s[i+2]=='u')
-			{
+    char s[1001];
+    int i=0;
+    int d;
+    while(gets(s))
+    {
+        d=strlen(s);
+        for(i=0;i+3<d;)
+        {
+            if(s[i]=='y' && s[i+1]=='o' && s[i+2]=='u')
+            {
 
-				printf("we");
-				i+=3;
-			}
-			else
-			{
-				printf("%c",s[i]);
-				i++;
-			}
-		}
-		if(s[i]=='y' && s[i+1]=='o' && s[i+2]=='u')
-			printf("we");
-		else
-		{
-			for(;i<d;i++)
-				printf("%c",s[i]);
-			printf("\n");
-		}
-	}
-	return 0;	
+                printf("we");
+                i+=3;
+            }
+            else
+            {
+                printf("%c",s[i]);
+                i++;
+            }
+        }
+        if(s[i]=='y' && s[i+1]=='o' && s[i+2]=='u')
+            printf("we");
+        else
+        {
+            for(;i<d;i++)
+                printf("%c",s[i]);
+            printf("\n");
+        }
+    }
+    return 0;    
 }
 #include<algorithm>
 #include<iostream>

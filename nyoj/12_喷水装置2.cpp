@@ -15,15 +15,22 @@
 
 
 ----------sample_input----------
-2
-2 8 6
-1 1
-4 5
-2 10 6
-4 5
+2
+
+2 8 6
+
+1 1
+
+4 5
+
+2 10 6
+
+4 5
+
 6 5
 ----------sample_putput----------
-1
+1
+
 2
 */
 /////////////////////////////
@@ -33,94 +40,94 @@
 #include<stdlib.h>
 struct Pen
 {
-	double x2;//又断电
-	double x1;//左端点
+    double x2;//又断电
+    double x1;//左端点
 }p[10005];
 int comp(const void*a,const void *b)
 {
-	
-	return (*(Pen*)a).x1>(*(Pen *)b).x1?1:-1;//做断电排序
+    
+    return (*(Pen*)a).x1>(*(Pen *)b).x1?1:-1;//做断电排序
 }
 int main()
 {
-	int  N;
-	int n;
-	int i;
-	int count;
-	int w,h,r,x;
-	double t,m;
-	int flag;
-	int j;
-	scanf("%d",&N);
-	while(N--)
-	{
-		flag=1;
-		memset(p,0,sizeof(p));
-		scanf("%d%d%d",&n,&w,&h);
-		for(i=0;i<n;i++)
-		{
-			scanf("%d%d",&x,&r);
-			if(r*2>h)//不符合要求，舍弃词典
-			{
-				m=sqrt(r*r*1.0-(h*h/4.0));
-				p[i].x1=x-m;
-				p[i].x2=x+m;
-				//printf("%lf./%d/%d/..%lf...",p[i].x1,r,h,m);
-			}
-			else
-			{
-				i--;
-				n--;
-			}
-		}
-		qsort(p,n,sizeof(p[0]),comp);
-		//for(i=0;i<n;i++)
-		//	printf("[%lf]",p[i].x1);
-		if(p[0].x1>0)
-			flag=0;
-		else
-		{
-			count=0;
-			t=0;
-			m=p[0].x2;
-			for(i=0;t<w;)
-			{
-				if(p[i].x1>t)
-				{
-					flag=0;
-					break;
-				}
-				for(j=0;p[j].x1<=t && j<n;j++)
-				{
-					if(p[j].x2>m)
-						m=p[j].x2;
-				}
-				t=m;
-				i=j;
-				count++;
-				if(j==n && t<w)
-				{
-					flag=0;
-					break;
-				}
-			}
+    int  N;
+    int n;
+    int i;
+    int count;
+    int w,h,r,x;
+    double t,m;
+    int flag;
+    int j;
+    scanf("%d",&N);
+    while(N--)
+    {
+        flag=1;
+        memset(p,0,sizeof(p));
+        scanf("%d%d%d",&n,&w,&h);
+        for(i=0;i<n;i++)
+        {
+            scanf("%d%d",&x,&r);
+            if(r*2>h)//不符合要求，舍弃词典
+            {
+                m=sqrt(r*r*1.0-(h*h/4.0));
+                p[i].x1=x-m;
+                p[i].x2=x+m;
+                //printf("%lf./%d/%d/..%lf...",p[i].x1,r,h,m);
+            }
+            else
+            {
+                i--;
+                n--;
+            }
+        }
+        qsort(p,n,sizeof(p[0]),comp);
+        //for(i=0;i<n;i++)
+        //    printf("[%lf]",p[i].x1);
+        if(p[0].x1>0)
+            flag=0;
+        else
+        {
+            count=0;
+            t=0;
+            m=p[0].x2;
+            for(i=0;t<w;)
+            {
+                if(p[i].x1>t)
+                {
+                    flag=0;
+                    break;
+                }
+                for(j=0;p[j].x1<=t && j<n;j++)
+                {
+                    if(p[j].x2>m)
+                        m=p[j].x2;
+                }
+                t=m;
+                i=j;
+                count++;
+                if(j==n && t<w)
+                {
+                    flag=0;
+                    break;
+                }
+            }
 
 
-			
-			
-		}
-		if(!flag)
-			printf("0\n");
-		else
-			printf("%d\n",count);
+            
+            
+        }
+        if(!flag)
+            printf("0\n");
+        else
+            printf("%d\n",count);
 
-		
-
-
-		
-
-	}
+        
 
 
-	return 0;
+        
+
+    }
+
+
+    return 0;
 }

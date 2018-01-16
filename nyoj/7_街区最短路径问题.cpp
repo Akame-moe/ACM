@@ -26,19 +26,30 @@
 
 
 ----------sample_input----------
-2
-3
-1 1
-2 1
-1 2
-5
-2 9 
-5 20
-11 9
-1 1
+2
+
+3
+
+1 1
+
+2 1
+
+1 2
+
+5
+
+2 9 
+
+5 20
+
+11 9
+
+1 1
+
 1 20
 ----------sample_putput----------
-2
+2
+
 44
 */
 /////////////////////////////
@@ -53,52 +64,52 @@ int b[20][2];
 int m;
 int main()
 {
-	int S(int i,int j);
+    int S(int i,int j);
 
-	int i,j;
-	int N;
-	
-	int sum;
-	int t;
-	scanf("%d",&N);
-	while(N--)
-	{
-		//memset(a,false,sizeof(bool));
-		maxx=1,minx=1,maxy=100,miny=100;
-		scanf("%d",&m);
-		for(t=1;t<=m;t++)
-		{
-			scanf("%d%d",&i,&j);
-			//a[i][j]=true;
-			b[t][0]=i;
-			b[t][1]=j;
-			minx=min(i,minx);
-			miny=min(j,miny);
-			maxx=max(i,maxx);
-			maxy=max(j,maxy);
-		}
-		sum=0;
-		for(t=1;t<=m;t++)
-			sum+=b[t][0]-1+b[t][1]-1;
-		for(i=minx;i<=maxx;i++)
-			for(j=miny;j<=maxy;j++)
-			{
-				sum=min(sum,S(i,j));
-			}
-		printf("%d\n",sum);
-		
-		
-	}
-	return 0;
+    int i,j;
+    int N;
+    
+    int sum;
+    int t;
+    scanf("%d",&N);
+    while(N--)
+    {
+        //memset(a,false,sizeof(bool));
+        maxx=1,minx=1,maxy=100,miny=100;
+        scanf("%d",&m);
+        for(t=1;t<=m;t++)
+        {
+            scanf("%d%d",&i,&j);
+            //a[i][j]=true;
+            b[t][0]=i;
+            b[t][1]=j;
+            minx=min(i,minx);
+            miny=min(j,miny);
+            maxx=max(i,maxx);
+            maxy=max(j,maxy);
+        }
+        sum=0;
+        for(t=1;t<=m;t++)
+            sum+=b[t][0]-1+b[t][1]-1;
+        for(i=minx;i<=maxx;i++)
+            for(j=miny;j<=maxy;j++)
+            {
+                sum=min(sum,S(i,j));
+            }
+        printf("%d\n",sum);
+        
+        
+    }
+    return 0;
 
 }
 int S(int i,int j)
 {
-	int t;
-	int he=0;
-	for(t=1;t<=m;t++)
-		he+=(fabs(i-b[t][0])+fabs(j-b[t][1]));
-	return he;
+    int t;
+    int he=0;
+    for(t=1;t<=m;t++)
+        he+=(fabs(i-b[t][0])+fabs(j-b[t][1]));
+    return he;
 }
  
 #include<iostream>
@@ -107,20 +118,20 @@ using namespace std;
 int x[30],y[30],n,m,i;;
 int main()
 {
-	cin>>n;
-	while(n--)
-	{
-		cin>>m;
-		for(i=0;i<m;i++)
-			cin>>x[i]>>y[i];
-		sort(x,x+m);
-		sort(y,y+m);
-		int sum=0;
-		for(i=0;i<m/2;i++)
-			sum+=x[m-1-i]-x[i]+y[m-1-i]-y[i];
-		cout<<sum<<endl;
-	}
-	return 0;
+    cin>>n;
+    while(n--)
+    {
+        cin>>m;
+        for(i=0;i<m;i++)
+            cin>>x[i]>>y[i];
+        sort(x,x+m);
+        sort(y,y+m);
+        int sum=0;
+        for(i=0;i<m/2;i++)
+            sum+=x[m-1-i]-x[i]+y[m-1-i]-y[i];
+        cout<<sum<<endl;
+    }
+    return 0;
 }        
 
 

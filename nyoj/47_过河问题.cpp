@@ -14,8 +14,10 @@
 
 
 ----------sample_input----------
-1
-4
+1
+
+4
+
 1 2 5 10
 ----------sample_putput----------
 17
@@ -26,32 +28,32 @@
 #define min(a,b) a>b?b:a
 int comp(const void *a,const void *b)
 {
-	return *(int *)a-*(int *)b;
+    return *(int *)a-*(int *)b;
 }
 int main()
 {
-	int N,n,i;
-	int sum;
-	int t[1005];
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%d",&n);
-		for(i=0;i<n;i++)
-			scanf("%d",&t[i]);
-		qsort(t,n,sizeof(t[0]),comp);
-		sum=0;
-		for(i=n-1;i>2;i-=2)
-			sum+=min(t[0]+t[0]+t[i]+t[i-1],t[0]+t[1]+t[1]+t[i]);
-		if(i==2)
-			sum+=t[0]+t[1]+t[i];
-		else if(i==1)
-			sum+=t[1];
-		else
-			sum=t[0];
-		printf("%d\n",sum);
-	}
-	return 0;
+    int N,n,i;
+    int sum;
+    int t[1005];
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+            scanf("%d",&t[i]);
+        qsort(t,n,sizeof(t[0]),comp);
+        sum=0;
+        for(i=n-1;i>2;i-=2)
+            sum+=min(t[0]+t[0]+t[i]+t[i-1],t[0]+t[1]+t[1]+t[i]);
+        if(i==2)
+            sum+=t[0]+t[1]+t[i];
+        else if(i==1)
+            sum+=t[1];
+        else
+            sum=t[0];
+        printf("%d\n",sum);
+    }
+    return 0;
 }
 /*
 热门智力题 过桥问题和倒水问题

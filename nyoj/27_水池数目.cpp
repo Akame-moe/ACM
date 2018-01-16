@@ -14,19 +14,30 @@
 
 
 ----------sample_input----------
-2
-3 4
-1 0 0 0 
-0 0 1 1
-1 1 1 0
-5 5
-1 1 1 1 0
-0 0 1 0 1
-0 0 0 0 0
-1 1 1 0 0
+2
+
+3 4
+
+1 0 0 0 
+
+0 0 1 1
+
+1 1 1 0
+
+5 5
+
+1 1 1 1 0
+
+0 0 1 0 1
+
+0 0 0 0 0
+
+1 1 1 0 0
+
 0 0 1 1 1
 ----------sample_putput----------
-2
+2
+
 3
 */
 /////////////////////////////
@@ -36,39 +47,39 @@ int max;
 int x,y;
 int main()
 {
-	int N;
-	int i,j;
-	void dfs(int ,int);
-	scanf("%d",&N);
-	while(N--)
-	{
-		scanf("%d%d",&x,&y);
-		for(i=0;i<x;i++)
-			for(j=0;j<y;j++)
-				scanf("%d",&a[i][j]);
-		max=0;
-		for(i=0;i<x;i++)
-			for(j=0;j<y;j++)
-			{
-				if(a[i][j]==1)
-				{
-					dfs(i,j);
-					max++;
-				}
-			}		
-		printf("%d\n",max);
-			
-	}
-	return 0;
+    int N;
+    int i,j;
+    void dfs(int ,int);
+    scanf("%d",&N);
+    while(N--)
+    {
+        scanf("%d%d",&x,&y);
+        for(i=0;i<x;i++)
+            for(j=0;j<y;j++)
+                scanf("%d",&a[i][j]);
+        max=0;
+        for(i=0;i<x;i++)
+            for(j=0;j<y;j++)
+            {
+                if(a[i][j]==1)
+                {
+                    dfs(i,j);
+                    max++;
+                }
+            }        
+        printf("%d\n",max);
+            
+    }
+    return 0;
 }
 void dfs(int i,int j)
 {
-	if(a[i][j]==0 || a[i][j]==2 || i<0 || j<0 || i>=x || j>=y)
-		return ;
-	a[i][j]=2;
-	if(a[i+1][j]==1) dfs(i+1,j);
-	if(a[i][j+1]==1) dfs(i,j+1);
-	if(a[i-1][j]==1) dfs(i-1,j);
-	if(a[i][j-1]==1) dfs(i,j-1);
+    if(a[i][j]==0 || a[i][j]==2 || i<0 || j<0 || i>=x || j>=y)
+        return ;
+    a[i][j]=2;
+    if(a[i+1][j]==1) dfs(i+1,j);
+    if(a[i][j+1]==1) dfs(i,j+1);
+    if(a[i-1][j]==1) dfs(i-1,j);
+    if(a[i][j-1]==1) dfs(i,j-1);
 
 }
