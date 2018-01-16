@@ -24,13 +24,11 @@ ibelieveicanac
 hello
 hello
 icannotacit
-Giveup
-
+Giveup
 ----------sample_putput----------
 3
 0
-0
-
+0
 */
 /////////////////////////////
 #include<stdio.h>//685查找字符串//字典树

@@ -14,12 +14,10 @@
 
 ----------sample_input----------
 ACBFGED ABCDEFG
-CDAB CBAD
-
+CDAB CBAD
 ----------sample_putput----------
 DBACEGF
-BCAD
-
+BCAD
 */
 /////////////////////////////
 #include<stdio.h>

@@ -22,8 +22,7 @@ x、y保证在int范围内。
 
 ----------sample_input----------
 1 1
--1 1
-
+-1 1
 ----------sample_putput----------
 Signs are not opposot
 Signs are opposite
