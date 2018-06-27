@@ -54,7 +54,6 @@ int main() {
         while(sum < n) {
             i++;
             sum = sum + i;
-
         }
         sum = sum - i;
         if(i % 2 == 0)
@@ -63,5 +62,4 @@ int main() {
             printf("%d/%d\n", i + 1 - (n - sum), n - sum);
     }
     return 0;
-
 }

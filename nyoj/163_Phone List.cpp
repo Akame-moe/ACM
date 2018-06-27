@@ -68,7 +68,6 @@ bool insert(char *s) {
     int  i;
     bool exist = false;
     while(*s != '\0') {
-
         if(p->next[*s - '0'] == NULL) {
             Node *temp = new Node;
             temp->count = 0;
@@ -129,7 +128,6 @@ bool insert(char *s) {
     int  i;
     bool exist = false;
     while(*s != '\0') {
-
         if(p->next[*s - '0'] == NULL) {
             Node *temp = new Node;
             temp->count = 0;

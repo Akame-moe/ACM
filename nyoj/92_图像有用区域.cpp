@@ -86,7 +86,6 @@ int main() {
     return 0;
 }
 void bfs() {
-
     P cur, next;
     while(!Q.empty()) {
         int k;
@@ -101,7 +100,6 @@ void bfs() {
             }
         }
     }
-
     while(!Q.empty())
         Q.pop();
     return ;

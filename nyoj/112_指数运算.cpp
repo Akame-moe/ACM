@@ -51,7 +51,6 @@ int main() {
     int temp, jw;
     while(~scanf("%d%d", &a, &b)) {
         int num[25] = {0};
-
         len = 1;
         num[1] = a;
         for(i = 1; i < b; i++) {

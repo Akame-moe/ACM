@@ -64,10 +64,8 @@ int b[20][2];
 int m;
 int main() {
     int S(int i, int j);
-
     int i, j;
     int N;
-
     int sum;
     int t;
     scanf("%d", &N);
@@ -93,11 +91,8 @@ int main() {
                 sum = min(sum, S(i, j));
             }
         printf("%d\n", sum);
-
-
     }
     return 0;
-
 }
 int S(int i, int j) {
     int t;

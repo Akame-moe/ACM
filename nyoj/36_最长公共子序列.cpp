@@ -41,7 +41,6 @@ int main() {
     int N;
     scanf("%d", &N);
     while(N--) {
-
         scanf("%s", s1);
         scanf("%s", s2);
         len1 = strlen(s1);
@@ -63,7 +62,6 @@ void dfs(int i, int j, int len) {
         dfs(i + 1, j, len);
         dfs(i, j + 1, len);
     }
-
 }
 //ac
 #include<stdio.h>
@@ -77,7 +75,6 @@ int main() {
     int i, j;
     scanf("%d", &N);
     while(N--) {
-
         scanf("%s", s1);
         scanf("%s", s2);
         len1 = strlen(s1);

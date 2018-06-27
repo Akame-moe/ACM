@@ -34,7 +34,6 @@
 #define N 2000001
 bool a[N];
 int main() {
-
     int n, i, j;
     memset(a, true, N);
     for(i = 2; i < N; i++) {

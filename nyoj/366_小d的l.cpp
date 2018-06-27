@@ -79,12 +79,10 @@ void dfs(int cur) {
             vis[i] = 0;
         }
     }
-
 }
 
 
 int main() {
-
     int N, i;
     scanf("%d", &N);
     while(N--) {
@@ -110,10 +108,7 @@ int main() {
     do {
         cout << a[0] << " " << a[1] << " " << a[2] << endl;
     } while (next_permutation(a, a + 3)); //参数3指的是要进行排列的长度
-
 //如果存在a之后的排列，就返回true。如果a是最后一个排列没有后继，返回false，每执行一次，a就变成它的后继
-
-
 }
 
 输出：
@@ -154,13 +149,10 @@ cout << list[0] << " " << list[1] << " " << list[2] << endl;
 int main() {
     char ch[205];
     cin >> ch;
-
     sort(ch, ch + strlen(ch) );
 //该语句对输入的数组进行字典升序排序。如输入9874563102 cout<<ch; 将输出0123456789,这样就能输出全排列了
-
     char *first = ch;
     char *last = ch + strlen(ch);
-
     do {
         cout << ch << endl;
     } while(next_permutation(first, last));

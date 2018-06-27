@@ -67,8 +67,6 @@ int main() {
                 loc = j;
             }
         printf("%s %d\n", s[loc], max);
-
-
     }
     return 0;
 }

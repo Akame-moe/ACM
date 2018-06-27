@@ -37,7 +37,6 @@ struct Pen {
     double d;
 } p[601];
 int comp(const void*a, const void *b) {
-
     return (*(Pen*)a).r < (*(Pen*)b).r ? 1 : -1;
 }
 int main() {
@@ -54,7 +53,6 @@ int main() {
             p[i].d = 2 * sqrt((p[i].r * p[i].r - 1.0));
         }
         qsort(p, n, sizeof(p[0]), comp);
-
         //for(i=0;i<n;i++)
         //    printf("[%lf]",p[i].d);
         l = 0;
@@ -65,9 +63,6 @@ int main() {
             count++;
         }
         printf("%d\n", count);
-
     }
-
-
     return 0;
 }

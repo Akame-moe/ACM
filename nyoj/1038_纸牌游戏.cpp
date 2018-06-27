@@ -103,7 +103,6 @@ int comp(const void *a, const void *b) {
     ccc = (ccc == 'A' ? 'Z' : ccc);
     ccc = (ccc == 'K' ? 'Y' : ccc);
     ccc = (ccc == 'T' ? 'B' : ccc);
-
     ddd = (ddd == 'A' ? 'Z' : ddd);
     ddd = (ddd == 'K' ? 'Y' : ddd);
     ddd = (ddd == 'T' ? 'B' : ddd);
@@ -153,7 +152,6 @@ int main() {
             }
             p[k][t].num = '\0';
             p[k][t].huase = '\0';
-
         }
         for(i = 0; i < 4; i++) {
             printf("%s player:\n", shuxu[i]);
@@ -175,7 +173,6 @@ int main() {
             printf("\n");
         }
         printf("\n");
-
     }
     return 0;
 }

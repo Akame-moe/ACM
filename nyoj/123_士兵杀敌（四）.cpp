@@ -47,7 +47,6 @@ void updata(int i, int num) {
         c[i] += num;
         i += lowbit(i);
     }
-
 }
 int S(int i) {
     int sum = 0;
@@ -76,5 +75,4 @@ int main() {
         }
     }
     return 0;
-
 }

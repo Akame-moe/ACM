@@ -87,10 +87,8 @@ int main() {
                 i++;
             } else
                 i++;
-
         }
         while(ovs.size() != 1) {
-
             num2 = ovs.top();
             ovs.pop();
             num1 = ovs.top();

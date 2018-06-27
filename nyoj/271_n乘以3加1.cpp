@@ -79,10 +79,8 @@ line).
 int is2[10005] = {0};
 int a[10005];
 int main() {
-
     int i, j, tt;
     is2[1] = 1;
-
     int count, max;
     for(i = 1; i < 32; i++) {
         tt = 1 << i;

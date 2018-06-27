@@ -47,7 +47,6 @@ void zeroonepack(int w, int v) {
 int main() {
     int i, n;
     while(scanf("%d%d", &n, &sum), (n != 0 && sum != 0)) {
-
         for(i = 0; i < n; i++)
             scanf("%d%d", &a[i].w, &a[i].v);
         memset(dp, 0, sizeof(dp));

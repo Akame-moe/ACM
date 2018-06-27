@@ -73,7 +73,6 @@ void visit(tree * r) {
     }
 }
 int main() {
-
     int i;
     int  N;
     scanf("%d", &N);
@@ -98,7 +97,6 @@ int main() {
                     ovs.push(Root);
                 }
             }
-
         }
         while(ovs.size() != 1) {
             ops.top()->rightchild = ovs.top();
@@ -167,10 +165,8 @@ int main() {
         ovs.pop();
         while(!ops.empty())
             ops.pop();
-
     }
     return 0;
-
 }
 int p(char c) {
     switch(c) {

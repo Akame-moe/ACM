@@ -10,7 +10,6 @@ int main() {
     while(N--) {
         int a1[1005] = {0}, a2[1005] = {0};
         scanf("%s %s", s1, s2);
-
         len1 = strlen(s1);
         for(i = 0; i < len1; i++)
             a1[len1 - i] = s1[i] - '0';

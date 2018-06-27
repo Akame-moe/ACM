@@ -69,7 +69,6 @@ int main() {
         printf("\n");
         for(i = 1; i <= N; i++)
             v[i].clear();
-
     }
     return 0;
 }
@@ -79,7 +78,6 @@ void bfs(int S) {
     while(!Q.empty()) {
         cur = Q.front();
         Q.pop();
-
         if(!v[cur].empty() && !vis[cur]) {
             vis[cur] = 1; // 当前城市访问过
             for(pos = v[cur].begin(); pos != v[cur].end(); pos++) {
@@ -89,9 +87,7 @@ void bfs(int S) {
                     Q.push(*pos);
                 }
             }
-
         }
-
     }
     while(!Q.empty())
         Q.pop();

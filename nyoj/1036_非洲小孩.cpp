@@ -46,7 +46,6 @@ int comp(const void *a, const void *b) {
     return (*(T*)a).right - (*(T*)b).right;
 }
 int main() {
-
     int h1, m1, h2, m2;
     int n;
     int i;
@@ -62,7 +61,6 @@ int main() {
                 t[i].right = t[i].lift;
                 t[i].lift = count;
             }
-
         }
         qsort(t, n, sizeof(T), comp);
         count = 1;
@@ -73,9 +71,7 @@ int main() {
                 flag = t[i].right;
             }
         }
-
         printf("%d\n", count);
     }
-
     return 0;
 }

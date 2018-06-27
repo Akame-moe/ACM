@@ -128,7 +128,6 @@ int main() {
                 a[j] = a[j] % 10;
             }
         }
-
         for(i = 99; i >= 0; --i)
             if(a[i]) break;
         for(j = i; j >= 0; --j)
@@ -160,9 +159,6 @@ int main() {
                     len++;
             }
         }
-
-
-
         temp = 0;
         for(i = len; i >= 1; i--) {
             temp = temp * 10 + a[i];
@@ -174,7 +170,6 @@ int main() {
         for(i = len; i >= 1; i--)
             printf("%d", a[i]);
         printf("\n");
-
     }
     return 0;
 }

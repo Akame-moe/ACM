@@ -40,7 +40,6 @@ Yes
 using namespace std;
 int main() {
     int a[5005], b[5005];
-
     int N;
     stack<int> v;
     scanf("%d", &N);
@@ -91,13 +90,10 @@ int main() {
                     vis[b[i]] = 1;
                 }
             }
-
-
         }
         while(!v.empty())
             v.pop();
         printf("%s\n", count1 >= count2 ? "Yes" : "No");
-
     }
     return 0;
 }

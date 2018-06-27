@@ -78,7 +78,6 @@ int main() {
         qsort(a, e, sizeof(a[0]), comp);
         work();
         printf("%d\n", sum + *min_element(L, L + v));
-
     }
     return 0;
 }

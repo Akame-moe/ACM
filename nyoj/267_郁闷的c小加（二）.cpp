@@ -110,7 +110,6 @@ void visit(tree * r) {
 
 
 int main() {
-
     int i, j;
     int  N;
     scanf("%d", &N);
@@ -141,7 +140,6 @@ int main() {
                     ovs.push(Root);
                 }
             }
-
         }
         while(ovs.size() != 1) {
             ops.top()->rightchild = ovs.top();

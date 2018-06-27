@@ -69,7 +69,6 @@ int main() {
         creat(&root, last, mid, len_mid);
         visit(root);
         printf("\n");
-
     }
     return 0;
 }

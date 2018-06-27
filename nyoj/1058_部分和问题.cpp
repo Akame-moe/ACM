@@ -82,7 +82,6 @@ void DFS(int pos) {
         }
         return;
     }
-
     for(int i = pos; i < n; ++i) {
         count += arr[i];
         vis[i] = 1;

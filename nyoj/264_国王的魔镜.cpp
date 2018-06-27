@@ -50,12 +50,8 @@ int main() {
                 len /= 2;
             else
                 break;
-
         }
         printf("%d\n", len + 1);
-
-
     }
-
     return 0;
 }

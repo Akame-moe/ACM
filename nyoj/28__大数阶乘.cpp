@@ -37,7 +37,6 @@ int main() {
             if(j >= len && jw != 0)
                 len++;
         }
-
     }
     for(i = len; i >= 1; i--)
         printf("%d", a[i]);

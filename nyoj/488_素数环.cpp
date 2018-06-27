@@ -81,7 +81,6 @@ int main() {
         cas++;
     }
     return 0;
-
 }
 void dfs(int i) {
     int j;
@@ -101,5 +100,4 @@ void dfs(int i) {
             }
         }
     }
-
 }

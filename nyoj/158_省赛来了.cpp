@@ -58,7 +58,6 @@ int main() {
         //printf("%d   ",(int)pow(fun(n),m/n));
         printf("%d\n", (fun(m) / (int)pow(fun(n), m / n)) % 2013);
     }
-
     return 0;
 }
 int fun(int n) {

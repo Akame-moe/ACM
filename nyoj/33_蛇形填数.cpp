@@ -60,7 +60,6 @@ int main() {
             j--;
             i++;
         }
-
         for(i = 1; i <= n; i++) {
             for(j = 1; j <= n; j++)
                 printf("%d ", a[i][j]);

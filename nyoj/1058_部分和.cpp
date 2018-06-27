@@ -32,7 +32,6 @@ bool flag;
 int sum;
 int main() {
     int i;
-
     void dfs(int, int );
     while(~scanf("%d%d", &n, &k)) {
         memset(visit, false, 21);
@@ -43,7 +42,6 @@ int main() {
         dfs(0, 0);
         if(!flag)
             printf("NO\n");
-
     }
     return 0;
 }
@@ -69,7 +67,6 @@ void dfs(int cur, int sum) {
         dfs(cur + 1, sum + a[cur]);
         visit[cur] = false;
     }
-
 }
 
 #include<stdio.h>

@@ -219,7 +219,6 @@ int main() {
         }
     } while(1);
     return 0;
-
 }
 
 mystack <tree*> ops1;
@@ -326,7 +325,6 @@ double work(char *s) {
             printf("%s\n", w);
             ovs.push(atof(w));
         } else { //运算符
-
             if(s[i] == '(' || comp(ops.top()) < comp(s[i])) {
                 printf("%c\n", s[i]);
                 ops.push(s[i]);
@@ -352,7 +350,6 @@ double work(char *s) {
         printf("操作数当前栈为:");
         ovs.printstack();
         printf("\n");
-
     }
     while(ovs.size() != 1) { //最后只剩下同级运算
         printf("当前处理:");

@@ -62,7 +62,6 @@ int main() {
                 int ind = Bsearch(d, ans, ss[i]);
                 d[ind + 1] = ss[i];
             }
-
         }
         printf("%d\n", ans);
     }

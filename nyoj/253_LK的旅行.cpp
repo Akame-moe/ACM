@@ -63,7 +63,6 @@ int main() {
             scanf("%d%d", &a[i].x, &a[i].y);
         }
         qsort(a, n, sizeof(a[0]), comp);
-
         top = 0;
         q[0] = a[0];
         for(i = 1; i < n; i++) { //下凸包

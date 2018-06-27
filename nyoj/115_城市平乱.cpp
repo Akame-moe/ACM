@@ -209,7 +209,6 @@ int main() {
             int a, b, t;
             scanf("%d%d%d", &a, &b, &t);
             createGraph(a, b, t, g);
-
         }
         shortpath(q - 1, g);
         int res = d[tem[0] - 1];

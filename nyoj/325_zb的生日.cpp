@@ -176,10 +176,8 @@ void main() {
     int j = 0;
     int N = 0;
     Xgd xgd1, xgd2;
-
     InitXGD(&xgd1);
     InitXGD(&xgd2);
-
     scanf("%d", &N);
     for(i = 1; i <= N; i++) {
         scanf("%d", &j);

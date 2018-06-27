@@ -38,13 +38,11 @@ int main() {
         long long temp = 1;
         a %= c;
         while(b > 0) {
-
             if(b % 2 == 1) {
                 temp = (temp * a) % c;
             }
             b /= 2;
             a = (a * a) % c;
-
         }
         printf("%lld\n", temp);
     }

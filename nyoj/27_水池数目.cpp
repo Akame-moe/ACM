@@ -64,7 +64,6 @@ int main() {
                 }
             }
         printf("%d\n", max);
-
     }
     return 0;
 }
@@ -76,5 +75,4 @@ void dfs(int i, int j) {
     if(a[i][j + 1] == 1) dfs(i, j + 1);
     if(a[i - 1][j] == 1) dfs(i - 1, j);
     if(a[i][j - 1] == 1) dfs(i, j - 1);
-
 }

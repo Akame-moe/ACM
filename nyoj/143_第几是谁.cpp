@@ -34,14 +34,12 @@ int main() {
     int n = 12, k, i, j, t, m;
     char s[14];//存放序列
     scanf("%d", &m);
-
     while(m--) {
         char a[13] = "abcdefghijkl"; //字母列表
         scanf("%d", &k);
         k = k - 1;
         for(i = 0; i < n; i++) { //进行12次循环
             t = k / fac[n - i - 1]; //求出T是一个数
-
             for(j = 0; j < n; j++)
                 if(a[j] != '0') { //与下句的a[j]='0',相呼应，检验是否该字母已经被用过。
                     if(t == 0) break; //t为0 就直接跳出最内层的循环
@@ -49,7 +47,6 @@ int main() {
                 }
             s[i] = a[j];
             a[j] = '0'; //此语句起标记作用，标记字母标中的该字母已经用过。
-
             k %= fac[n - i - 1];
         }
         s[12] = '\0';

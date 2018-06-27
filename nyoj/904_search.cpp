@@ -118,7 +118,6 @@ int n, m, i, t;
 int Bsearch(int);
 int main() {
     int T;
-
     scanf("%d", &T);
     while(T--) {
         scanf("%d%d", &n, &m);
@@ -135,7 +134,6 @@ int main() {
         }
     }
     return 0;
-
 }
 int Bsearch(int fen) {
     int i = 0, j = n - 1, mid;

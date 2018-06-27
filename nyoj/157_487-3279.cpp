@@ -132,7 +132,6 @@ int main() {
                 t++;
                 if(t == 3)
                     a[i][t++] = '-';
-
             }
             a[i][8] = '\0';
             //printf("\n");
@@ -151,7 +150,6 @@ int main() {
                 flag = 0;
                 printf("%s %d\n", a[j], n + 2);
             }
-
         }
         if(flag)
             printf("\n");

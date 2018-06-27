@@ -72,7 +72,6 @@ int main() {
                     ovs.push(calculate(num1, op, num2));
                 }
             }
-
         }
         //printf("size=%d\n",ovs.size());
         while(ovs.size() != 1) {
@@ -91,7 +90,6 @@ int main() {
             ops.pop();
     }
     return 0;
-
 }
 bool comp(char op_top, char op) {
     int top, _op;

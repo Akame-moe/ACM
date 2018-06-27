@@ -65,9 +65,6 @@ int main() {
             }
         }
         printf("%s\n", flag ? "Yes" : "No");
-
-
-
     }
     return 0;
 }

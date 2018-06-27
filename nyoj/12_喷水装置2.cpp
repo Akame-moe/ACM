@@ -43,7 +43,6 @@ struct Pen {
     double x1;//左端点
 } p[10005];
 int comp(const void*a, const void *b) {
-
     return (*(Pen*)a).x1 > (*(Pen *)b).x1 ? 1 : -1; //做断电排序
 }
 int main() {
@@ -98,23 +97,11 @@ int main() {
                     break;
                 }
             }
-
-
-
-
         }
         if(!flag)
             printf("0\n");
         else
             printf("%d\n", count);
-
-
-
-
-
-
     }
-
-
     return 0;
 }

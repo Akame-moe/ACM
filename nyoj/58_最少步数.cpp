@@ -63,7 +63,6 @@ int main() {
         ans = 100;
         dfs(x1, y1, 0);
         printf("%d\n", ans);
-
     }
     return 0;
 }

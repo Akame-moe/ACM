@@ -79,7 +79,6 @@ int main() {
         int count = 0;
         if(cnt == n) {
             for(i = 1; i <= n; i++) {
-
                 if(v[i].size() & 1) count++;
                 v[i].clear();
             }

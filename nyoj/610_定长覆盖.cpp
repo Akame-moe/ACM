@@ -50,10 +50,8 @@ int main() {
             sum = sum - a[i] + a[i + m + 1];
             if(sum > max)
                 max = sum;
-
         }
         printf("%d\n", max);
-
     }
     return 0;
 }

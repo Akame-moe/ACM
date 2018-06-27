@@ -33,7 +33,6 @@ int main() {
         count = 0;
         scanf("%d", &num);
         do {
-
             for(i = 0; i < 4; i++) {
                 a[3 - i] = num % 10;
                 num /= 10;
@@ -47,7 +46,6 @@ int main() {
         printf("%d\n", count + 1);
     }
     return 0;
-
 }
 void sort(int a[]) { //大到小排序
     int i, j;

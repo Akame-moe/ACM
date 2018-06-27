@@ -40,7 +40,6 @@ void set() {
                 IsPrime[j] = false;
         }
     }
-
     prime[0] = 2;
     j = 1;
     for(i = 3; i < range; i += 2)
@@ -72,8 +71,6 @@ int main() {
                 sum++;
         }
         printf("%d\n", sum);
-
     }
     return 0;
-
 }

@@ -67,13 +67,11 @@ int main() {
                 a[i] = 0;
             i = 0;
             num = 0;
-
             while(i < strlen(s)) {
                 if(s[i] == '.')
                     loc = (strlen(s) - 1 - i) * n;
                 else {
                     num = num * 10 + s[i] - '0';
-
                 }
                 i++;
             }
@@ -97,7 +95,6 @@ int main() {
                         len++;
                 }
             }
-
             if(loc == 0) { //无小数点
                 for(i = len; i >= 1; i--)
                     printf("%d", a[i]);
@@ -123,8 +120,6 @@ int main() {
                 printf("\n");
             }
         }
-
-
     }
     return 0;
 }
@@ -150,7 +145,6 @@ int main() {
                 tmp /= 10;
             }
         }
-
         for(bottom = -1; !p[++bottom] && bottom < n * 6;);
         show = 0;
         for(top = j; bottom < top;) {

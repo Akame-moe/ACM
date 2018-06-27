@@ -84,7 +84,6 @@ int CalZeroNum(int n) {
     while(b <= n) {
         b *= 5;
         num += n / b;
-
     }
     return num;//返回结尾零的个数
 }

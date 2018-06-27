@@ -67,7 +67,6 @@ int main() {
             printf("0\n");
         else
             printf("%d %s\n", len_s1, s1);
-
     }
     return 0;
 }

@@ -60,7 +60,6 @@ void dfs(int cur, int count, int h) {
         //printf("%d  %d \n",cur,h);
         dfs(cur + 1, count + 1, h);
     }
-
 }
 
 

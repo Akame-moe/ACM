@@ -51,7 +51,6 @@ int main() {
     while(gets(s) != NULL) {
         if(s[0] >= '0' && s[0] <= '9') {
             i = 0;
-
             while(1) {
                 count = 0;
                 while(s[i] == s[++i])

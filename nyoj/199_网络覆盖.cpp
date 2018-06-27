@@ -38,7 +38,6 @@ impossible
 #include<math.h>
 int main() {
     int T;
-
     int n;
     double fg;
     scanf("%d", &T);

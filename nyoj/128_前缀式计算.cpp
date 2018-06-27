@@ -50,7 +50,6 @@ char s[1500];
 char sss[50];
 int main() {
     //freopen("d:\\data\\1.txt","r",stdin);
-
     char w[50];
     double num1, num2;
     while(gets(s) != NULL) {
@@ -78,7 +77,6 @@ int main() {
             } else
                 i--;
         }
-
         //printf("size=%d\n",ovs.size());
         /*
                 while(ovs.size()!=1)//跳出循环后ovs栈必为一个数
@@ -90,7 +88,6 @@ int main() {
         */
         printf("%.2lf\n", ovs.top());
         ovs.pop();
-
     }
     return 0;
 }

@@ -80,11 +80,7 @@ int main() {
             sum -= (a[i].v * a[i].w);
             sum += m * a[i].v;
         }
-
         printf("%d\n", sum);
     }
-
-
-
     return 0;
 }

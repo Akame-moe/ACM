@@ -31,7 +31,6 @@ int main() {
         d = strlen(s);
         for(i = 0; i + 3 < d;) {
             if(s[i] == 'y' && s[i + 1] == 'o' && s[i + 2] == 'u') {
-
                 printf("we");
                 i += 3;
             } else {

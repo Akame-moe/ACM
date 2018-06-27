@@ -50,30 +50,24 @@ int main() {
         int len = strlen(s);
         if(s[0] >= '0' && s[0] <= '9') {
             int num = 0;
-
             num = atoi(s);
             i = 0;
             while(num > 0) {
                 b[i++] = (--num) % jz;
                 num /= jz;
-
             }
             while(--i >= 0) {
                 printf("%c", sss[b[i]]);
-
             }
             printf("\n");
         } else {
             int num = 0;
             int ch;
-
             for(i = 0; i < len; i++) {
                 ch = int(s[i] - 'A');
                 num += (int)pow(26, len - i - 1) * (ch + 1);
             }
             printf("%d\n", num);
-
-
         }
     }
     return 0;

@@ -48,7 +48,6 @@ int main() {
     int sum;
     int n;
     int head, end;
-
     scanf("%d", &N);
     while(N--) {
         int ren[305] = {0};
@@ -75,8 +74,5 @@ int main() {
         }
         printf("%d\n", sum);
     }
-
-
-
     return 0;
 }

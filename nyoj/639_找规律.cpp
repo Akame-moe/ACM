@@ -42,9 +42,7 @@ int main() {
                 a[i] = a[i - 1] + a[i - 2];
                 printf("%d ", a[i]);
             }
-
         } else if(dengbi()) {
-
             for(i = 1; i <= 5; i++)
                 printf("%d ", a[4] * (int)(pow(a[1] / a[0], i)));
         } else
@@ -54,7 +52,6 @@ int main() {
     return 0;
 }
 int dengcha() {
-
     int i;
     for(i = 1; i <= 3; i++) {
         if((a[i] - a[i - 1]) != (a[i + 1] - a[i]))
@@ -77,7 +74,6 @@ int dengbi() {
         return 1;
     else
         return 0;
-
 }
 int fbnq() {
     int i;

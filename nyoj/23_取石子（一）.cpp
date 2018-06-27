@@ -36,7 +36,6 @@ int main() {
             printf("Lose\n");
         else
             printf("Win\n");
-
     }
     return 0;
 }

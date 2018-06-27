@@ -37,7 +37,6 @@ int main() {
         a[1] = 0;
         a[2] = 1;
         a[3] = 2;
-
         scanf("%d", &m);
         if(m <= 4)
             printf("%d\n", m - 1);

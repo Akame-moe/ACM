@@ -50,7 +50,6 @@ int main() {
                     s2[j] = s1[i];
                     loc = i;
                 }
-
             }
             loc++;
             j++;
@@ -58,7 +57,5 @@ int main() {
         s2[j] = '\0';
         printf("%s\n", s2);
     }
-
-
     return 0;
 }

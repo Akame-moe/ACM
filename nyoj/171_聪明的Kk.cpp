@@ -35,7 +35,6 @@
 #include<stdio.h>
 #define max(a,b) (a>b?a:b)
 int main() {
-
     int i, j, n, m;
     while(~scanf("%d %d", &n, &m)) {
         int coin;
