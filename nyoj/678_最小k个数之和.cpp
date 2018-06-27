@@ -4,9 +4,9 @@
 
 
 ----------input----------
-测试样例组数不超过10  
-每个测试案例包括2行：  
-第一行为2个整数n,k(1<=k<=n<=100000)  
+测试样例组数不超过10
+每个测试案例包括2行：
+第一行为2个整数n,k(1<=k<=n<=100000)
 第二行包含n个整数，每个整数的范围为【1~2000】
 
 
@@ -24,34 +24,27 @@
 /////////////////////////////
 #include<stdio.h>
 #include<string.h>
-const int MAX=2005;
-int main()
-{
+const int MAX = 2005;
+int main() {
     int a[MAX];
-    int i,n,k,j,sum;
-    while(~scanf("%d%d",&n,&k))
-    {
-        int a[MAX]={0};
-        for(i=0;i<n;i++)
-        {
-            scanf("%d",&j);
+    int i, n, k, j, sum;
+    while(~scanf("%d%d", &n, &k)) {
+        int a[MAX] = {0};
+        for(i = 0; i < n; i++) {
+            scanf("%d", &j);
             a[j]++;
         }
-        sum=0;
-        for(i=1;i<MAX;i++)
-        {
-            if(a[i]<=k)
-            {
-                k-=a[i];
-                sum+=a[i]*i;
-            }
-            else
-            {
-                sum+=i*k;
+        sum = 0;
+        for(i = 1; i < MAX; i++) {
+            if(a[i] <= k) {
+                k -= a[i];
+                sum += a[i] * i;
+            } else {
+                sum += i * k;
                 break;
             }
         }
-        printf("%d\n",sum);
+        printf("%d\n", sum);
 
     }
     return 0;

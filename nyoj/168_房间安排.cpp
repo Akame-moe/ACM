@@ -13,10 +13,10 @@ City,Better Life)为主题，将充分探索21世纪城市生活。
 
 
 ----------input----------
-第一行：T 表示有T组测试数据  
-每组测试数据第一行：N 表示定单数  
-每组测试数据接下来有N行，每行有三个整数 A B C 表示房间数，开始住宿时间和天数  
-1<=T<=100  
+第一行：T 表示有T组测试数据
+每组测试数据第一行：N 表示定单数
+每组测试数据接下来有N行，每行有三个整数 A B C 表示房间数，开始住宿时间和天数
+1<=T<=100
 1<=N<=10000 1<=A<=10 1<=B<=180 1<=c<=10
 
 
@@ -40,33 +40,29 @@ City,Better Life)为主题，将充分探索21世纪城市生活。
 /////////////////////////////
 #include<stdio.h>
 #include<string.h>
-int main()
-{
-    int n,room,di,jiu;
+int main() {
+    int n, room, di, jiu;
     int f[191];
     int T;
     int i;
     int max;
-    scanf("%d",&T);
-    while(T--)
-    {
-        scanf("%d",&n);
-        memset(f,0,sizeof(f));
-        while(n--)
-        {
-            scanf("%d%d%d",&room,&di,&jiu);
-            for(i=di;i<di+jiu;i++)
-            {
-                f[i]+=room;
+    scanf("%d", &T);
+    while(T--) {
+        scanf("%d", &n);
+        memset(f, 0, sizeof(f));
+        while(n--) {
+            scanf("%d%d%d", &room, &di, &jiu);
+            for(i = di; i < di + jiu; i++) {
+                f[i] += room;
             }
         }
-        max=0;
-        for(i=0;i<191;i++)
-            if(f[i]>max)
-                max=f[i];
-        printf("%d\n",max);
+        max = 0;
+        for(i = 0; i < 191; i++)
+            if(f[i] > max)
+                max = f[i];
+        printf("%d\n", max);
     }
     return 0;
 
 
-}        
+}

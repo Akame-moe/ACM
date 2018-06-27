@@ -4,10 +4,10 @@
 
 
 ----------input----------
-多组测试数据，第一行有一个数T，表示有T组测试数据(T<=50)  
-第二行有两个数n和m(1<=n,m<=10000)，n表示有n个人，m表示有m次查询  
-接下来n行，输入每个人的名字(长度小于10)和积分num(0<=num<=10^8)，  
-接下来m行，每个数表示要查询的积分(每次查询一定有结果)  
+多组测试数据，第一行有一个数T，表示有T组测试数据(T<=50)
+第二行有两个数n和m(1<=n,m<=10000)，n表示有n个人，m表示有m次查询
+接下来n行，输入每个人的名字(长度小于10)和积分num(0<=num<=10^8)，
+接下来m行，每个数表示要查询的积分(每次查询一定有结果)
 
 
 ----------output----------
@@ -75,11 +75,11 @@ int main()
         for(i=0;i<m;i++)
         {
             scanf("%d",&t);
-            printf("%s\n",p[Bsearch(t)].name);        
+            printf("%s\n",p[Bsearch(t)].name);
         }
     }
     return 0;
-    
+
 }
 int Bsearch(int fen)
 {
@@ -101,60 +101,52 @@ int Bsearch(int fen)
     }
 }
 */
- //超时
+//超时
 #include<cstdio>
 #include<string.h>
 #include<stdlib.h>
 #include<algorithm>
 using namespace std;
-struct N
-{
+struct N {
     char name[12];
     int fen;
-}p[10005];
-int comp(N a,N b)
-{
-    return a.fen<b.fen;
+} p[10005];
+int comp(N a, N b) {
+    return a.fen < b.fen;
 }
-int n,m,i,t;
+int n, m, i, t;
 int Bsearch(int);
-int main()
-{
+int main() {
     int T;
 
-    scanf("%d",&T);
-    while(T--)
-    {
-        scanf("%d%d",&n,&m);
-        for(i=0;i<n;i++)
-        {
-            scanf("%s %d",p[i].name,&p[i].fen);
+    scanf("%d", &T);
+    while(T--) {
+        scanf("%d%d", &n, &m);
+        for(i = 0; i < n; i++) {
+            scanf("%s %d", p[i].name, &p[i].fen);
         }
-        stable_sort(p,p+n,comp);//稳定排序算法
-        for(i=0;i<m;i++)
-        {
-            scanf("%d",&t);
-            int tt=Bsearch(t);
-            while(p[tt-1].fen==t)//找到相等的并且最先输入的
+        stable_sort(p, p + n, comp); //稳定排序算法
+        for(i = 0; i < m; i++) {
+            scanf("%d", &t);
+            int tt = Bsearch(t);
+            while(p[tt - 1].fen == t) //找到相等的并且最先输入的
                 tt--;
-            printf("%s\n",p[tt].name);        
+            printf("%s\n", p[tt].name);
         }
     }
     return 0;
-    
+
 }
-int Bsearch(int fen)
-{
-    int i=0,j=n-1,mid;
-    while(i<=j)
-    {
-        mid=(i+j)/2;
-        if(p[mid].fen==fen)
+int Bsearch(int fen) {
+    int i = 0, j = n - 1, mid;
+    while(i <= j) {
+        mid = (i + j) / 2;
+        if(p[mid].fen == fen)
             break;
-        if(p[mid].fen>fen)
-            j=mid;
+        if(p[mid].fen > fen)
+            j = mid;
         else
-            i=mid;
+            i = mid;
     }
-    return mid;    
+    return mid;
 }

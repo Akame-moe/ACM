@@ -4,8 +4,8 @@
 
 
 ----------input----------
-第一行输入s,表示测试数据的组数；  
-每组数据的第一行包括两个整数w，n，80<=w<=200,1<=n<=300，w为一条独木舟的最大承载量,n为人数；  
+第一行输入s,表示测试数据的组数；
+每组数据的第一行包括两个整数w，n，80<=w<=200,1<=n<=300，w为一条独木舟的最大承载量,n为人数；
 接下来的一组数据为每个人的重量（不能大于船的承载量）；
 
 
@@ -38,49 +38,42 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
-int comp(const void *a,const void *b)
-{
-    return *(int *)a-*(int *)b;
+int comp(const void *a, const void *b) {
+    return *(int *)a - *(int *)b;
 }
-int main()
-{
+int main() {
     int N;
     int i;
     int m;
     int sum;
     int n;
-    int head,end;
-    
-    scanf("%d",&N);
-    while(N--)
-    {
-        int ren[305]={0};
-        scanf("%d%d",&m,&n);
+    int head, end;
+
+    scanf("%d", &N);
+    while(N--) {
+        int ren[305] = {0};
+        scanf("%d%d", &m, &n);
         n--;
-        for(i=0;i<=n;i++)
-            scanf("%d",&ren[i]);
-        qsort(ren,n+1,sizeof(ren[0]),comp);
-        head=0;
-        end=n;
-        sum=n+1;
+        for(i = 0; i <= n; i++)
+            scanf("%d", &ren[i]);
+        qsort(ren, n + 1, sizeof(ren[0]), comp);
+        head = 0;
+        end = n;
+        sum = n + 1;
         //for(i=0;i<=n;i++)
         //    printf("[%d]",ren[i]);
-        while(end>0)
-        {
-            for(i=end-1;i>=0;)
-            {
-                if((ren[i]!=0 && ren[end]!=0)&& (ren[end]+ren[i])<=m)
-                {
+        while(end > 0) {
+            for(i = end - 1; i >= 0;) {
+                if((ren[i] != 0 && ren[end] != 0) && (ren[end] + ren[i]) <= m) {
                     sum--;
-                    ren[i]=0;
+                    ren[i] = 0;
                     break;
-                }
-                else
+                } else
                     i--;
             }
             end--;
-        }        
-        printf("%d\n",sum);
+        }
+        printf("%d\n", sum);
     }
 
 

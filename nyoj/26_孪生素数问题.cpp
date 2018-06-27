@@ -4,7 +4,7 @@
 
 
 ----------input----------
-第一行给出N(0 接下来组测试数据给出m，表示找出m之前的所有孪生素数。  
+第一行给出N(0 接下来组测试数据给出m，表示找出m之前的所有孪生素数。
 (0<m<1000000)
 
 
@@ -28,36 +28,31 @@
 bool IsPrime[range];
 int count;
 int prime[range];
-void set()
-{
-    int i,j;
+void set() {
+    int i, j;
     //for(i=0;i<range;++i)
     //    IsPrime[i]=true;
-    memset(IsPrime,true,range);
-    IsPrime[0]=IsPrime[1]=false;
-    for(i=2;i<range;i++)
-    {
-        if(IsPrime[i])
-        {
-            for(j=2*i;j<range;j+=i)
-                IsPrime[j]=false;
+    memset(IsPrime, true, range);
+    IsPrime[0] = IsPrime[1] = false;
+    for(i = 2; i < range; i++) {
+        if(IsPrime[i]) {
+            for(j = 2 * i; j < range; j += i)
+                IsPrime[j] = false;
         }
     }
-    
-    prime[0]=2;
-    j=1;
-    for(i=3;i<range;i+=2)
-        if(IsPrime[i])
-        {
-            prime[j++]=i;
+
+    prime[0] = 2;
+    j = 1;
+    for(i = 3; i < range; i += 2)
+        if(IsPrime[i]) {
+            prime[j++] = i;
             //printf("%d ",i);
         }
-    count=j;
+    count = j;
     return ;
 }
 
-int main()
-{
+int main() {
     void set();
     //double f=clock(),s;
     int T;
@@ -67,18 +62,16 @@ int main()
     int t;
     set();
     //printf("%0.3lf",(clock()-f)/1000.0);
-    scanf("%d",&T);
-    while(T--)
-    {
-        scanf("%d",&n);
-        sum=0;
-        for(i=1;prime[i]<=n && i<count;i++)
-        {
-            t=prime[i]-prime[i-1];
-            if(t==1 ||t==2 )
+    scanf("%d", &T);
+    while(T--) {
+        scanf("%d", &n);
+        sum = 0;
+        for(i = 1; prime[i] <= n && i < count; i++) {
+            t = prime[i] - prime[i - 1];
+            if(t == 1 || t == 2 )
                 sum++;
         }
-        printf("%d\n",sum);
+        printf("%d\n", sum);
 
     }
     return 0;

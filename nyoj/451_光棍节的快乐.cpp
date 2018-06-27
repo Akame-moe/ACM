@@ -15,7 +15,7 @@
 
 
 ----------output----------
-对于每个测试实例，请输出一共有多少种发生这种情况的可能，每个实例的输出占一行。  
+对于每个测试实例，请输出一共有多少种发生这种情况的可能，每个实例的输出占一行。
 
 
 ----------sample_input----------
@@ -30,62 +30,55 @@
 /////////////////////////////
 //vc下不通过。结果却ac
 #include<stdio.h>
-int fun(int n,int m)
-{
- int i,j;
- m=(n-m)>m?m:n-m;//优化
- long long t1,t2;
- t1=t2=1;
- for(i=n,j=1;i>n-m;--i,++j)//求n个人中选m个人的组合数，即CnM
- {
-  t1*=i;
-  t2*=j;
- }
- return t1/t2;
+int fun(int n, int m) {
+    int i, j;
+    m = (n - m) > m ? m : n - m; //优化
+    long long t1, t2;
+    t1 = t2 = 1;
+    for(i = n, j = 1; i > n - m; --i, ++j) { //求n个人中选m个人的组合数，即CnM
+        t1 *= i;
+        t2 *= j;
+    }
+    return t1 / t2;
 }
-int main()
-{
- int m,n,i;
- long long a[21]={0,0,1};
- for(i=3;i<21;++i)
-  a[i]=(i-1)*(a[i-2]+a[i-1]);//a[i]存储i个人的错排
- while(scanf("%d%d",&n,&m)!=EOF)
- {
-  printf("%lld\n",fun(n,m)*a[m]);
- }
- return 0;
+int main() {
+    int m, n, i;
+    long long a[21] = {0, 0, 1};
+    for(i = 3; i < 21; ++i)
+        a[i] = (i - 1) * (a[i - 2] + a[i - 1]); //a[i]存储i个人的错排
+    while(scanf("%d%d", &n, &m) != EOF) {
+        printf("%lld\n", fun(n, m)*a[m]);
+    }
+    return 0;
 }
- 
+
 //451
 #include<stdio.h>
 #include<iostream>
 long long  int f[21];
 using namespace std;
-void fun()
-{
+void fun() {
     int i;
-    f[0]=1;
-    f[1]=1;
-    f[2]=2;
-    for(i=3;i<=20;i++)
-        f[i]=i*f[i-1];
+    f[0] = 1;
+    f[1] = 1;
+    f[2] = 2;
+    for(i = 3; i <= 20; i++)
+        f[i] = i * f[i - 1];
     return ;
 }
-int main()
-{
+int main() {
     void fun();
-    int n,m;
+    int n, m;
     long long int a[25];
     int i;
-    a[0]=0;
-    a[1]=0;
-    a[2]=1;
+    a[0] = 0;
+    a[1] = 0;
+    a[2] = 1;
     fun();
-    for(i=3;i<=21;i++)
-        a[i]=(i-1)*(a[i-1]+a[i-2]);
-    while(scanf("%d%d",&n,&m)!=EOF)
-    {
-        cout<<f[n]/f[m]/f[n-m]*a[m]<<endl;
+    for(i = 3; i <= 21; i++)
+        a[i] = (i - 1) * (a[i - 1] + a[i - 2]);
+    while(scanf("%d%d", &n, &m) != EOF) {
+        cout << f[n] / f[m] / f[n - m]*a[m] << endl;
     }
     return 0;
 }

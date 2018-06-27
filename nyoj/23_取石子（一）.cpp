@@ -4,7 +4,7 @@
 
 
 ----------input----------
-第一行是一个正整数n表示有n组测试数据  
+第一行是一个正整数n表示有n组测试数据
 输入有不到1000组数据，每组数据一行，有两个数N和M,之间用空格分隔。
 
 
@@ -26,15 +26,13 @@ Win
 /////////////////////////////
 #include<stdio.h>
 #include<math.h>
-int main()
-{
+int main() {
     int N;
-    int n,m;
-    scanf("%d",&N);
-    while(N--)
-    {
-        scanf("%d%d",&n,&m);
-        if(n%(m+1)==0)
+    int n, m;
+    scanf("%d", &N);
+    while(N--) {
+        scanf("%d%d", &n, &m);
+        if(n % (m + 1) == 0)
             printf("Lose\n");
         else
             printf("Win\n");

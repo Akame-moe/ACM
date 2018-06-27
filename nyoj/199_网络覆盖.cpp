@@ -10,10 +10,10 @@
 
 
 ----------input----------
-输入包括多组测试数据  
-第一部分：一个整数T(1<=T<=500)  
-第二部分：一共T行，每行包括三个整数L,D,R代表路的长，宽和覆盖半径（米）。  
-(1<=L<=100000),(1<=D<=50),(1<=R<=200)。  
+输入包括多组测试数据
+第一部分：一个整数T(1<=T<=500)
+第二部分：一共T行，每行包括三个整数L,D,R代表路的长，宽和覆盖半径（米）。
+(1<=L<=100000),(1<=D<=50),(1<=R<=200)。
 
 
 ----------output----------
@@ -32,39 +32,30 @@
 impossible
 */
 /////////////////////////////
- 
+
 //125
 #include<stdio.h>
 #include<math.h>
-int main()
-{
+int main() {
     int T;
-    
+
     int n;
     double fg;
-    scanf("%d",&T);
-    while(T--)
-    {
-        int L,d,r;
-        scanf("%d%d%d",&L,&d,&r);
-        if(2*r<=d)
-        {
+    scanf("%d", &T);
+    while(T--) {
+        int L, d, r;
+        scanf("%d%d%d", &L, &d, &r);
+        if(2 * r <= d) {
             printf("impossible\n");
-        }
-        else
-        {
-            fg=2.0*sqrt(r*r-d*d/4.0);
-            for(n=1;n*fg<L;n++);
-            if((n-1)<=L)
-            {
-                printf("%d\n",n);
-            }
-            else
-            {
+        } else {
+            fg = 2.0 * sqrt(r * r - d * d / 4.0);
+            for(n = 1; n * fg < L; n++);
+            if((n - 1) <= L) {
+                printf("%d\n", n);
+            } else {
                 printf("impossible\n");
             }
         }
     }
     return 0;
 }
-        

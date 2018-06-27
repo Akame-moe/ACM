@@ -4,7 +4,7 @@
 
 
 ----------input----------
-第一行m表示有m组测试数据  
+第一行m表示有m组测试数据
 每一组测试数据的第一行有一个整数数n，n表示共有n个喷水装置，随后的一行，有n个实数ri，ri表示该喷水装置能覆盖的圆的半径。
 
 
@@ -17,7 +17,7 @@
 
 5
 
-2 3.2 4 4.5 6 
+2 3.2 4 4.5 6
 
 10
 
@@ -32,45 +32,39 @@
 #include<string.h>
 #include<math.h>
 #include<stdlib.h>
-struct Pen
-{
+struct Pen {
     double r;
     double d;
-}p[601];
-int comp(const void*a,const void *b)
-{
-    
-    return (*(Pen*)a).r<(*(Pen*)b).r?1:-1;
+} p[601];
+int comp(const void*a, const void *b) {
+
+    return (*(Pen*)a).r < (*(Pen*)b).r ? 1 : -1;
 }
-int main()
-{
+int main() {
     int  N;
     int n;
     int i;
     double l;
     int count;
-    scanf("%d",&N);
-    while(N--)
-    {
-        scanf("%d",&n);
-        for(i=0;i<n;i++)
-        {
-            scanf("%lf",&p[i].r);
-            p[i].d=2*sqrt((p[i].r*p[i].r-1.0));
+    scanf("%d", &N);
+    while(N--) {
+        scanf("%d", &n);
+        for(i = 0; i < n; i++) {
+            scanf("%lf", &p[i].r);
+            p[i].d = 2 * sqrt((p[i].r * p[i].r - 1.0));
         }
-        qsort(p,n,sizeof(p[0]),comp);
-    
+        qsort(p, n, sizeof(p[0]), comp);
+
         //for(i=0;i<n;i++)
         //    printf("[%lf]",p[i].d);
-        l=0;
-        count=0;
-        i=0;
-        while(l<20.0)
-        {
-            l+=p[i++].d;
+        l = 0;
+        count = 0;
+        i = 0;
+        while(l < 20.0) {
+            l += p[i++].d;
             count++;
         }
-        printf("%d\n",count);
+        printf("%d\n", count);
 
     }
 

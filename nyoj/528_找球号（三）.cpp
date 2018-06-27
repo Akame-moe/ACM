@@ -4,7 +4,7 @@ xiaod现在正在某个球场负责网球的管理工作。为了方便管理，
 
 
 ----------input----------
-有多组测试数据。每组数据包括两行。  
+有多组测试数据。每组数据包括两行。
 第一行是一个整数N(0 随后的一行是N个数，表示所剩的各个球的编号M(0<M<10^9)。
 
 
@@ -30,19 +30,16 @@ xiaod现在正在某个球场负责网球的管理工作。为了方便管理，
 #include<stdio.h>
 #include<iostream>
 using namespace std;
-int main()
-{
+int main() {
     int N;
-    int i,num,a;
-    while(~scanf("%d",&N))
-    {
-        num=0;
-        for(i=0;i<N;i++)
-        {
-            scanf("%d",&a);
-            num^=a;
+    int i, num, a;
+    while(~scanf("%d", &N)) {
+        num = 0;
+        for(i = 0; i < N; i++) {
+            scanf("%d", &a);
+            num ^= a;
         }
-        cout<<num<<endl;
+        cout << num << endl;
     }
     return 0;
 }

@@ -1,6 +1,6 @@
 /*
 ----------description----------
-国王有一个魔镜，可以把任何接触镜面的东西变成原来的两倍——只是，因为是镜子嘛，增加的那部分是反的。  
+国王有一个魔镜，可以把任何接触镜面的东西变成原来的两倍——只是，因为是镜子嘛，增加的那部分是反的。
 
 比如一条项链，我们用AB来表示，不同的字母表示不同颜色的珍珠。如果把B端接触镜面的话，魔镜会把这条项链变为ABBA。如果再用一端接触的话，则会变成ABBAABBA（假定国王只用项链的某一端接触魔镜）。
 
@@ -8,7 +8,7 @@
 
 
 ----------input----------
-第一行是一个整数N(N<=10)表示测试数据的组数）  
+第一行是一个整数N(N<=10)表示测试数据的组数）
 每组测试数据占一行 只有一个字符串（长度小于100），由大写英文字母组成，表示最终的项链。
 
 
@@ -29,39 +29,33 @@ A
 */
 /////////////////////////////
 #include<stdio.h>
-int main()
-{
+int main() {
     char s[100];
     int N;
     int len;
-    int i,j;
-    scanf("%d",&N);
-    while(N--)
-    {
-        scanf("%s",s);
-        len=strlen(s)-1;
-        while(len%2)
-        {
-            for(i=len/2,j=len/2+1;j-i<=len;)
-            {
-                if(s[i]==s[j])
-                {
+    int i, j;
+    scanf("%d", &N);
+    while(N--) {
+        scanf("%s", s);
+        len = strlen(s) - 1;
+        while(len % 2) {
+            for(i = len / 2, j = len / 2 + 1; j - i <= len;) {
+                if(s[i] == s[j]) {
                     i--;
                     j++;
-                }
-                else
+                } else
                     break;
             }
-            if(s[i+1]==s[j-1])
-                len/=2;
+            if(s[i + 1] == s[j - 1])
+                len /= 2;
             else
-                break;    
-        
-        }
-        printf("%d\n",len+1);    
+                break;
 
-    
+        }
+        printf("%d\n", len + 1);
+
+
     }
-        
+
     return 0;
 }

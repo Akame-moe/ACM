@@ -2,7 +2,7 @@
 ----------description----------
 ctest有n个苹果，要将它放入容量为v的背包。给出第i个苹果的大小和价钱，求出能放入背包的苹果的总价钱最大值。
 
-  
+
 
 
 ----------input----------
@@ -30,40 +30,35 @@ ctest有n个苹果，要将它放入容量为v的背包。给出第i个苹果的
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
-struct G
-{
+struct G {
     int w;
     int v;
-}a[1005];
+} a[1005];
 int sum;
 int dp[1005];
-int max(int x,int y)
-{
-    return x>y?x:y;
+int max(int x, int y) {
+    return x > y ? x : y;
 }
-void zeroonepack(int w,int v)
-{
+void zeroonepack(int w, int v) {
     int i;
-    for(i=sum;i>=w;i--)
-    dp[i]=max(dp[i],dp[i-w]+v);
+    for(i = sum; i >= w; i--)
+        dp[i] = max(dp[i], dp[i - w] + v);
 }
-int main()
-{
-    int i,n;
-    while(scanf("%d%d",&n,&sum),(n!=0 && sum!=0))
-    {
-        
-        for(i=0;i<n;i++)
-            scanf("%d%d",&a[i].w,&a[i].v);
-        memset(dp,0,sizeof(dp));
-        for(i=0;i<n;i++)
-            zeroonepack(a[i].w,a[i].v);
-        printf("%d\n",dp[sum]);
+int main() {
+    int i, n;
+    while(scanf("%d%d", &n, &sum), (n != 0 && sum != 0)) {
+
+        for(i = 0; i < n; i++)
+            scanf("%d%d", &a[i].w, &a[i].v);
+        memset(dp, 0, sizeof(dp));
+        for(i = 0; i < n; i++)
+            zeroonepack(a[i].w, a[i].v);
+        printf("%d\n", dp[sum]);
     }
     return 0;
 }
 /*
- 
+
 #include <stdio.h>
 #include <string.h>
 
@@ -78,13 +73,13 @@ int main()
     while(scanf("%d %d",&N,&V)&&(N+V))
     {
         int weight[1001],value[1001];
-        
+
         for (i=1;i<=N;i++)
         {
             scanf("%d",&weight[i]);
             scanf("%d",&value[i]);
-        }        
-        
+        }
+
         memset(result,0,sizeof(result));
         for (i=1;i<=N;i++)
             for(j=V;j>=weight[i];j--)
@@ -95,5 +90,5 @@ int main()
     }
 
     return 0;
-}        
+}
 */

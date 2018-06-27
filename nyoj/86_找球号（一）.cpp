@@ -4,7 +4,7 @@
 
 
 ----------input----------
-第一行有两个整数m，n(0<=n<=100000，0<=m<=1000000)；m表示这堆球里有m个球，n表示这个游戏进行n次。  
+第一行有两个整数m，n(0<=n<=100000，0<=m<=1000000)；m表示这堆球里有m个球，n表示这个游戏进行n次。
 接下来输入m+n个整数，前m个分别表示这m个球的编号i，后n个分别表示每次游戏中的随机整数k
 
 
@@ -31,27 +31,24 @@ YES
 #include<stdio.h>
 #include<set>
 using namespace std;
-int main()
-{
+int main() {
     set< int >ss;
-    int m,n;
+    int m, n;
     int a;
     int b[1000005];
-    scanf("%d%d",&n,&m);
-    while(n--)
-    {
-        scanf("%d",&a);
+    scanf("%d%d", &n, &m);
+    while(n--) {
+        scanf("%d", &a);
         ss.insert(a);
     }
-    for(a=1;a<=m;a++)
-        scanf("%d",&b[a]);
-    for(a=1;a<=m;a++)
-    {
-        if(ss.find(b[a])!=ss.end())
+    for(a = 1; a <= m; a++)
+        scanf("%d", &b[a]);
+    for(a = 1; a <= m; a++) {
+        if(ss.find(b[a]) != ss.end())
             printf("YES\n");
         else
             printf("NO\n");
     }
 
     return 0;
-}        
+}

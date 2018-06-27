@@ -6,7 +6,7 @@
 
 
 ----------input----------
-多组测试数据。  
+多组测试数据。
 每组测试数据占一行，每行有两个数N和K (1 ≤ N≤ 10^18; 0 ≤ K ≤ 100).
 
 
@@ -31,37 +31,30 @@
 #include<stdio.h>
 #include<string.h>
 char s[20];
-void Swap(int ,int);
-int main()
-{
-    int k,len,i,j,max;
-    while(~scanf("%s%d",s,&k))
-    {
-        len=strlen(s);
-        for(i=0;i<len;i++)
-        {
-            max=i;
-            for(j=1;j<=k && i+j<len;j++)
-            {
-                if(s[max]<s[i+j])
-                    max=i+j;
+void Swap(int, int);
+int main() {
+    int k, len, i, j, max;
+    while(~scanf("%s%d", s, &k)) {
+        len = strlen(s);
+        for(i = 0; i < len; i++) {
+            max = i;
+            for(j = 1; j <= k && i + j < len; j++) {
+                if(s[max] < s[i + j])
+                    max = i + j;
             }
-            if(i!=max)
-            {
-                Swap(i,max);
-                k-=(max-i);
+            if(i != max) {
+                Swap(i, max);
+                k -= (max - i);
             }
         }
-        printf("%s\n",s);
+        printf("%s\n", s);
     }
     return 0;
 }
-void Swap(int i,int j)
-{
-    char temp=s[j];
-    for(;j>i;j--)
-    {
-        s[j]=s[j-1];
+void Swap(int i, int j) {
+    char temp = s[j];
+    for(; j > i; j--) {
+        s[j] = s[j - 1];
     }
-    s[i]=temp;
+    s[i] = temp;
 }

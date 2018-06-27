@@ -38,20 +38,17 @@
 */
 /////////////////////////////
 #include<stdio.h>
-int main()
-{
+int main() {
     int n;
-    scanf("%d",&n);
-    long long  a,b,m;
-    while(n--)
-    {
-        scanf("%lld%lld",&a,&b);
-        if(a==0 || b==0)
+    scanf("%d", &n);
+    long long  a, b, m;
+    while(n--) {
+        scanf("%lld%lld", &a, &b);
+        if(a == 0 || b == 0)
             printf("0\n");
-        else
-        {
-            m=(a%9)*(b%9)%9;
-            printf("%d\n",m==0?9:m);
+        else {
+            m = (a % 9) * (b % 9) % 9;
+            printf("%d\n", m == 0 ? 9 : m);
         }
     }
     return 0;

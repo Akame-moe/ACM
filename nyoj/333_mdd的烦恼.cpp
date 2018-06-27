@@ -8,7 +8,7 @@ ps: _互质_ （relatively primeì）又叫互素。若N个整数的最大公因
 
 
 ----------input----------
-有多组测试数据组数小于1003，  
+有多组测试数据组数小于1003，
 每组测试数据有一个整数n(0<n<=65535^2+1).
 
 
@@ -31,29 +31,24 @@ ps: _互质_ （relatively primeì）又叫互素。若N个整数的最大公因
 */
 /////////////////////////////
 #include<stdio.h>
-int main()
-{
+int main() {
     int n;
-    while(~scanf("%d",&n))
-    {
-        int ret=1;
+    while(~scanf("%d", &n)) {
+        int ret = 1;
         int i;
-        for(i=2;i*i<=n;i++)
-        {
-            if(n%i==0)
-            {
-                n/=i;
-                ret*=i-1;
-                while(n%i==0)
-                {
-                    n/=i;
-                    ret*=i;
+        for(i = 2; i * i <= n; i++) {
+            if(n % i == 0) {
+                n /= i;
+                ret *= i - 1;
+                while(n % i == 0) {
+                    n /= i;
+                    ret *= i;
                 }
             }
         }
-        if(n>1)
-            ret*=n-1;
-        printf("%d\n",ret);
+        if(n > 1)
+            ret *= n - 1;
+        printf("%d\n", ret);
     }
     return 0;
 }

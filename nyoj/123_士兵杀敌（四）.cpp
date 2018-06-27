@@ -6,18 +6,18 @@
 
 
 ----------input----------
-只有一组测试数据。  
-每一行是两个整数T和M表示共有T条指令，M个士兵。（1<=T,M<=1000000)  
-随后的T行，每行是一个指令。  
-指令分为两种：  
-一种形如  
-ADD 100 500 55 表示，第100个人到第500个人请战，最终每人平均获得了55军功，每次每人获得的军功数不会超过100，不会低于-100。  
-第二种形如：  
+只有一组测试数据。
+每一行是两个整数T和M表示共有T条指令，M个士兵。（1<=T,M<=1000000)
+随后的T行，每行是一个指令。
+指令分为两种：
+一种形如
+ADD 100 500 55 表示，第100个人到第500个人请战，最终每人平均获得了55军功，每次每人获得的军功数不会超过100，不会低于-100。
+第二种形如：
 QUERY 300 表示南将军在询问第300个人的军功是多少。
 
 
 ----------output----------
-对于每次查询输出此人的军功，每个查询的输出占一行。  
+对于每次查询输出此人的军功，每个查询的输出占一行。
 
 
 ----------sample_input----------
@@ -39,50 +39,40 @@ QUERY 3
 #include<stdio.h>
 int N;
 int c[1000005];
-int lowbit(int i)
-{
-    return i&(-i);
+int lowbit(int i) {
+    return i & (-i);
 }
-void updata(int i,int num)
-{
-    while(i<=N)
-    {
-        c[i]+=num;
-        i+=lowbit(i);
+void updata(int i, int num) {
+    while(i <= N) {
+        c[i] += num;
+        i += lowbit(i);
     }
 
 }
-int S(int i)
-{
-    int sum=0;
-    while(i>0)
-    {
-        sum+=c[i];
-        i-=lowbit(i);
+int S(int i) {
+    int sum = 0;
+    while(i > 0) {
+        sum += c[i];
+        i -= lowbit(i);
     }
     return sum;
 }
 
-int main()
-{
+int main() {
     int T;
     int i;
-    int num,b,e;
-    scanf("%d%d",&T,&N);
+    int num, b, e;
+    scanf("%d%d", &T, &N);
     char s[10];
-    while(T--)
-    {
-        scanf("%s",s);
-        if(s[0]=='A')
-        {
-            scanf("%d%d%d",&b,&e,&num);
-            updata(b,num);
-            updata(e+1,-num);
-        }
-        else
-        {
-            scanf("%d",&i);
-            printf("%d\n",S(i));
+    while(T--) {
+        scanf("%s", s);
+        if(s[0] == 'A') {
+            scanf("%d%d%d", &b, &e, &num);
+            updata(b, num);
+            updata(e + 1, -num);
+        } else {
+            scanf("%d", &i);
+            printf("%d\n", S(i));
         }
     }
     return 0;

@@ -5,11 +5,11 @@
 
 ----------input----------
 第一行输入动物名字的数量N(1<= N <=
-4000000),接下来的N行输入N个字符串表示动物的名字（字符串的长度不超过10,字符串全为小写字母，并且只有一组测试数据）。  
+4000000),接下来的N行输入N个字符串表示动物的名字（字符串的长度不超过10,字符串全为小写字母，并且只有一组测试数据）。
 
 
 ----------output----------
-输出这些动物中最多的动物的名字与数量，并用空格隔开（数据保证最多的动物不会出现两种以上）。  
+输出这些动物中最多的动物的名字与数量，并用空格隔开（数据保证最多的动物不会出现两种以上）。
 
 
 ----------sample_input----------
@@ -40,7 +40,7 @@ sheep 3
 /////////////////////////////
 #include<stdio.h>
 #include<string.h>
-struct Tire{
+struct Tire {
     int count;
     Tire *next[26];
 };
@@ -48,47 +48,44 @@ Tire *root;
 int Max;
 char Maxs[11];
 char ss[11];
-void insert(char *s)
-{
-    if(root==NULL || *s=='\0')
+void insert(char *s) {
+    if(root == NULL || *s == '\0')
         return ;
-    Tire *p=root;
+    Tire *p = root;
     int i;
     int n;
-    while(*s!='\0')
-    {
-        n=*s-'a';
-        if(p->next[n]==NULL)
-        {
-            Tire *temp=new Tire;
-            for(i=0;i<26;i++)
-                temp->next[i]=NULL;
-            temp->count=0;
-            p->next[n]=temp;
+    while(*s != '\0') {
+        n = *s - 'a';
+        if(p->next[n] == NULL) {
+            Tire *temp = new Tire;
+            for(i = 0; i < 26; i++)
+                temp->next[i] = NULL;
+            temp->count = 0;
+            p->next[n] = temp;
         }
-        p=p->next[n];
+        p = p->next[n];
         s++;
     }
     p->count++;
-    if(p->count>Max){ Max=p->count; strcpy(Maxs,ss);}
+    if(p->count > Max) {
+        Max = p->count;
+        strcpy(Maxs, ss);
+    }
 }
-int main()
-{
+int main() {
     int N;
     int i;
-    while(~scanf("%d",&N))
-    {
-        root=new Tire;
-        for(i=0;i<26;i++)
-            root->next[i]=NULL;
-        root->count=0;
-        Max=0;
-        while(N--)
-        {
-            scanf("%s",ss);
+    while(~scanf("%d", &N)) {
+        root = new Tire;
+        for(i = 0; i < 26; i++)
+            root->next[i] = NULL;
+        root->count = 0;
+        Max = 0;
+        while(N--) {
+            scanf("%s", ss);
             insert(ss);
         }
-        printf("%s %d\n",Maxs,Max);
+        printf("%s %d\n", Maxs, Max);
     }
     return 0;
 

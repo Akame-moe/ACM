@@ -6,11 +6,11 @@
 
 变换的过程如下：
 
-第一步. 把字符串6个一组折叠起来，比如wangximing则变为：  
-wangxi  
+第一步. 把字符串6个一组折叠起来，比如wangximing则变为：
+wangxi
 ming
 
-第二步. 把所有垂直在同一个位置的字符的ascii码值相加，得出6个数字，如上面的例子，则得出：  
+第二步. 把所有垂直在同一个位置的字符的ascii码值相加，得出6个数字，如上面的例子，则得出：
 228 202 220 206 120 105
 
 第三步. 再把每个数字“缩位”处理：就是把每个位的数字相加，得出的数字如果不是一位数字，就再缩位，直到变成一位数字为止。例如: 228 =>
@@ -57,37 +57,32 @@ haohaoxuexi
 #include<string.h>
 #include<iostream>
 using namespace std;
-int main()
-{
+int main() {
     int trun(int);
     int N;
     char s[105];
-    int len,i;
-    scanf("%d",&N);
-    while(N--)
-    {
-        int a[6]={0};
-        scanf("%s",s);
-        len=strlen(s);
-        for(i=0;i<len;i++)
-        {
-            a[i%6]+=(int)s[i];
+    int len, i;
+    scanf("%d", &N);
+    while(N--) {
+        int a[6] = {0};
+        scanf("%s", s);
+        len = strlen(s);
+        for(i = 0; i < len; i++) {
+            a[i % 6] += (int)s[i];
         }
-        for(i=0;i<6;i++)
-            cout<<trun(a[i]);
-        cout<<endl;
+        for(i = 0; i < 6; i++)
+            cout << trun(a[i]);
+        cout << endl;
     }
     return 0;
 }
-int trun(int n)
-{
-    int m=0;
-    while(n>0)
-    {
-        m+=n%10;
-        n/=10;
+int trun(int n) {
+    int m = 0;
+    while(n > 0) {
+        m += n % 10;
+        n /= 10;
     }
-    if(m>=10)
+    if(m >= 10)
         trun(m);
     else
         return m;

@@ -6,8 +6,8 @@ Dr.Kong设计了一个聪明的机器人卡多，卡多会对电子表格中的�
 
 
 ----------input----------
-第一行： N 表示有多少组测试数据。  
-接下来有N行， 每行或者是一个正整数，或者是一个仅由大写字母组成的字符串。  
+第一行： N 表示有多少组测试数据。
+接下来有N行， 每行或者是一个正整数，或者是一个仅由大写字母组成的字符串。
 输入保证，所有数字序号和字母序号对应的数字序号均 ≤ 2*10^9
 
 
@@ -38,48 +38,40 @@ AA
 #include<stdlib.h>
 using namespace std;
 #define jz 26
-int main()
-{
+int main() {
     char s[15];
-    char sss[]={"ABCDEFGHIJKLMNOPQRSTUVWXYZ"};
+    char sss[] = {"ABCDEFGHIJKLMNOPQRSTUVWXYZ"};
     int N;
     int b[10];
-    int i=0;
-    scanf("%d",&N);
-    while(N--)
-    {
-        scanf("%s",s);
-        int len=strlen(s);
-        if(s[0]>='0' && s[0]<='9')
-        {
-            int num=0;
-            
-            num=atoi(s);
-            i=0;
-            while(num>0)
-            {
-                b[i++]=(--num)%jz;
-                num/=jz;
+    int i = 0;
+    scanf("%d", &N);
+    while(N--) {
+        scanf("%s", s);
+        int len = strlen(s);
+        if(s[0] >= '0' && s[0] <= '9') {
+            int num = 0;
+
+            num = atoi(s);
+            i = 0;
+            while(num > 0) {
+                b[i++] = (--num) % jz;
+                num /= jz;
 
             }
-            while(--i>=0)
-            {
-                printf("%c",sss[b[i]]);
+            while(--i >= 0) {
+                printf("%c", sss[b[i]]);
 
             }
             printf("\n");
-        }
-        else
-        {
-            int num=0;
+        } else {
+            int num = 0;
             int ch;
-            
-            for(i=0;i<len;i++)
-            {
-                ch=int(s[i]-'A');
-                num+=(int)pow(26,len-i-1)*(ch+1);
+
+            for(i = 0; i < len; i++) {
+                ch = int(s[i] - 'A');
+                num += (int)pow(26, len - i - 1) * (ch + 1);
             }
-            printf("%d\n",num);
+            printf("%d\n", num);
 
 
         }

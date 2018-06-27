@@ -11,8 +11,8 @@
 
 
 ----------input----------
-第一行输入测试数据的组数N(0 每组测试数据的第一行是两个个整数W,H分表表示图片的宽度和高度(3<=W<=1440,3<=H<=960)  
-随后的H行，每行有W个正整数,表示该点的像素值。(像素值都在0到255之间，0表示黑色，255表示白色）  
+第一行输入测试数据的组数N(0 每组测试数据的第一行是两个个整数W,H分表表示图片的宽度和高度(3<=W<=1440,3<=H<=960)
+随后的H行，每行有W个正整数,表示该点的像素值。(像素值都在0到255之间，0表示黑色，255表示白色）
 
 
 ----------output----------
@@ -50,69 +50,58 @@
 #include<queue>
 using namespace std;
 int map[965][1445];
-int dir[4][2]={1,0,  0,1,  -1,0,  0,-1};
-typedef struct Point
-{
-    int x,y;
-}P;
+int dir[4][2] = {1, 0,  0, 1,  -1, 0,  0, -1};
+typedef struct Point {
+    int x, y;
+} P;
 queue<P> Q;
-int w,h;
-int main()
-{
+int w, h;
+int main() {
 //    freopen("d:\\data\\1.txt","r",stdin);
     void bfs();
     int ncase;
-    int i,j;
+    int i, j;
     P tt;
-    scanf("%d",&ncase);
-    while(ncase--)
-    {
-        scanf("%d%d",&w,&h);
-        for(i=0;i<h;i++)
-        {
-            for(j=0;j<w;j++)
-            {
-                scanf("%d",&map[i][j]);
-                if((i==0 || j==0 || i==(h-1) || j==(w-1) )&& map[i][j]!=0)
-                {
-                    tt.x=j;
-                    tt.y=i;
-                    map[i][j]=0;
+    scanf("%d", &ncase);
+    while(ncase--) {
+        scanf("%d%d", &w, &h);
+        for(i = 0; i < h; i++) {
+            for(j = 0; j < w; j++) {
+                scanf("%d", &map[i][j]);
+                if((i == 0 || j == 0 || i == (h - 1) || j == (w - 1) ) && map[i][j] != 0) {
+                    tt.x = j;
+                    tt.y = i;
+                    map[i][j] = 0;
                     Q.push(tt);
                 }
             }
         }
         bfs();
-        for(i=0;i<h;i++)
-        {
-            for(j=0;j<w;j++)
-                printf("%d ",map[i][j]);
+        for(i = 0; i < h; i++) {
+            for(j = 0; j < w; j++)
+                printf("%d ", map[i][j]);
             printf("\n");
         }
     }
     return 0;
 }
-void bfs()
-{
-    
-    P cur,next;
-    while(!Q.empty())
-    {
+void bfs() {
+
+    P cur, next;
+    while(!Q.empty()) {
         int k;
-        cur=Q.front();
+        cur = Q.front();
         Q.pop();
-        for(k=0;k<4;k++)
-        {
-            next.x=cur.x+dir[k][0];
-            next.y=cur.y+dir[k][1];
-            if(next.x>=0 && next.x<w && next.y>=0 && next.y<h && map[next.y][next.x]!=0)
-            {
-                map[next.y][next.x]=0;
+        for(k = 0; k < 4; k++) {
+            next.x = cur.x + dir[k][0];
+            next.y = cur.y + dir[k][1];
+            if(next.x >= 0 && next.x < w && next.y >= 0 && next.y < h && map[next.y][next.x] != 0) {
+                map[next.y][next.x] = 0;
                 Q.push(next);
             }
         }
     }
-    
+
     while(!Q.empty())
         Q.pop();
     return ;

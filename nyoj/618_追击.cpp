@@ -25,21 +25,19 @@
 0.667
 */
 /////////////////////////////
- 
+
 #include<iostream>
 #include<cstdio>
 #include<cmath>
 using namespace std;
-int main()
- {
+int main() {
     double k, a, b, v;
-    while (~scanf("%lf%lf%lf%lf",&k,&a,&b,&v))
-    {
+    while (~scanf("%lf%lf%lf%lf", &k, &a, &b, &v)) {
         double d, c, x;
-        d = fabs((b - a * k)*1.0 / sqrt(1 + k * k));
+        d = fabs((b - a * k) * 1.0 / sqrt(1 + k * k));
         c = sqrt(a * a + b * b - d * d);
-        x = (d * v)*1.0 / c;
-        printf ("%.3lf\n", x); 
+        x = (d * v) * 1.0 / c;
+        printf ("%.3lf\n", x);
     }
     return 0;
-}        
+}

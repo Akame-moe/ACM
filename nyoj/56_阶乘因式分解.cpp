@@ -31,51 +31,50 @@
 15
 */
 /////////////////////////////
- 
+
 #include<stdio.h>
 
-int main()
-{
+int main() {
 
     int N;
 
-    int num,prime,t;
+    int num, prime, t;
 
-    int i,count;
-    
-    scanf("%d",&N);
+    int i, count;
+
+    scanf("%d", &N);
 
     while(N--)
 
     {
-    
-        count=0;
 
-        scanf("%d%d",&num,&prime);
+        count = 0;
 
-        for(i=prime;i<=num;i+=prime)
+        scanf("%d%d", &num, &prime);
+
+        for(i = prime; i <= num; i += prime)
 
         {
-        
-            t=i;
 
-            while(t%prime==0)
+            t = i;
+
+            while(t % prime == 0)
 
             {
-    
+
                 count++;
 
-                t/=prime;
+                t /= prime;
 
             }
 
-        
-        }
-        
-        printf("%d\n",count);
-    
-    }
-    
-    return 0;    
 
-}        
+        }
+
+        printf("%d\n", count);
+
+    }
+
+    return 0;
+
+}

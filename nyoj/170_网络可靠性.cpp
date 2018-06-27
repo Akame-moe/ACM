@@ -12,9 +12,9 @@ A公司是全球依靠的互联网解决方案提供商，也是2010年世博会
 
 
 ----------input----------
-有多组测试数据，以EOF为结束标志。  
-第一行： N 表示有N个基站  
-接下来有N-1行：X Y 表示第X个基站与第Y个基站直连  
+有多组测试数据，以EOF为结束标志。
+第一行： N 表示有N个基站
+接下来有N-1行：X Y 表示第X个基站与第Y个基站直连
 1<=N<=10000
 
 
@@ -31,7 +31,7 @@ A公司是全球依靠的互联网解决方案提供商，也是2010年世博会
 
 5 3
 
-5 4 
+5 4
 
 5 6
 
@@ -46,27 +46,23 @@ A公司是全球依靠的互联网解决方案提供商，也是2010年世博会
 #include<vector>
 using namespace std;
 vector <int> v[10005];
-int main()
-{
+int main() {
     int  N;
-    int n1,n2;
-    while(~scanf("%d",&N))
-    {
+    int n1, n2;
+    while(~scanf("%d", &N)) {
         int i;
-        for(i=0;i<N-1;i++)
-        {
-            scanf("%d%d",&n1,&n2);
+        for(i = 0; i < N - 1; i++) {
+            scanf("%d%d", &n1, &n2);
             v[n1].push_back(n2);
             v[n2].push_back(n1);
         }
-        int count=0;
-        for(i=1;i<=N;i++)
-        {
-            if(v[i].size()==1)
+        int count = 0;
+        for(i = 1; i <= N; i++) {
+            if(v[i].size() == 1)
                 count++;
             v[i].clear();
         }
-        printf("%d\n",count%2?(count/2+1):count/2);
+        printf("%d\n", count % 2 ? (count / 2 + 1) : count / 2);
     }
     return 0;
 }

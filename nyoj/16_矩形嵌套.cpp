@@ -4,7 +4,7 @@
 
 
 ----------input----------
-第一行是一个正正数N(0 每组测试数据的第一行是一个正正数n，表示该组测试数据中含有矩形的个数(n<=1000)  
+第一行是一个正正数N(0 每组测试数据的第一行是一个正正数n，表示该组测试数据中含有矩形的个数(n<=1000)
 随后的n行，每行有两个数a,b(0<a,b<100)，表示矩形的长和宽
 
 
@@ -40,59 +40,51 @@
 5
 */
 /////////////////////////////
- 
+
 #include<stdio.h>
 #include<stdlib.h>
 #define MAX 1005
 #define max(a,b) a>b?a:b
-typedef struct Ju
-{
-    int c,k;
-}R; 
-int comp(const void *a,const void *b)
-{
-    //struct Ju 
-    R *e=(Ju *)a;
-    //struct Ju 
-    R *f=(Ju *)b;
-    if(e->c!=f->c)
-        return e->c-f->c;
+typedef struct Ju {
+    int c, k;
+} R;
+int comp(const void *a, const void *b) {
+    //struct Ju
+    R *e = (Ju *)a;
+    //struct Ju
+    R *f = (Ju *)b;
+    if(e->c != f->c)
+        return e->c - f->c;
     else
-        return e->k-f->k;
+        return e->k - f->k;
 }
-int main()
-{
+int main() {
     R a[MAX];
     int f[MAX];
-    int N,n,i,j;
-    scanf("%d",&N);
-    while(N--)
-    {
-        scanf("%d",&n);
+    int N, n, i, j;
+    scanf("%d", &N);
+    while(N--) {
+        scanf("%d", &n);
         int tt;
-        for(i=0;i<n;i++)
-        {
-            scanf("%d%d",&a[i].c,&a[i].k);
-            if(a[i].k>a[i].c)
-            {
-                tt=a[i].c;
-                a[i].c=a[i].k;
-                a[i].k=tt;
+        for(i = 0; i < n; i++) {
+            scanf("%d%d", &a[i].c, &a[i].k);
+            if(a[i].k > a[i].c) {
+                tt = a[i].c;
+                a[i].c = a[i].k;
+                a[i].k = tt;
             }
         }
-        qsort(a,n,sizeof(a[0]),comp);
-    //    for(i=0;i<n;i++)
+        qsort(a, n, sizeof(a[0]), comp);
+        //    for(i=0;i<n;i++)
         //    printf("[%d %d]\n",a[i].c,a[i].k);
-        for(i=0;i<=n;i++)
-        {
-            f[i]=1;
-            for(j=0;j<i;j++)
-            {
-                if(i==n || (a[i].c>a[j].c && a[i].k>a[j].k))
-                    f[i]=max(f[i],f[j]+1);
+        for(i = 0; i <= n; i++) {
+            f[i] = 1;
+            for(j = 0; j < i; j++) {
+                if(i == n || (a[i].c > a[j].c && a[i].k > a[j].k))
+                    f[i] = max(f[i], f[j] + 1);
             }
         }
-        printf("%d\n",f[n]-1);
+        printf("%d\n", f[n] - 1);
     }
     return 0;
-}        
+}

@@ -4,8 +4,8 @@
 
 
 ----------input----------
-首先，n和k，n表示数的个数，k表示数的和。  
-接着一行n个数。  
+首先，n和k，n表示数的个数，k表示数的和。
+接着一行n个数。
 （1<=n<=20,保证不超int范围）
 
 
@@ -25,43 +25,36 @@ YES
 /////////////////////////////
 #include<iostream>
 
-using namespace std;    
+using namespace std;
 
 int n, k, w[22], sum[22];
 bool vis[22], flag;
 void dfs(int cur, int cnt) {
-    if (cur >= 0 && !flag)
-    {
-        if (cnt + sum[cur] < k) 
+    if (cur >= 0 && !flag) {
+        if (cnt + sum[cur] < k)
             return;
-        if (cnt + w[cur] <= k) 
-        {
+        if (cnt + w[cur] <= k) {
             vis[cur] = true;
             dfs(cur - 1, cnt + w[cur]);
             vis[cur] = false;
-        }        
+        }
         dfs(cur - 1, cnt);
-        if (cnt == k && !flag)
-        {
+        if (cnt == k && !flag) {
             flag = true;
             cout << "YES" << endl;
-            for (int i = 1; i <= n; i++)
-            {
-                if (vis[i])                
-                    cout << w[i] << ' ';                
+            for (int i = 1; i <= n; i++) {
+                if (vis[i])
+                    cout << w[i] << ' ';
             }
             cout << endl;
         }
     }
 }
 
-int main()
- {
-    while (cin >> n >> k) 
-    {
+int main() {
+    while (cin >> n >> k) {
         flag = false;
-        for (int i = 1; i <= n; i++)
-        {
+        for (int i = 1; i <= n; i++) {
             cin >> w[i];
             sum[i] = sum[i - 1] + w[i];
         }
@@ -69,18 +62,19 @@ int main()
         if (!flag)
             cout << "NO" << endl;
     }
-return 0;
+    return 0;
 }
 
 简单的深搜
 #include <stdio.h>
 int n, k, ok, arr[22], vis[22], count;
 
-void DFS(int pos){
-    if(count >= k){
-        if(count == k){
-            if(!ok){
-                ok = 1; printf("YES\n");
+void DFS(int pos) {
+    if(count >= k) {
+        if(count == k) {
+            if(!ok) {
+                ok = 1;
+                printf("YES\n");
             }
             for(int i = 0; i < n; ++i)
                 if(vis[i]) printf("%d ", arr[i]);
@@ -88,8 +82,8 @@ void DFS(int pos){
         }
         return;
     }
-    
-    for(int i = pos; i < n; ++i){
+
+    for(int i = pos; i < n; ++i) {
         count += arr[i];
         vis[i] = 1;
         DFS(i + 1);
@@ -98,14 +92,15 @@ void DFS(int pos){
     }
 }
 
-int main(){
-    while(scanf("%d%d", &n, &k) == 2){
+int main() {
+    while(scanf("%d%d", &n, &k) == 2) {
         ok = 0;
-        for(int i = 0; i < n; ++i){
+        for(int i = 0; i < n; ++i) {
             scanf("%d", arr + i);
             vis[i] = 0;
         }
-        count = 0; DFS(0);
+        count = 0;
+        DFS(0);
         if(!ok) printf("NO\n");
     }
     return 0;

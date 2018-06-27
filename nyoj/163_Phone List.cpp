@@ -55,66 +55,58 @@ YES
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-struct Node{
+struct Node {
     int count;
     Node *next[11];
 };
 Node *Root;
 char a[100005][11];
-bool insert(char *s)
-{
-    if(Root==NULL || *s=='\0')
+bool insert(char *s) {
+    if(Root == NULL || *s == '\0')
         return 0;
-    Node *p=Root;
+    Node *p = Root;
     int  i;
-    bool exist=false;
-    while(*s!='\0')
-    {
-        
-        if(p->next[*s-'0']==NULL)
-        {
-            Node *temp=new Node;
-            temp->count=0;
-            for(i=0;i<10;i++)
-                temp->next[i]=NULL;
-            p->next[*s-'0']=temp;
+    bool exist = false;
+    while(*s != '\0') {
+
+        if(p->next[*s - '0'] == NULL) {
+            Node *temp = new Node;
+            temp->count = 0;
+            for(i = 0; i < 10; i++)
+                temp->next[i] = NULL;
+            p->next[*s - '0'] = temp;
         }
-        p=p->next[*s-'0'];
-        if(p->count>0) exist=true;
+        p = p->next[*s - '0'];
+        if(p->count > 0) exist = true;
         s++;
     }
     p->count++;
     return exist;
 }
-int comp(const void *c,const void *d)
-{
-    return strlen((char *)c)-strlen((char *)d);
+int comp(const void *c, const void *d) {
+    return strlen((char *)c) - strlen((char *)d);
 }
-int main()
-{
+int main() {
     int T;
-    scanf("%d",&T);
-    while(T--)
-    {
-        int n,i;
-        int flag=0;
-        scanf("%d",&n);
-        for(i=0;i<n;i++)
-            scanf("%s",a[i]);
-        qsort(a,n,sizeof(a[0]),comp);
-        Root=new Node;
-        Root->count=0;
-        for(i=0;i<10;i++)
-            Root->next[i]=NULL;
-        for(i=0;i<n;i++)
-        {
+    scanf("%d", &T);
+    while(T--) {
+        int n, i;
+        int flag = 0;
+        scanf("%d", &n);
+        for(i = 0; i < n; i++)
+            scanf("%s", a[i]);
+        qsort(a, n, sizeof(a[0]), comp);
+        Root = new Node;
+        Root->count = 0;
+        for(i = 0; i < 10; i++)
+            Root->next[i] = NULL;
+        for(i = 0; i < n; i++) {
             //printf("%s\n",a[i]);
-            if(flag==0 && insert(a[i]))
-            {
-                flag=1;
+            if(flag == 0 && insert(a[i])) {
+                flag = 1;
             }
         }
-        printf("%s\n",flag==0?"YES":"NO");
+        printf("%s\n", flag == 0 ? "YES" : "NO");
     }
     return 0;
 }
@@ -124,36 +116,33 @@ int main()
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-struct Node{
+struct Node {
     int count;
     Node *next[11];
 };
 Node *Root;
 //char a[100005][11];
-bool insert(char *s)
-{
-    if(Root==NULL || *s=='\0')
+bool insert(char *s) {
+    if(Root == NULL || *s == '\0')
         return 0;
-    Node *p=Root;
+    Node *p = Root;
     int  i;
-    bool exist=false;
-    while(*s!='\0')
-    {
-        
-        if(p->next[*s-'0']==NULL)
-        {
-            Node *temp=new Node;
-            temp->count=0;
-            for(i=0;i<10;i++)
-                temp->next[i]=NULL;
-            p->next[*s-'0']=temp;
+    bool exist = false;
+    while(*s != '\0') {
+
+        if(p->next[*s - '0'] == NULL) {
+            Node *temp = new Node;
+            temp->count = 0;
+            for(i = 0; i < 10; i++)
+                temp->next[i] = NULL;
+            p->next[*s - '0'] = temp;
         }
-        p=p->next[*s-'0'];
-        if(p->count>0) exist=true;
+        p = p->next[*s - '0'];
+        if(p->count > 0) exist = true;
         s++;
     }
-    for(i=0;i<10;i++)
-        if(p->next[i]!=NULL) exist=true;
+    for(i = 0; i < 10; i++)
+        if(p->next[i] != NULL) exist = true;
     p->count++;
     return exist;
 }
@@ -162,34 +151,30 @@ int comp(const void *c,const void *d)
 {
     return strlen((char *)c)-strlen((char *)d);
 }*/
-int main()
-{
+int main() {
     int T;
-    scanf("%d",&T);
+    scanf("%d", &T);
     char s[15];
-    while(T--)
-    {
-        int n,i;
-        int flag=0;
-        scanf("%d",&n);
+    while(T--) {
+        int n, i;
+        int flag = 0;
+        scanf("%d", &n);
 //        for(i=0;i<n;i++)
 //            scanf("%s",a[i]);
 //        qsort(a,n,sizeof(a[0]),comp);
-        Root=new Node;
-        Root->count=0;
-        for(i=0;i<10;i++)
-            Root->next[i]=NULL;
-        for(i=0;i<n;i++)
-        {
+        Root = new Node;
+        Root->count = 0;
+        for(i = 0; i < 10; i++)
+            Root->next[i] = NULL;
+        for(i = 0; i < n; i++) {
             //printf("%s\n",a[i]);
-            scanf("%s",s);
-            if(flag==0 && insert(s))
-            {
-                flag=1;
+            scanf("%s", s);
+            if(flag == 0 && insert(s)) {
+                flag = 1;
                 //break;
             }
         }
-        printf("%s\n",flag==0?"YES":"NO");
+        printf("%s\n", flag == 0 ? "YES" : "NO");
     }
     return 0;
 }

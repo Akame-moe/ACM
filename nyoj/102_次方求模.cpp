@@ -4,7 +4,7 @@
 
 
 ----------input----------
-第一行输入一个整数n表示测试数据的组数（n<100）  
+第一行输入一个整数n表示测试数据的组数（n<100）
 每组测试只有一行，其中有三个正整数a,b,c(1=
 
 
@@ -29,28 +29,24 @@
 */
 /////////////////////////////
 #include<stdio.h>
-int main()
-{
+int main() {
     int N;
-    long long  a,b,c;
-    scanf("%d",&N);
-    while(N--)
-    {
-        scanf("%lld%lld%lld",&a,&b,&c);
-        long long temp=1;
-        a%=c;
-        while(b>0)
-        {
-            
-            if(b%2==1)
-            {
-                temp=(temp*a)%c;
+    long long  a, b, c;
+    scanf("%d", &N);
+    while(N--) {
+        scanf("%lld%lld%lld", &a, &b, &c);
+        long long temp = 1;
+        a %= c;
+        while(b > 0) {
+
+            if(b % 2 == 1) {
+                temp = (temp * a) % c;
             }
-            b/=2;
-            a=(a*a)%c;
-        
+            b /= 2;
+            a = (a * a) % c;
+
         }
-        printf("%lld\n",temp);
+        printf("%lld\n", temp);
     }
     return 0;
 }

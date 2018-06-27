@@ -6,13 +6,13 @@
 
 事实上，它是1至6的每个数字的倍数。即1,2,3,4,5,6都是可以除尽60。
 
-  
+
 
 我们希望寻找到能除尽1至n的的每个数字的最小整数m.
 
 
 ----------input----------
-多组测试数据（少于500组）。  
+多组测试数据（少于500组）。
 每行只有一个数n(1<=n<=100).
 
 
@@ -38,27 +38,27 @@ package ceshi;
 import java.math.*;
 import java.util.*;
 import java.io.*;
-public class Main{
-    public  static BigInteger  f(int n){
-        BigInteger temp=new BigInteger("1");    
-        BigInteger val=new BigInteger("1");
-        for(int i=1;i<=n;i++){
-            temp=((temp.multiply(val)).divide(temp.gcd(val)));
-        val=val.add(BigInteger.ONE);
+public class Main {
+    public  static BigInteger  f(int n) {
+        BigInteger temp = new BigInteger("1");
+        BigInteger val = new BigInteger("1");
+        for(int i = 1; i <= n; i++) {
+            temp = ((temp.multiply(val)).divide(temp.gcd(val)));
+            val = val.add(BigInteger.ONE);
         }
         return temp;
     }
 
     public static void main(String args[])  throws Exception{
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         BigInteger a[] = new BigInteger[105];
-        for(int i=1;i<=102;i++){
-            a[i]=f(i);
+        for(int i = 1; i <= 102; i++) {
+            a[i] = f(i);
 //            System.out.println(a[i]);
         }
         int n;
-        while(sc.hasNext()){
-            n=sc.nextInt();
+        while(sc.hasNext()) {
+            n = sc.nextInt();
             System.out.println(a[n]);
         }
     }

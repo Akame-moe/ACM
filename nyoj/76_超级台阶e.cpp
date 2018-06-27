@@ -26,28 +26,25 @@
 */
 /////////////////////////////
 #include<stdio.h>
-int main()
-{
-     int fun(int n);
+int main() {
+    int fun(int n);
     int N;
     int m;
     int i;
     int a[41];
-    scanf("%d",&N);
-    while(N--)
-    {
-        a[1]=0;
-        a[2]=1;
-        a[3]=2;
-        
-        scanf("%d",&m);
-        if(m<=4)
-            printf("%d\n",m-1);
-        else
-        {
-            for(i=4;i<=m;i++)
-                a[i]=a[i-1]+a[i-2];
-            printf("%d\n",a[m]);
+    scanf("%d", &N);
+    while(N--) {
+        a[1] = 0;
+        a[2] = 1;
+        a[3] = 2;
+
+        scanf("%d", &m);
+        if(m <= 4)
+            printf("%d\n", m - 1);
+        else {
+            for(i = 4; i <= m; i++)
+                a[i] = a[i - 1] + a[i - 2];
+            printf("%d\n", a[m]);
         }
     }
     return 0;

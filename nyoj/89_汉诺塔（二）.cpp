@@ -31,35 +31,31 @@
 */
 /////////////////////////////
 #include<stdio.h>
-long long f(int *p,int i,int final){
-    if(i==0) return 0;
-    else if(p[i]==final) return f(p,i-1,final);
-    else return f(p,i-1,6-p[i]-final)+(1LL<<(i-1));
+long long f(int *p, int i, int final) {
+    if(i == 0) return 0;
+    else if(p[i] == final) return f(p, i - 1, final);
+    else return f(p, i - 1, 6 - p[i] - final) + (1LL << (i - 1));
 }
-int n,start[35],finish[35];
-int main()
-{
+int n, start[35], finish[35];
+int main() {
     int T;
-    int i,n;
-    scanf("%d",&T);
-    while(T--)
-    {
-        scanf("%d",&n);
-        for(i=1;i<=n;i++)
-        {
-            finish[i]=3;
-            scanf("%d",&start[i]);
+    int i, n;
+    scanf("%d", &T);
+    while(T--) {
+        scanf("%d", &n);
+        for(i = 1; i <= n; i++) {
+            finish[i] = 3;
+            scanf("%d", &start[i]);
         }
-        int k=n;
-        long long ans=0;
-        while(k>=1 && start[k]==finish[k]) k--;
-        if(k>=1) 
-        {
-            int t=6-start[k]-finish[k];
-            ans=f(start,k-1,t)+f(finish,k-1,t)+1;
+        int k = n;
+        long long ans = 0;
+        while(k >= 1 && start[k] == finish[k]) k--;
+        if(k >= 1) {
+            int t = 6 - start[k] - finish[k];
+            ans = f(start, k - 1, t) + f(finish, k - 1, t) + 1;
         }
-        printf("%lld\n",ans);
+        printf("%lld\n", ans);
     }
     return 0;
-    
+
 }

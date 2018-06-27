@@ -4,8 +4,8 @@
 
 
 ----------input----------
-有多组测试数据，不多于10000;  
-每组有两个数n,m;  
+有多组测试数据，不多于10000;
+每组有两个数n,m;
 以文件结束符EOF为结束标志。
 
 
@@ -24,13 +24,11 @@ NO
 */
 /////////////////////////////
 #include<stdio.h>
-int main()
-{
-    int n,m,d;
-    while(~scanf("%d%d",&n,&m))
-    {
-        d=(n+1)/2;
-        if(m<=d)
+int main() {
+    int n, m, d;
+    while(~scanf("%d%d", &n, &m)) {
+        d = (n + 1) / 2;
+        if(m <= d)
             printf("NO\n");
         else
             printf("YES\n");

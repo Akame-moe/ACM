@@ -4,7 +4,7 @@
 
 
 ----------input----------
-第一行有两个整数m，n(0<=n<=100000，0<=m<=1000000)；m表示这堆球里有m个球，n表示这个游戏进行n次。  
+第一行有两个整数m，n(0<=n<=100000，0<=m<=1000000)；m表示这堆球里有m个球，n表示这个游戏进行n次。
 接下来输入m+n个整数，前m个分别表示这m个球的编号i，后n个分别表示每次游戏中的随机整数k
 
 
@@ -28,30 +28,30 @@ YES
 YES
 */
 /////////////////////////////
- /*
+/*
 #include <stdio.h>// 找球号一
-#define MAXN 3125010 
+#define MAXN 3125010
 int vis[MAXN] = {0} ;
 int main()
 {
-    int m , n , x ; 
-    int i ;
-    scanf("%d%d", &m , &n ) ;
-    for( i = 0 ; i < m ; ++i )
-    {
-        scanf("%d", &x ) ;
-        vis[ x / 32 ] |= 1 << x % 32 ;
-    }
-    for( i = 0 ; i < n ; ++i )
-    {
-        scanf("%d", &x ) ;
-        if( vis[ x / 32 ] & ( 1 << x % 32 ) )
-            printf("YES\n");
-        else
-            printf("NO\n");
-    }
-    return 0 ;
-}  
+   int m , n , x ;
+   int i ;
+   scanf("%d%d", &m , &n ) ;
+   for( i = 0 ; i < m ; ++i )
+   {
+       scanf("%d", &x ) ;
+       vis[ x / 32 ] |= 1 << x % 32 ;
+   }
+   for( i = 0 ; i < n ; ++i )
+   {
+       scanf("%d", &x ) ;
+       if( vis[ x / 32 ] & ( 1 << x % 32 ) )
+           printf("YES\n");
+       else
+           printf("NO\n");
+   }
+   return 0 ;
+}
 */
 /*
 #include<stdio.h>//找球号二
@@ -70,7 +70,7 @@ int main()
             for(i=0;i<m;i++)
             {
                 scanf("%d",&num);
-            
+
                 vis[num/32] |= 1<<num%32;
             }
         }
@@ -88,6 +88,6 @@ int main()
 
     }
     return 0;
-}     
+}
 
 */

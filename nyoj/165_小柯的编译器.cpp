@@ -58,38 +58,33 @@ int main()
 #include<stdio.h>
 #include<string.h>
 int N;
-int main()
-{
+int main() {
     char s[10][10];
     int n;
-    scanf("%d",&N);
-    while(N--)
-    {
+    scanf("%d", &N);
+    while(N--) {
         int i;
-        scanf("%d",&n);
-        for(i=0;i<n;i++)
-            scanf("%s",s[i]);
+        scanf("%d", &n);
+        for(i = 0; i < n; i++)
+            scanf("%s", s[i]);
         char ch;
-        int j=0;
+        int j = 0;
         char w[10];
-        int count=0;
-        while(scanf("%c",&ch),ch!='@')
-        {
-            if((ch>='a' && ch<='z') || (ch>='0' && ch<='9') || ch=='_')
-                w[j++]=ch;
-            else
-            {
-                w[j]='\0';
-                j=0;
-                for(i=0;i<n;i++)
-                {
-                    if(strcmp(w,s[i])==0)
+        int count = 0;
+        while(scanf("%c", &ch), ch != '@') {
+            if((ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9') || ch == '_')
+                w[j++] = ch;
+            else {
+                w[j] = '\0';
+                j = 0;
+                for(i = 0; i < n; i++) {
+                    if(strcmp(w, s[i]) == 0)
                         count++;//printf("[%s]\n",w);
                 }
             }
         }
-        printf("%d\n",count);
+        printf("%d\n", count);
     }
     return 0;
-    
+
 }

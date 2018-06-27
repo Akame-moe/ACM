@@ -42,31 +42,25 @@
 */
 /////////////////////////////
 #include<cstdio>
-int gcd(int a,int b)
-{
+int gcd(int a, int b) {
     int r;
-    while(b)
-    {
-        r=a%b;
-        a=b;
-        b=r;
+    while(b) {
+        r = a % b;
+        a = b;
+        b = r;
     }
     return a;
 }
-int main()
-{
+int main() {
     int m;
-    int k,n;
-    scanf("%d",&m);
-    while(m--)
-    {
-        scanf("%d",&n);
-        int t=n/2;
-        for(;t>=1;t--)
-        {
-            if(gcd(t,n)==1)
-            {
-                printf("%d\n",t);
+    int k, n;
+    scanf("%d", &m);
+    while(m--) {
+        scanf("%d", &n);
+        int t = n / 2;
+        for(; t >= 1; t--) {
+            if(gcd(t, n) == 1) {
+                printf("%d\n", t);
                 break;
             }
         }

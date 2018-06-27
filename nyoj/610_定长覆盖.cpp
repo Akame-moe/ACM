@@ -6,8 +6,8 @@
 
 
 ----------input----------
-输入有多组数据  
-第一行有2个整数，n 和 m(n <= 50000,0 < m <= 1000)  
+输入有多组数据
+第一行有2个整数，n 和 m(n <= 50000,0 < m <= 1000)
 第二行有n个整数代表每个石子的位置(所有的数小于50000）
 
 
@@ -33,30 +33,26 @@
 #include<string.h>
 #define M 1000002
 int a[M];
-int main()
-{
-    int n,m;
-    while(~scanf("%d%d",&n,&m))
-    {
-        memset(a,0,M);
-        int i,j;
-        for(i=0;i<n;i++)
-        {
-            scanf("%d",&j);
+int main() {
+    int n, m;
+    while(~scanf("%d%d", &n, &m)) {
+        memset(a, 0, M);
+        int i, j;
+        for(i = 0; i < n; i++) {
+            scanf("%d", &j);
             a[j]++;
         }
-        int sum=0;
-        for(i=0;i<=m;i++)
-            sum+=a[i];
-        int max=sum;
-        for(i=0;i<M-m;i++)
-        {
-            sum=sum-a[i]+a[i+m+1];
-            if(sum>max)
-                max=sum;
+        int sum = 0;
+        for(i = 0; i <= m; i++)
+            sum += a[i];
+        int max = sum;
+        for(i = 0; i < M - m; i++) {
+            sum = sum - a[i] + a[i + m + 1];
+            if(sum > max)
+                max = sum;
 
         }
-        printf("%d\n",max);
+        printf("%d\n", max);
 
     }
     return 0;

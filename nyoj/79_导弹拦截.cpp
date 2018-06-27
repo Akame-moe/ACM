@@ -4,9 +4,9 @@
 
 
 ----------input----------
-第一行输入测试数据组数N（1<=N<=10）  
-接下来一行输入这组测试数据共有多少个导弹m（1<=m<=20）  
-接下来行输入导弹依次飞来的高度，所有高度值均是大于0的正整数。  
+第一行输入测试数据组数N（1<=N<=10）
+接下来一行输入这组测试数据共有多少个导弹m（1<=m<=20）
+接下来行输入导弹依次飞来的高度，所有高度值均是大于0的正整数。
 
 
 ----------output----------
@@ -34,67 +34,59 @@
 int a[25];
 int n;
 int max;
-int main()
-{
-    void dfs(int ,int,int);
+int main() {
+    void dfs(int, int, int);
     int N;
     int i;
-    scanf("%d",&N);
-    while(N--)
-    {
-        scanf("%d",&n);
-        for(i=0;i<n;i++)
-            scanf("%d",&a[i]);
-        max=0;
-        dfs(0,0,INT_MAX);
-        printf("%d\n",max);
+    scanf("%d", &N);
+    while(N--) {
+        scanf("%d", &n);
+        for(i = 0; i < n; i++)
+            scanf("%d", &a[i]);
+        max = 0;
+        dfs(0, 0, INT_MAX);
+        printf("%d\n", max);
     }
     return 0;
 }
-void dfs(int cur,int count,int h)
-{
-    if(count>max)
-        max=count;
-    if(cur==n)
+void dfs(int cur, int count, int h) {
+    if(count > max)
+        max = count;
+    if(cur == n)
         return ;
-    dfs(cur+1,count,h);    //这句和下一句的位置不能交换，否则改变了h的值，当初就是错在这个位置
-    if(h>a[cur])
-    {
-        h=a[cur];
+    dfs(cur + 1, count, h); //这句和下一句的位置不能交换，否则改变了h的值，当初就是错在这个位置
+    if(h > a[cur]) {
+        h = a[cur];
         //printf("%d  %d \n",cur,h);
-        dfs(cur+1,count+1,h);
+        dfs(cur + 1, count + 1, h);
     }
-    
+
 }
- 
- 
+
+
 #include<iostream>
 #include<string>
 using namespace std;
-const int MAX=10010;
+const int MAX = 10010;
 int f[MAX];
 #define max(a,b) a>b?a:b
-int data[MAX]={0};
-int main()
-{
+int data[MAX] = {0};
+int main() {
     int n;
-    int i,j;
-    cin>>n;
-    while(n--)
-    {
+    int i, j;
+    cin >> n;
+    while(n--) {
         int sz;
-        cin>>sz;
-        for( i=0;i!=sz;++i)
-            cin>>data[i];
-        for( i=0;i<=sz;i++)
-        {
-            f[i]=1;
-            for( j=0;j!=i;j++)
-            {
-                if(i==sz || data[i]<data[j])
-                    f[i]=max(f[i],f[j]+1);
+        cin >> sz;
+        for( i = 0; i != sz; ++i)
+            cin >> data[i];
+        for( i = 0; i <= sz; i++) {
+            f[i] = 1;
+            for( j = 0; j != i; j++) {
+                if(i == sz || data[i] < data[j])
+                    f[i] = max(f[i], f[j] + 1);
             }
         }
-        cout<<f[sz]-1<<endl;
+        cout << f[sz] - 1 << endl;
     }
-}                
+}
