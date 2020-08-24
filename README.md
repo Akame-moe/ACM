@@ -1,4 +1,4 @@
 
-### Ò»Ğ©ÔÚ[ÄÏÑôOJ](http://acm.nyist.edu.cn)ÉÏË¢¹ıµÃÌâÄ¿£¬ÕâÖ»ÊÇÒ»²¿·Ö¡£ÎÒ»á³é¿Õ°ÑËùÓĞË¢¹ıµÄÌâÄ¿¶¼ÕûÀí³öÀ´¡£
+### answers to [NYOJ](http://acm.nyist.edu.cn)(*unavailable now*) questionsã€‚
 
-ÕâÊÇ¸ÕÑ§CÓïÑÔµÄÊ±ºòĞ´µÄ´úÂë£¬²»ÃâÓĞĞ©´Ö²Ú£¬µ«ÊÇ¶¼ÊÇAcceptµÄ¡£
+Written at the beginning of becoming a programmer.
